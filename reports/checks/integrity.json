@@ -1,0 +1,9 @@
+{
+  "checked_at": "2026-10-24T04:25:24.459523+00:00",
+  "passed": true,
+  "protected_files": 155,
+  "existing_prediction_files": 388,
+  "original_source_hashes_verified": 6,
+  "project_report_original_bytes_unchanged": true,
+  "new_results_after_protocol": true
+}

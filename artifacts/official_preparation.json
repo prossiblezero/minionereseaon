@@ -1,0 +1,36 @@
+{
+  "upstream_commit": "89e09b0b8e4cd3e584ba70c2f46728e250e705b7",
+  "upstream_archive_sha256": "5347bbb28ddcf408d2a9bd0b8f4c15748e51a46b976a4cd7141036f946f713bc",
+  "repo": "/home/dzh/minionereason/external/OneReason_Eval_Benchmark-main",
+  "merged_model": "/data1/dzh/minionereason/checkpoints/official/rl_nk_prefix_42_merged_bf16",
+  "adapter_sha256": "c46b30a4890911b2cf0d67e4b2bdaae824cdec932358b19cbffb4b749686ddd1",
+  "merge": {
+    "adapter_sha256": "c46b30a4890911b2cf0d67e4b2bdaae824cdec932358b19cbffb4b749686ddd1",
+    "base": "/data1/dzh/minionereason/models/onereason-0.8b",
+    "dtype": "bfloat16",
+    "device": "cpu",
+    "weights": {
+      "model.safetensors": "d6b499d82c07ac3248217ee5ee45443d1831d5931f160c4771e92a847d039d69"
+    },
+    "note": "Official runner receives merged weights; BF16 merge may differ numerically from vLLM LoRA inference."
+  },
+  "local_patch_sha256": "dd4131610b5af4b62ddf562da8666281dbd333dfcb5a2822a6082a2e2112d117",
+  "runtime_files": {
+    "scripts/ray-vllm/utils/generator.py": "e4bb4bea3aae284037e4d05e5b98b2ac6c931d515499e964cbf6e13b9aecd37c",
+    "benchmark/base_generator.py": "a48d3f7a53e1a18320778f888990cfa424291aa6d438c38ea15cf64834c0fdf2",
+    "benchmark/minionereason_runtime.py": "13e79950b2a864dfa7b03bbbe74972b46893e56946568c0976b942cf47442b5f"
+  },
+  "changes": [
+    "Preserve Ray-assigned physical GPU",
+    "Use a private local Ray session",
+    "Checkpoint completed worker batches; raise on incomplete engine output"
+  ],
+  "unchanged": [
+    "Official prompts",
+    "Full 1000-row dataset and labels",
+    "Race 32 think + 32 non-think beam candidates",
+    "Sampling parameters",
+    "PID/SID metric code"
+  ],
+  "timing_note": "Checkpointed batch timings are operational diagnostics, not a controlled throughput benchmark."
+}

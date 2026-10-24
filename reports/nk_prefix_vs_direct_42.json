@@ -1,0 +1,28 @@
+{
+  "scope": "seed_42",
+  "split": "test",
+  "metric": "recall@32",
+  "comparisons": [
+    {
+      "comparison": "nk_prefix thinking=False minus direct SFT",
+      "delta": 0.007444168734491315,
+      "ci95": [
+        -0.010282776349614395,
+        0.0263302663749839
+      ],
+      "clusters": 314,
+      "resamples": 1000
+    },
+    {
+      "comparison": "nk_prefix thinking=True minus direct SFT",
+      "delta": 0.017369727047146403,
+      "ci95": [
+        -5.2966101694912244e-05,
+        0.035278012201485555
+      ],
+      "clusters": 314,
+      "resamples": 1000
+    }
+  ],
+  "multiple_comparison_adjustment": false
+}

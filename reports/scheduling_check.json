@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "scope": "seed_42",
+  "original_job_count": 59,
+  "active_job_count": 43,
+  "deferred_job_count": 16,
+  "original_ids_preserved": true,
+  "training_dependencies_preserved": true,
+  "report_is_last": true,
+  "protocol_sha256": "8364fd75e1aa407ebf45c41e99ef05788dba7fd7a8ca5ea8b083b6b5f43e937a"
+}

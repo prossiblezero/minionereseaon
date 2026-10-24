@@ -1,0 +1,765 @@
+{
+  "config": {
+    "model_id": "OpenOneRec/OneReason-0.8B-pretrain-competition",
+    "sft_dataset": "OpenOneRec/OneReasonSFT",
+    "catalog_dataset": "OpenOneRec/Explorer_LLM_Rec_Competition",
+    "eval_dataset": "OpenOneRec/OneReason-Eval-Benchmark",
+    "split_seed": 42,
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "profiles": {
+      "smoke": {
+        "train": 128,
+        "validation": 32,
+        "test": 32
+      },
+      "main": {
+        "train": 50000,
+        "validation": 1000,
+        "test": 2000
+      }
+    },
+    "input_budget": 2048,
+    "answer_budget": 1024,
+    "lora": {
+      "r": 16,
+      "lora_alpha": 32,
+      "lora_dropout": 0.05,
+      "target_modules": [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "o_proj",
+        "gate_proj",
+        "up_proj",
+        "down_proj"
+      ]
+    },
+    "sft": {
+      "learning_rate": 0.0002,
+      "weight_decay": 0.01,
+      "gradient_accumulation_steps": 16,
+      "warmup_ratio": 0.03,
+      "epochs": 1,
+      "eval_steps": 200,
+      "monitor_examples": 128,
+      "monitor_samples": 32
+    },
+    "rl": {
+      "learning_rate": 5e-06,
+      "clip": 0.2,
+      "beta": 0.02,
+      "steps": 500,
+      "eval_steps": 100,
+      "std_samples": 8,
+      "n": 4,
+      "k": 8,
+      "probe_examples": 256,
+      "min_active_group_fraction": 0.01
+    },
+    "generation": {
+      "temperature": 0.8,
+      "top_p": 0.95,
+      "samples": 64,
+      "direct_tokens": 32,
+      "thinking_tokens": 1024,
+      "batch_size": 4
+    },
+    "thinkcost": {
+      "budgets": [
+        0,
+        128,
+        256,
+        512,
+        1024
+      ],
+      "samples": 32,
+      "probe_samples": 8,
+      "routing_fractions": [
+        0.25,
+        0.5
+      ]
+    },
+    "history": {
+      "budgets": [
+        512,
+        1024,
+        2048
+      ],
+      "min_trimmed_fraction": 0.3
+    },
+    "sasrec": {
+      "hidden_size": 64,
+      "layers": 2,
+      "heads": 2,
+      "dropout": 0.2,
+      "learning_rate": 0.001,
+      "epochs": 20,
+      "batch_size": 64,
+      "max_events": 200,
+      "negatives": 128
+    },
+    "torch_memory_fraction": 0.45,
+    "vllm_memory_fraction": 0.4,
+    "bootstrap_resamples": 1000
+  },
+  "jobs": [
+    {
+      "stage": "B",
+      "args": [
+        "sft",
+        "--variant",
+        "direct",
+        "--seed",
+        "42"
+      ],
+      "when": null
+    },
+    {
+      "stage": "B",
+      "args": [
+        "sft",
+        "--variant",
+        "mixed",
+        "--seed",
+        "42"
+      ],
+      "when": null
+    },
+    {
+      "stage": "B",
+      "args": [
+        "evaluate",
+        "--profile",
+        "smoke",
+        "--variant",
+        "mixed",
+        "--split",
+        "validation",
+        "--limit",
+        "4",
+        "--samples",
+        "8",
+        "--tag",
+        "smoke_vllm_lora"
+      ],
+      "when": null
+    },
+    {
+      "stage": "B",
+      "args": [
+        "baseline",
+        "--seed",
+        "42"
+      ],
+      "when": null
+    },
+    {
+      "stage": "B",
+      "args": [
+        "evaluate",
+        "--variant",
+        "base",
+        "--seed",
+        "42",
+        "--split",
+        "validation"
+      ],
+      "when": null
+    },
+    {
+      "stage": "B",
+      "args": [
+        "evaluate",
+        "--variant",
+        "direct",
+        "--seed",
+        "42",
+        "--split",
+        "validation"
+      ],
+      "when": null
+    },
+    {
+      "stage": "B",
+      "args": [
+        "evaluate",
+        "--variant",
+        "mixed",
+        "--seed",
+        "42",
+        "--split",
+        "validation"
+      ],
+      "when": null
+    },
+    {
+      "stage": "B",
+      "args": [
+        "evaluate",
+        "--variant",
+        "mixed",
+        "--seed",
+        "42",
+        "--split",
+        "validation",
+        "--thinking"
+      ],
+      "when": null
+    },
+    {
+      "stage": "B",
+      "args": [
+        "evaluate",
+        "--variant",
+        "base",
+        "--seed",
+        "42",
+        "--split",
+        "test"
+      ],
+      "when": null
+    },
+    {
+      "stage": "B",
+      "args": [
+        "evaluate",
+        "--variant",
+        "direct",
+        "--seed",
+        "42",
+        "--split",
+        "test"
+      ],
+      "when": null
+    },
+    {
+      "stage": "B",
+      "args": [
+        "evaluate",
+        "--variant",
+        "mixed",
+        "--seed",
+        "42",
+        "--split",
+        "test"
+      ],
+      "when": null
+    },
+    {
+      "stage": "B",
+      "args": [
+        "evaluate",
+        "--variant",
+        "mixed",
+        "--seed",
+        "42",
+        "--split",
+        "test",
+        "--thinking"
+      ],
+      "when": null
+    },
+    {
+      "stage": "C",
+      "args": [
+        "thinkcost",
+        "--split",
+        "validation"
+      ],
+      "when": null
+    },
+    {
+      "stage": "C",
+      "args": [
+        "thinkcost",
+        "--split",
+        "test"
+      ],
+      "when": null
+    },
+    {
+      "stage": "B_repeats",
+      "args": [
+        "sft",
+        "--variant",
+        "direct",
+        "--seed",
+        "43"
+      ],
+      "when": null
+    },
+    {
+      "stage": "B_repeats",
+      "args": [
+        "sft",
+        "--variant",
+        "mixed",
+        "--seed",
+        "43"
+      ],
+      "when": null
+    },
+    {
+      "stage": "B_repeats",
+      "args": [
+        "evaluate",
+        "--variant",
+        "direct",
+        "--seed",
+        "43",
+        "--split",
+        "validation"
+      ],
+      "when": null
+    },
+    {
+      "stage": "B_repeats",
+      "args": [
+        "evaluate",
+        "--variant",
+        "mixed",
+        "--seed",
+        "43",
+        "--split",
+        "validation"
+      ],
+      "when": null
+    },
+    {
+      "stage": "B_repeats",
+      "args": [
+        "evaluate",
+        "--variant",
+        "mixed",
+        "--seed",
+        "43",
+        "--split",
+        "validation",
+        "--thinking"
+      ],
+      "when": null
+    },
+    {
+      "stage": "B_repeats",
+      "args": [
+        "evaluate",
+        "--variant",
+        "direct",
+        "--seed",
+        "43",
+        "--split",
+        "test"
+      ],
+      "when": null
+    },
+    {
+      "stage": "B_repeats",
+      "args": [
+        "evaluate",
+        "--variant",
+        "mixed",
+        "--seed",
+        "43",
+        "--split",
+        "test"
+      ],
+      "when": null
+    },
+    {
+      "stage": "B_repeats",
+      "args": [
+        "evaluate",
+        "--variant",
+        "mixed",
+        "--seed",
+        "43",
+        "--split",
+        "test",
+        "--thinking"
+      ],
+      "when": null
+    },
+    {
+      "stage": "B_repeats",
+      "args": [
+        "sft",
+        "--variant",
+        "direct",
+        "--seed",
+        "44"
+      ],
+      "when": null
+    },
+    {
+      "stage": "B_repeats",
+      "args": [
+        "sft",
+        "--variant",
+        "mixed",
+        "--seed",
+        "44"
+      ],
+      "when": null
+    },
+    {
+      "stage": "B_repeats",
+      "args": [
+        "evaluate",
+        "--variant",
+        "direct",
+        "--seed",
+        "44",
+        "--split",
+        "validation"
+      ],
+      "when": null
+    },
+    {
+      "stage": "B_repeats",
+      "args": [
+        "evaluate",
+        "--variant",
+        "mixed",
+        "--seed",
+        "44",
+        "--split",
+        "validation"
+      ],
+      "when": null
+    },
+    {
+      "stage": "B_repeats",
+      "args": [
+        "evaluate",
+        "--variant",
+        "mixed",
+        "--seed",
+        "44",
+        "--split",
+        "validation",
+        "--thinking"
+      ],
+      "when": null
+    },
+    {
+      "stage": "B_repeats",
+      "args": [
+        "evaluate",
+        "--variant",
+        "direct",
+        "--seed",
+        "44",
+        "--split",
+        "test"
+      ],
+      "when": null
+    },
+    {
+      "stage": "B_repeats",
+      "args": [
+        "evaluate",
+        "--variant",
+        "mixed",
+        "--seed",
+        "44",
+        "--split",
+        "test"
+      ],
+      "when": null
+    },
+    {
+      "stage": "B_repeats",
+      "args": [
+        "evaluate",
+        "--variant",
+        "mixed",
+        "--seed",
+        "44",
+        "--split",
+        "test",
+        "--thinking"
+      ],
+      "when": null
+    },
+    {
+      "stage": "D",
+      "args": [
+        "rl",
+        "--probe"
+      ],
+      "when": null
+    },
+    {
+      "stage": "D",
+      "args": [
+        "rl",
+        "--variant",
+        "std"
+      ],
+      "when": null
+    },
+    {
+      "stage": "D",
+      "args": [
+        "evaluate",
+        "--variant",
+        "rl_std",
+        "--seed",
+        "42",
+        "--split",
+        "validation"
+      ],
+      "when": "rl_std_42"
+    },
+    {
+      "stage": "D",
+      "args": [
+        "evaluate",
+        "--variant",
+        "rl_std",
+        "--seed",
+        "42",
+        "--split",
+        "validation",
+        "--thinking"
+      ],
+      "when": "rl_std_42"
+    },
+    {
+      "stage": "D",
+      "args": [
+        "evaluate",
+        "--variant",
+        "rl_std",
+        "--seed",
+        "42",
+        "--split",
+        "test"
+      ],
+      "when": "rl_std_42"
+    },
+    {
+      "stage": "D",
+      "args": [
+        "evaluate",
+        "--variant",
+        "rl_std",
+        "--seed",
+        "42",
+        "--split",
+        "test",
+        "--thinking"
+      ],
+      "when": "rl_std_42"
+    },
+    {
+      "stage": "D",
+      "args": [
+        "rl",
+        "--variant",
+        "nk"
+      ],
+      "when": null
+    },
+    {
+      "stage": "D",
+      "args": [
+        "evaluate",
+        "--variant",
+        "rl_nk",
+        "--seed",
+        "42",
+        "--split",
+        "validation"
+      ],
+      "when": "rl_nk_42"
+    },
+    {
+      "stage": "D",
+      "args": [
+        "evaluate",
+        "--variant",
+        "rl_nk",
+        "--seed",
+        "42",
+        "--split",
+        "validation",
+        "--thinking"
+      ],
+      "when": "rl_nk_42"
+    },
+    {
+      "stage": "D",
+      "args": [
+        "evaluate",
+        "--variant",
+        "rl_nk",
+        "--seed",
+        "42",
+        "--split",
+        "test"
+      ],
+      "when": "rl_nk_42"
+    },
+    {
+      "stage": "D",
+      "args": [
+        "evaluate",
+        "--variant",
+        "rl_nk",
+        "--seed",
+        "42",
+        "--split",
+        "test",
+        "--thinking"
+      ],
+      "when": "rl_nk_42"
+    },
+    {
+      "stage": "D",
+      "args": [
+        "rl",
+        "--variant",
+        "nk_prefix"
+      ],
+      "when": null
+    },
+    {
+      "stage": "D",
+      "args": [
+        "evaluate",
+        "--variant",
+        "rl_nk_prefix",
+        "--seed",
+        "42",
+        "--split",
+        "validation"
+      ],
+      "when": "rl_nk_prefix_42"
+    },
+    {
+      "stage": "D",
+      "args": [
+        "evaluate",
+        "--variant",
+        "rl_nk_prefix",
+        "--seed",
+        "42",
+        "--split",
+        "validation",
+        "--thinking"
+      ],
+      "when": "rl_nk_prefix_42"
+    },
+    {
+      "stage": "D",
+      "args": [
+        "evaluate",
+        "--variant",
+        "rl_nk_prefix",
+        "--seed",
+        "42",
+        "--split",
+        "test"
+      ],
+      "when": "rl_nk_prefix_42"
+    },
+    {
+      "stage": "D",
+      "args": [
+        "evaluate",
+        "--variant",
+        "rl_nk_prefix",
+        "--seed",
+        "42",
+        "--split",
+        "test",
+        "--thinking"
+      ],
+      "when": "rl_nk_prefix_42"
+    },
+    {
+      "stage": "E",
+      "args": [
+        "sft",
+        "--variant",
+        "direct_tokenmatched"
+      ],
+      "when": null
+    },
+    {
+      "stage": "E",
+      "args": [
+        "evaluate",
+        "--variant",
+        "direct_tokenmatched",
+        "--seed",
+        "42",
+        "--split",
+        "validation"
+      ],
+      "when": null
+    },
+    {
+      "stage": "E",
+      "args": [
+        "evaluate",
+        "--variant",
+        "direct_tokenmatched",
+        "--seed",
+        "42",
+        "--split",
+        "test"
+      ],
+      "when": null
+    },
+    {
+      "stage": "E",
+      "args": [
+        "sft",
+        "--variant",
+        "mixed_recent_history"
+      ],
+      "when": null
+    },
+    {
+      "stage": "E",
+      "args": [
+        "sft",
+        "--variant",
+        "mixed_balanced"
+      ],
+      "when": null
+    },
+    {
+      "stage": "E",
+      "args": [
+        "history",
+        "--split",
+        "validation"
+      ],
+      "when": null
+    },
+    {
+      "stage": "E",
+      "args": [
+        "history",
+        "--split",
+        "test"
+      ],
+      "when": null
+    },
+    {
+      "stage": "F",
+      "args": [
+        "report"
+      ],
+      "when": null
+    }
+  ],
+  "config_sha256": "1f5f777bba767c5ad52f97be851118edf069eb4906494b7d8f4a910ac70cfe52"
+}

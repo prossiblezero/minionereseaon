@@ -1,0 +1,124 @@
+{
+  "raw_rows": 48269,
+  "accepted_before_cap": {
+    "train": 2647,
+    "validation": 357,
+    "test": 370
+  },
+  "actual": {
+    "train": 128,
+    "validation": 32,
+    "test": 32
+  },
+  "rejected": {
+    "wrong_domain": 44281,
+    "duplicate_history_target": 274,
+    "target_out_of_catalog": 321,
+    "reasoning_reference_removed_by_crop": 17,
+    "reasoning_exceeds_output_budget": 2
+  },
+  "length_gate": {
+    "train": {
+      "events": {
+        "mean": 137.8203125,
+        "median": 119.5,
+        "p90": 226.0,
+        "p95": 274.59999999999997
+      },
+      "prompt_tokens": {
+        "mean": 926.890625,
+        "median": 811.0,
+        "p90": 1480.8,
+        "p95": 1800.3
+      },
+      "trimmed_fraction": {
+        "512": 0.9296875,
+        "1024": 0.3046875,
+        "2048": 0.0
+      }
+    },
+    "validation": {
+      "events": {
+        "mean": 118.75,
+        "median": 102.0,
+        "p90": 186.60000000000002,
+        "p95": 191.5
+      },
+      "prompt_tokens": {
+        "mean": 806.75,
+        "median": 691.0,
+        "p90": 1218.9,
+        "p95": 1328.8
+      },
+      "trimmed_fraction": {
+        "512": 0.9375,
+        "1024": 0.21875,
+        "2048": 0.0
+      }
+    },
+    "test": {
+      "events": {
+        "mean": 141.125,
+        "median": 136.0,
+        "p90": 197.8,
+        "p95": 237.99999999999994
+      },
+      "prompt_tokens": {
+        "mean": 951.40625,
+        "median": 917.5,
+        "p90": 1320.0,
+        "p95": 1573.6999999999996
+      },
+      "trimmed_fraction": {
+        "512": 0.96875,
+        "1024": 0.375,
+        "2048": 0.0
+      }
+    }
+  },
+  "scope": "paired valid-CoT product subset; single target SID; grouped holdout, not temporal/user split",
+  "raw_product_candidate_lengths": {
+    "train": {
+      "events": {
+        "mean": 132.03266992114158,
+        "median": 115.0,
+        "p90": 217.0,
+        "p95": 248.9000000000001
+      },
+      "prompt_tokens": {
+        "mean": 891.9530604581299,
+        "median": 789.0,
+        "p90": 1423.0,
+        "p95": 1642.6000000000004
+      }
+    },
+    "validation": {
+      "events": {
+        "mean": 135.43977591036415,
+        "median": 123.0,
+        "p90": 217.40000000000003,
+        "p95": 246.0
+      },
+      "prompt_tokens": {
+        "mean": 911.0196078431372,
+        "median": 825.0,
+        "p90": 1429.2,
+        "p95": 1621.4
+      }
+    },
+    "test": {
+      "events": {
+        "mean": 135.96514745308312,
+        "median": 121.0,
+        "p90": 218.8,
+        "p95": 239.0
+      },
+      "prompt_tokens": {
+        "mean": 917.8176943699732,
+        "median": 832.0,
+        "p90": 1416.2000000000003,
+        "p95": 1592.1999999999998
+      }
+    }
+  }
+}

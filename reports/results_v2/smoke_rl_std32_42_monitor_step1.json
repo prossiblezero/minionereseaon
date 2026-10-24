@@ -1,0 +1,51 @@
+{
+  "recall@8": 0.0,
+  "pass@8": 0.0,
+  "recall@32": 0.0,
+  "pass@32": 0.0,
+  "examples": 4,
+  "attempts": 128,
+  "invalid_rate": 0.9140625,
+  "duplicate_rate": 0.0,
+  "catalog_coverage": 1.068421416099343e-06,
+  "unique_recommended_sids": 11,
+  "generated_tokens": 77168,
+  "generation_seconds": 29.265260072192177,
+  "tokens_per_example": 19292.0,
+  "seconds_per_example": 7.316315018048044,
+  "parser_counts": {
+    "unclosed_or_multiple_think": 47,
+    "out_of_catalog": 5,
+    "missing_or_multiple_sid": 65,
+    "valid": 11
+  },
+  "mean_reasoning_tokens": 453.890625,
+  "p95_reasoning_tokens": 1024,
+  "experiment": "smoke_rl_std32_42_monitor_step1",
+  "raw_predictions": "/data1/dzh/minionereason/predictions_v2/smoke/smoke_rl_std32_42_monitor_step1.jsonl",
+  "settings": {
+    "variant": "mixed",
+    "seed": 42,
+    "split": "validation",
+    "profile": "smoke",
+    "thinking": true,
+    "budget": null,
+    "strategy": "recent",
+    "input_budget": 2048,
+    "n": 32,
+    "backend": "vllm",
+    "sample_ids": [
+      "08c82624b4c542c6c932f384ae3dd3e7bb3a195caa53c91e77966bc1dcf82137",
+      "ad8bbeda63e44a9503df52607deb860ef3107379b5726bc9ead0baff129fe6cb",
+      "522502f760db136ca833693497b659f98e00117897e3b38c1d242a4b40290836",
+      "5dc0b697ab83036571164a244ccaf58b4e5571e2e6a57e9ebb111e0441487a8f"
+    ],
+    "adapter": "/data1/dzh/minionereason/checkpoints/smoke/rl_std32_42/step-1",
+    "seed_offset": 0,
+    "monitor": true,
+    "gpu_condition": "shared; wall-time includes contention",
+    "adapter_sha256": "cd6530ddde13f5633f73552d1e4f0616c2b0190e8e3d1028321703f711f7dead",
+    "protocol_version": "2.0-runtime-isolated",
+    "protocol_source_sha256": "04ae3a3d649b71bc88658da88e9842a0fa0e813ba9b863d3e4a7a54eb1463fee"
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "verified_at": "2026-10-23T23:34:56.530409+00:00",
+  "complete": true,
+  "seed": 42,
+  "deferred_seeds": [
+    43,
+    44
+  ],
+  "main_chain": {
+    "jobs": 43,
+    "skipped": 0,
+    "missing": [],
+    "invalid": [],
+    "raw_prediction_files": 142,
+    "raw_audit_signature": "59adecc2a6b9577812a2df3b6f6aef8d1b43a7d920c91ee774a56ad63082cd51"
+  },
+  "rl_cost": {
+    "complete": true,
+    "audit": "reports/supplement_audit.json",
+    "protocol": "artifacts/rl_thinkcost_protocol_42.json"
+  },
+  "official": {
+    "complete": true,
+    "examples": 1000,
+    "candidates_per_example": 64,
+    "total_candidates": 64000,
+    "thinking_candidates_per_example": 32,
+    "direct_candidates_per_example": 32,
+    "raw_path": "/data1/dzh/minionereason/official_results/rl_nk_prefix_42/datav3.1_seed42_race/rl_nk_prefix_42_merged_bf16/challenge_recommendation_product/test_generated.json",
+    "raw_sha256": "dc2e0d89fe2643c28c9907c66c9cbfb932292e2e59d0f4f4f210bb7645785be4",
+    "metric_means_verified": {
+      "pass@32": 0.095,
+      "pass@64": 0.102,
+      "recall@32": 0.06946746031746032,
+      "recall@64": 0.074884126984127,
+      "pid_pass@32": 0.029,
+      "pid_pass@64": 0.031,
+      "pid_recall@32": 0.019355555555555553,
+      "pid_recall@64": 0.020022222222222223
+    },
+    "model": "validation-selected local rl_nk_prefix_42 0.8B",
+    "frozen_runtime_hashes_verified": true
+  },
+  "resources": {
+    "host": "dsj5090",
+    "gpu_uuid": "GPU-316108a9-373b-1984-405a-b9d9f7ee55b3",
+    "gpu_compute_processes": [],
+    "project_workers": [],
+    "pipeline_lock_free": true,
+    "other_gpu_jobs_untouched": true
+  },
+  "archive": {
+    "path": "/home/dzh/minionereason/artifacts/completion_v2_code.tgz",
+    "members": 61,
+    "checked_embedded_files_match": true,
+    "excludes": "Large weights, datasets and raw predictions remain under /data3/dzh/minionereason; this receipt is a separate delivery artifact."
+  },
+  "report_generation": {
+    "command": "python run.py report",
+    "exit_code": 0
+  },
+  "versioning": "Project has no Git repository; use frozen protocol and file SHA256 fingerprints.",
+  "files": {
+    "README.md": {
+      "bytes": 8447,
+      "sha256": "a773d5caec18ae493918ba5d78d6129312c573272485b037bc2079907f2c950c"
+    },
+    "config.json": {
+      "bytes": 1602,
+      "sha256": "fa93a76fa8725c2671455e8eae95be0fb966ed15590b36c0676897b2c3f9a5a5"
+    },
+    "ops/final_report.py": {
+      "bytes": 31544,
+      "sha256": "fd8df4e4f208c1452aba928ad6ca3e75a01c707d0102db72082e0f409fbe7e6c"
+    },
+    "reports/PROJECT_REPORT.md": {
+      "bytes": 10134,
+      "sha256": "80be23107172da27f947e599c8105a21f9b56d5d36fc55dbc086c2688fec4208"
+    },
+    "reports/RESUME.md": {
+      "bytes": 1584,
+      "sha256": "1cef841b6cd7a4977f0275f56426b049b5345206e29ec8e47c52e6cb03386a6c"
+    },
+    "reports/completion_revision.md": {
+      "bytes": 16999,
+      "sha256": "4f5abd7566f815750587a7b2018113ead11ae186b6e00516a1f0d96996392764"
+    },
+    "reports/completion_status.json": {
+      "bytes": 177,
+      "sha256": "ae4198321774b47d6f755bd9941ea1a0ee0c9434f1ae4bd163a6b3e89831d464"
+    },
+    "reports/final_audit.json": {
+      "bytes": 32047,
+      "sha256": "6250b3ef6abd249e371f902319991b55c5cb8eb4f41e21f355a8cd3137f39e20"
+    },
+    "reports/supplement_audit.json": {
+      "bytes": 5544,
+      "sha256": "f95b44d712726872d2ebf28b26213fa919becde34dac89b13e8af7c9c9d5bd13"
+    },
+    "reports/official_status.json": {
+      "bytes": 5106,
+      "sha256": "9220e4003ef6e398fef7af98407676910f76b996806a67907ece56f745f7b4b2"
+    },
+    "reports/raw_prediction_audit.json": {
+      "bytes": 144,
+      "sha256": "2e015431b0ea6b79d22ff156e112d02316bea3d4a11e45e178272ea0bc4bd40b"
+    },
+    "reports/pipeline_status.json": {
+      "bytes": 3081,
+      "sha256": "ba8d850a599cb2d3c077d26a63a51269199a095c6e48ef3c577b06b86c811384"
+    },
+    "reports/results.csv": {
+      "bytes": 70952,
+      "sha256": "5ca76febf14e50388f952f6d199e1bbf624d8f6fbc4e28f84aa6ae0f36bbbf6c"
+    },
+    "reports/final_paired_comparisons.json": {
+      "bytes": 2329,
+      "sha256": "f487cf0924329b31ce762c66381f2b87aa2286f567a35354fbeff765c36521bb"
+    },
+    "artifacts/execution_protocol_v2.json": {
+      "bytes": 14129,
+      "sha256": "8364fd75e1aa407ebf45c41e99ef05788dba7fd7a8ca5ea8b083b6b5f43e937a"
+    },
+    "artifacts/rl_thinkcost_protocol_42.json": {
+      "bytes": 2519,
+      "sha256": "7b40b7c33fa60934811f15198b6e80c79979789261b0d107c561a199c1d5c3cd"
+    },
+    "artifacts/official_execution_protocol_42.json": {
+      "bytes": 2852,
+      "sha256": "1e0dd279bba6e6af58a724f9cf3a022221a0b53db88a022e5a6227a96df0b930"
+    },
+    "artifacts/migration_5090.json": {
+      "bytes": 30394,
+      "sha256": "d757ea6f14848907d7741d0b318330732effda75590185eb6c5f04a6e32016df"
+    },
+    "artifacts/official_queue.json": {
+      "bytes": 470,
+      "sha256": "2923a7228ed283fc7d648d7c66b9527d1104e7f7a806d9a91bcaf1bccc5b1bf2"
+    },
+    "artifacts/completion_v2_code.tgz": {
+      "bytes": 714297,
+      "sha256": "75e49ec6b6f11cb3e191a5857fccc520122c74337247054c2888fdddee606d94"
+    }
+  }
+}

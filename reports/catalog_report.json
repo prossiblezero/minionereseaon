@@ -1,0 +1,17 @@
+{
+  "domains": {
+    "live": 107289,
+    "goods": 16087726,
+    "video/ad": 2056889,
+    "video/video": 17662191
+  },
+  "product_sids": 10295563,
+  "colliding_sids": 2080061,
+  "excess_pid_rows": 5792163,
+  "invalid_rows": 0,
+  "files": 198,
+  "provenance": "full independent Pid2Sid; goods domain",
+  "duplicate_pid_sid_rows": 0,
+  "pids_with_multiple_sids": 0,
+  "collision_definition": "distinct goods PID/SID pairs; duplicate raw rows excluded"
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "variant": "std32",
+    "groups": 1,
+    "active_group_fraction": 0.0,
+    "mean_reward": 0.0,
+    "exact_hit_rate": 0.0,
+    "prefix_only_hit_rate": 0.0,
+    "invalid_rate": 0.9375,
+    "first_code_entropy": 0.6931471805599453,
+    "first_code_coverage": 0.000244140625,
+    "popular_first_code_share": 0.0,
+    "generated_tokens": 32755,
+    "optimizer_step": 1,
+    "step_seconds": 45.49829941405915,
+    "peak_allocated_bytes": 11627482112
+  }
+]

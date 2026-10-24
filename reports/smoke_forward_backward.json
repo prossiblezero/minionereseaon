@@ -1,0 +1,5 @@
+{
+  "loss": 2.868818998336792,
+  "lora_gradient_tensors": 392,
+  "peak_allocated_bytes": 10997342720
+}

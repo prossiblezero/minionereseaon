@@ -1,0 +1,1846 @@
+{
+  "created_at": "2026-10-24T03:56:20.292091+00:00",
+  "plan_sha256": "a301ef0147772c5e294cbf64fe318c15aeac439b66638d3b24575a360217a141",
+  "scope": "section 0.1 mandatory M1/M2/M3 only",
+  "seed": 42,
+  "offsets": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "new_generation_variants": [
+    "mixed",
+    "rl_nk_prefix"
+  ],
+  "new_generation_thinking": false,
+  "official_new_variants": [
+    "mixed"
+  ],
+  "optional_items_run": [],
+  "adapters": {
+    "mixed": "af31b185f5e932e93a169db94ebe2a9be45d41a51fd71947067e25f36e699a78",
+    "rl_nk": "937ecc5c0d0f13c6d1a433cd9e9160089b600c844509c6d3ec78c6b2e9af2334",
+    "rl_nk_prefix": "c46b30a4890911b2cf0d67e4b2bdaae824cdec932358b19cbffb4b749686ddd1"
+  },
+  "runtime": {
+    "runtime_id": "dsj5090:GPU-8fe322d3-57a9-74db-4385-e2212e31e363",
+    "host": "dsj5090",
+    "gpu_index": 0,
+    "gpu_uuid": "GPU-8fe322d3-57a9-74db-4385-e2212e31e363",
+    "memory_fraction": 0.65,
+    "data_root": "/data3/dzh/minionereason",
+    "compatible_root": "/data1/dzh/minionereason"
+  },
+  "local": {
+    "examples": 403,
+    "attempts": 64,
+    "history": "recent",
+    "input_budget": 2048,
+    "temperature": 0.8,
+    "top_p": 0.95,
+    "backend": "vllm"
+  },
+  "bootstrap": {
+    "resamples": 1000,
+    "seed": 42,
+    "local_resampling_unit": "group_id after per-sample offset averaging",
+    "validity_resampling_unit": "sample_id",
+    "official_resampling_unit": "official sample_id",
+    "validity_cohort": "Within each mode, require >=16 valid attempts in both models at every included offset; same cohort for both models",
+    "offset0_hardware": "Reuse recorded 4090 offset 0; new offsets run on 5090; no deterministic rerun in mandatory scope"
+  },
+  "decision_rules": {
+    "2.4 判断规则": "\n\n分 thinking 与 non-thinking 两个模式分别判断，以 Recall@32 为主指标：\n\n- **稳定**：5 次采样的差值全部为正，并且合并 bootstrap 区间下限大于 0。\n- **方向一致、幅度不确定**：5 次中至少 4 次为正，但合并区间包含 0。\n- **未得到支持**：其他情况。\n\n报告用合并估计的均值和区间替代原来单次的 +2.233 个百分点，作为后续简历的依据。\n",
+    "3.4 判断规则": "\n\n以 pid_recall@64（真实商品 ID）和 recall@64（SID）为主指标，两者分别报告：\n\n- 若 `rl_nk_prefix − mixed` 的区间下限大于 0，记为“官方独立数据上复现了提升”。\n- 若区间包含 0 但点估计为正，记为“方向一致，未达显著”。\n- 若点估计不为正，记为“未在官方数据上复现”，并与本地结果并列说明两套协议的差异（Race 混合候选、多目标标签、真实商品 ID 计分）。\n",
+    "4.3 判断规则": "\n\n以 `rl_nk_prefix − mixed` 为对象，对 offset 合并后的结果按样本做 bootstrap：\n\n- 若等有效预算的 Recall@16 差值区间下限大于 0，记为“收益不只来自有效率，推荐本身更准”。\n- 若该差值区间包含 0，而原始 Recall@32 的差值显著，记为“收益主要来自减少目录外 SID”。\n- 两种情况都在报告中给出有效率与有效命中率各自的变化。\n"
+  },
+  "original_sources": [
+    {
+      "summary": "/home/dzh/minionereason/reports/results_v2/mixed_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.json",
+      "summary_sha256": "715f5d1024bae72c2c973dcac7c12b1eb3adca93f1c9eeb3014839d77bc0d1a9",
+      "raw": "/data1/dzh/minionereason/predictions_v2/main/mixed_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.jsonl",
+      "raw_sha256": "d417d2b9d5941259106af7164c48bdf56013a8b61f64f7875880f0aa401f0f3c",
+      "runtime_id": null,
+      "variant": "mixed",
+      "thinking": false,
+      "offset": 0
+    },
+    {
+      "summary": "/home/dzh/minionereason/reports/results_v2/mixed_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.json",
+      "summary_sha256": "d8ad8c85ec7b2bcc27a16cacf3ae4cefd2eb67230ede65fa9d7ac9fb4a53bf63",
+      "raw": "/data1/dzh/minionereason/predictions_v2/main/mixed_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.jsonl",
+      "raw_sha256": "5550b24dc889c272cfd115e8c9496fa9200f5caaab0e21b23081e5e3a0bf35f7",
+      "runtime_id": null,
+      "variant": "mixed",
+      "thinking": true,
+      "offset": 0
+    },
+    {
+      "summary": "/home/dzh/minionereason/reports/results_v2/rl_nk_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.json",
+      "summary_sha256": "ebeeb53042cfb0fb45cd23bc3f26cf8cacf97b81b46e4b0ac20ec95c45f58db4",
+      "raw": "/data1/dzh/minionereason/predictions_v2/main/rl_nk_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.jsonl",
+      "raw_sha256": "06f9f7358b2f373fa9388a95e176be019eae3e3b7777fcc55c6a75ad21870593",
+      "runtime_id": null,
+      "variant": "rl_nk",
+      "thinking": false,
+      "offset": 0
+    },
+    {
+      "summary": "/home/dzh/minionereason/reports/results_v2/rl_nk_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.json",
+      "summary_sha256": "456bb947d57bc4b7c91ee9467064babf074a91689df3edfa0032bda4c7d4bc63",
+      "raw": "/data1/dzh/minionereason/predictions_v2/main/rl_nk_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.jsonl",
+      "raw_sha256": "220348a790f5473e6eb196ef44aefb7c376782948678982a55ede0453b16f149",
+      "runtime_id": null,
+      "variant": "rl_nk",
+      "thinking": true,
+      "offset": 0
+    },
+    {
+      "summary": "/home/dzh/minionereason/reports/results_v2/rl_nk_prefix_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.json",
+      "summary_sha256": "ed56b58e4ea6f5f802d3a00de4aa5c20a932dc454211366e718d2f2da56719c8",
+      "raw": "/data1/dzh/minionereason/predictions_v2/main/rl_nk_prefix_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.jsonl",
+      "raw_sha256": "a737dc1e1326074c44daa8ae03e2cf707ff6bfd0b21be456ed6b84cd226ca523",
+      "runtime_id": null,
+      "variant": "rl_nk_prefix",
+      "thinking": false,
+      "offset": 0
+    },
+    {
+      "summary": "/home/dzh/minionereason/reports/results_v2/rl_nk_prefix_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.json",
+      "summary_sha256": "70a8680c7177a9e2bdab4b96ecc7affea03f5ee73b8cc3ca5c370d8b4910931e",
+      "raw": "/data1/dzh/minionereason/predictions_v2/main/rl_nk_prefix_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.jsonl",
+      "raw_sha256": "b6f746c4b523f215f17d6112dcbae73c5441046fbc035f4f0615e9856a0f6835",
+      "runtime_id": null,
+      "variant": "rl_nk_prefix",
+      "thinking": true,
+      "offset": 0
+    }
+  ],
+  "protected_sha256": {
+    "/home/dzh/minionereason/reports/results_v2/main_popularity_42_validation.json": "672c8eccf34dc2c05c544c20f73d0ab96c3e8e36cd737cc3f5ed8f97c6006d71",
+    "/home/dzh/minionereason/reports/results_v2/main_popularity_42_test.json": "6c367abf0fe02455039f46570618fb6604f2ffca361356e5b05391d2702d890d",
+    "/home/dzh/minionereason/reports/results_v2/main_sasrec_42_validation.json": "eeaca8ccf532da7579aa318bbfdd3eae4e5752884995adbc62ee4f953c110524",
+    "/home/dzh/minionereason/reports/results_v2/main_sasrec_42_test.json": "1e890b9eb537cb485fd84ca695f0d75a2b60bc927104a28d44be00f9e3b0aca6",
+    "/home/dzh/minionereason/reports/results_v2/smoke_vllm_lora.json": "ec013e2c8e916f458f60feaddab21f9b2bdff3271d92ad173ff6c90a450f5113",
+    "/home/dzh/minionereason/reports/results_v2/rl_std32_42_validation_recent_in2048_thinkTrue_budgetNone_n64_vllm.json": "4eb6c13d6596d8d424522f6ce910abc6e069fe3aa39200e15d535ece77155c35",
+    "/home/dzh/minionereason/reports/results_v2/base_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.json": "bc02fb5e703a4d4d2ba1425028a9f0e20d20345aa7310ace48c89de000b18b93",
+    "/home/dzh/minionereason/reports/results_v2/rl_std32_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.json": "55322dcb26cc55bebcbc2f2731549468dc26094f2e4c7c17b35f6f7b091ed9f7",
+    "/home/dzh/minionereason/reports/results_v2/direct_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.json": "2fc95fda453b0b1a1fd0170dc4d60a921d3c4a66b3c7ae0691537db8af03bc29",
+    "/home/dzh/minionereason/reports/results_v2/rl_std32_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.json": "99bad98969fa42e0b1113396523af4f0481ef310ae922885d656ea41e119dda4",
+    "/home/dzh/minionereason/reports/results_v2/mixed_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.json": "0957a68bb3a99416291b016e6d4bb069258029d4b13d39da2cc2d3593a4cb8a1",
+    "/home/dzh/minionereason/reports/results_v2/main_thinkcost_42_validation_0.json": "bc6b635b991f68a812033ba17b40b947e439c4a1bc7a567a6f2953e1a2ff5a46",
+    "/home/dzh/minionereason/reports/results_v2/smoke_rl_std32_42_monitor_step1.json": "571e2e90ca617d74fb9028ef2ee7063b9e58df7f1cf2408cd152e7b2f35588ea",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_42_monitor_step100.json": "318d4dfc2930a228ad0c8b6d2131f8b25e4a929796d86879a6d638db16fdc5e4",
+    "/home/dzh/minionereason/reports/results_v2/mixed_42_validation_recent_in2048_thinkTrue_budgetNone_n64_vllm.json": "fecd5d8c77cfac0ed5e8104393ba5a4196e44ef4da376a84af9377031cf0c5ab",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_42_monitor_step400.json": "e064bb7932d35f0ff5580223ac0ef0f3e076b68401f9ffe7bef05e69fd86ae6f",
+    "/home/dzh/minionereason/reports/results_v2/base_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.json": "ffa21d0cd30ec6c88aba9c5d933bcf8110d073d815fb5c8575ab2bd90b1f8a56",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_42_monitor_step500.json": "4641fa8101c7afe027bc421a83b3ba25155846ac8315d3773688d5f18b1b5d89",
+    "/home/dzh/minionereason/reports/results_v2/direct_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.json": "cc58fafaf06331f610a0eb1866b96e31f976134b38917d9de0ca58de4c5c42bf",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_42_monitor_step100.json": "6d3a37cbbadb41075eb4e195b7cf759ce7e0df1a46538f82eef159ccf71f9bf8",
+    "/home/dzh/minionereason/reports/results_v2/mixed_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.json": "715f5d1024bae72c2c973dcac7c12b1eb3adca93f1c9eeb3014839d77bc0d1a9",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_42_monitor_step200.json": "47b50c5d4018d5125fef0d44eed49718c1db9eca35b5816274331220d7c0a69f",
+    "/home/dzh/minionereason/reports/results_v2/mixed_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.json": "d8ad8c85ec7b2bcc27a16cacf3ae4cefd2eb67230ede65fa9d7ac9fb4a53bf63",
+    "/home/dzh/minionereason/reports/results_v2/main_thinkcost_42_validation_128.json": "fac51b6be517c08d901c864ec10ff98cf14a3ad9cbfbedaaf8ed664c74f1c6da",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_std_42_monitor_step100.json": "58653ab261ca611e249bc68afd6b381b7eef1d37a5fa39a94d766498bb903664",
+    "/home/dzh/minionereason/reports/results_v2/main_thinkcost_42_validation_256.json": "d8a36f8b700ef937a6a0e521119b0fbb0cf5d63ead833183771729aa50963aa8",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_std_42_monitor_step200.json": "947036c02f7cb9fa4edb5404980184ed19116464a93c4fc14956e3164b026e56",
+    "/home/dzh/minionereason/reports/results_v2/main_thinkcost_42_validation_512.json": "f91f800f2744a5139332ee181fa03f148ad549d9e38afa58ec14c62bc6858e72",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_std_42_monitor_step300.json": "88adfbe006d40a0a18c0e83317fc1b0777af90b302fca5c5361049c13ae71e50",
+    "/home/dzh/minionereason/reports/results_v2/main_thinkcost_42_validation_1024.json": "680aef00a9a378fdf4ba1d61f102a759f456cac135d18a72214bf85f7774d76f",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_std_42_monitor_step400.json": "13edef00f7b51cb25dda8c815e0ad268be998bc7bf9351658e54ce58d02af901",
+    "/home/dzh/minionereason/reports/results_v2/main_route_42_validation_probe.json": "b75560d0638c28dbfb36726016d7f3e086b58ffa3ca79e0ceeab2433eb043138",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_std_42_monitor_step500.json": "424e186094eb9fff895e53a541a7be8ee13123e4eb0aca835b3155c5fb6e96e9",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_42_monitor_step200.json": "0cf1564e1aebc30d1044be8be391a36cdc2e4acb62249384e2d6ffd05258b707",
+    "/home/dzh/minionereason/reports/results_v2/rl_std_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.json": "158cf477959d8e774096cd2224f888c465dfa979b6eb94eb313ec22134540b08",
+    "/home/dzh/minionereason/reports/results_v2/rl_nk_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.json": "ebeeb53042cfb0fb45cd23bc3f26cf8cacf97b81b46e4b0ac20ec95c45f58db4",
+    "/home/dzh/minionereason/reports/results_v2/rl_std_42_validation_recent_in2048_thinkTrue_budgetNone_n64_vllm.json": "364e9d24b150d887128a6f9c4730052004bd8216d539a1bac57e05b27ae53458",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_42_monitor_step300.json": "a5030ba5af3751a77d955de17b08fb0d83c8f9f327e70b966f58e8005ab5f824",
+    "/home/dzh/minionereason/reports/results_v2/rl_std_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.json": "fa7ec58f74901bab13538b4b03c47a8540a857701418287767b369638e68c642",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_42_monitor_step400.json": "01a8f60360529ba81781cf8cb4a95ca4f36394a0ef4d7fada94dfd82300e483b",
+    "/home/dzh/minionereason/reports/results_v2/rl_std_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.json": "670e44a0ee7ad47730f0ca70f68dc6244dc4502557ef346beaabc29c15042ddd",
+    "/home/dzh/minionereason/reports/results_v2/main_route_42_validation_remainder.json": "4ec1e0f8eb05a7db5e5604f4da296046d0c8fe20590fedefccba280b9121bdfb",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_std32_42_monitor_step100.json": "f11d7b59b1bc1f77a5baa8109aaa75ea58bb4fddeff40f1b5ecd8da521de0cf9",
+    "/home/dzh/minionereason/reports/results_v2/main_thinkcost_42_validation_mixed16.json": "6eea24df00971d9fc7cac61aad7954f744ac2e157f93b9c7f7dd5300ed152f7d",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_std32_42_monitor_step200.json": "a27b8690725651be812aac30d7aa06723d5b23066be275f021ac7e19b1e30fe3",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_std32_42_monitor_step300.json": "72ffde000686b8c00b864ddcce9c491d54e166687fdf9995c27eb2c1fa699e75",
+    "/home/dzh/minionereason/reports/results_v2/main_route_42_test_remainder.json": "cf494ae75abc1ef4e67e66d1af222cea4954f042a08a026a55b4a50e6640039a",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_std32_42_monitor_step400.json": "4dd1230ec82d6a0c4b9100ac24a6136df76d8bfe338dc3da66d2fcb191a30cd6",
+    "/home/dzh/minionereason/reports/results_v2/main_thinkcost_42_test_0.json": "86c09fcfbc7dcda6d042b28fda232b5f3a80e651f67410bfe204e881fd96839e",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_std32_42_monitor_step500.json": "3a04397d44c072a06d19b2148fffc7789f082caa06e1a07e2c3a15f4e8ea00a8",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_42_monitor_step300.json": "9ccfe2e0b9c7ae9729c4cef28edd9a84907c41d540f893d8262a1720487b072d",
+    "/home/dzh/minionereason/reports/results_v2/rl_std32_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.json": "bfef3fd332a34f4d7652bc2832896591146e733f42b5e640796c602bd5bf3136",
+    "/home/dzh/minionereason/reports/results_v2/rl_nk_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.json": "a6850e8e0ed5267df87e40338322e86a7dfb01e8961f8d05db741ad0aa6957f7",
+    "/home/dzh/minionereason/reports/results_v2/rl_nk_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.json": "456bb947d57bc4b7c91ee9467064babf074a91689df3edfa0032bda4c7d4bc63",
+    "/home/dzh/minionereason/reports/results_v2/rl_nk_42_validation_recent_in2048_thinkTrue_budgetNone_n64_vllm.json": "dfb7146462274fb9b5b5a5065a7bd7a8d44bd67b9ed54e269bafd0619f0b53f5",
+    "/home/dzh/minionereason/reports/results_v2/main_route_42_validation_uncertainty_0.5_random.json": "3eb76edc5929920d2188b01ac8ff6f3e9bb92470c496cb2a4f2cd50a88af1d49",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_42_monitor_step500.json": "9f63eee578b11e723a3ec13f2d165b389817cc037ec92b9c7c30e7a84de086d3",
+    "/home/dzh/minionereason/reports/results_v2/rl_nk_prefix_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.json": "895aef7b2c6fcd45d6eff3bb750eb9b06293573717df714874482c08d49fdd9c",
+    "/home/dzh/minionereason/reports/results_v2/rl_nk_prefix_42_validation_recent_in2048_thinkTrue_budgetNone_n64_vllm.json": "b3d45c2ef3b7467b83fa741d93a29a82ab68e86f2e468d3b7dbb0fbfc55a9483",
+    "/home/dzh/minionereason/reports/results_v2/rl_nk_prefix_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.json": "ed56b58e4ea6f5f802d3a00de4aa5c20a932dc454211366e718d2f2da56719c8",
+    "/home/dzh/minionereason/reports/results_v2/rl_nk_prefix_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.json": "70a8680c7177a9e2bdab4b96ecc7affea03f5ee73b8cc3ca5c370d8b4910931e",
+    "/home/dzh/minionereason/reports/results_v2/main_route_42_validation_all_non_thinking.json": "3dbd7dd644206918b3d115fa56e4f9d610cc29a8786c00f85a48052d0b8c2e4e",
+    "/home/dzh/minionereason/reports/results_v2/main_route_42_validation_uncertainty_0.25.json": "be02fa38179982d1c2b3496be46c995b95ebad7d3c0844793f09cb21244c22dd",
+    "/home/dzh/minionereason/reports/results_v2/main_route_42_validation_uncertainty_0.25_random.json": "959e5abfc0b073552bb9dbd00196bbcf710667c1836b05d67675f7f2e4848777",
+    "/home/dzh/minionereason/reports/results_v2/main_route_42_validation_uncertainty_0.5.json": "8e0a06bfff295ce77e9b1a5dc198b98df8010d78db7c38acc261806f13136ac0",
+    "/home/dzh/minionereason/reports/results_v2/main_route_42_validation_history_length_0.25.json": "40b5dd3673f6115e2ffb5834388ba7a305e2e0f92141e167334efde2d725fefc",
+    "/home/dzh/minionereason/reports/results_v2/main_route_42_validation_history_length_0.25_random.json": "f508a4ce4a3f7a72f63045667e1fc782ba03daabda0266dfbdbee82cdc354ecc",
+    "/home/dzh/minionereason/reports/results_v2/main_route_42_validation_history_length_0.5.json": "7539f47cf62f3e60ea135e37042326bcd6ad403344b00768c7e254d9b7daf334",
+    "/home/dzh/minionereason/reports/results_v2/main_route_42_validation_history_length_0.5_random.json": "cff98472174b0a8cd9570181df6c53ce9a1007ee8a658d90a1eadbc270c7b9d2",
+    "/home/dzh/minionereason/reports/results_v2/main_thinkcost_42_test_128.json": "dbaf9efc01659b0e1291d1e577fee208ed9e4eda7c22610f660a8bf6fea4d858",
+    "/home/dzh/minionereason/reports/results_v2/main_thinkcost_42_test_256.json": "8651fd6cbb838636a13ccafe930209f424ec43845908c69e2d72fd60f53c3773",
+    "/home/dzh/minionereason/reports/results_v2/main_thinkcost_42_test_512.json": "7feff0ea7f63dfc4a794adb0b858086edd99b11db5007ae1c4b5d6029fd463dc",
+    "/home/dzh/minionereason/reports/results_v2/main_thinkcost_42_test_1024.json": "a35950d78e3d9a8d0c3b43f3b2005fac260e105bcfcdf5d164f3af39955f3f32",
+    "/home/dzh/minionereason/reports/results_v2/main_route_42_test_probe.json": "b99926e1ac2ad2a9387bc69b4af5715c2f97a3ab655e55ab068f47872456b960",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_thinkcost_42_test_0.json": "bea7ae65684edfc334b1dc91b4ead36a6b02d09cbc73765ef5ea14a89710923b",
+    "/home/dzh/minionereason/reports/results_v2/main_route_42_test_all_non_thinking.json": "05b02f61024ec1680c2a720b682d9c6e5d37cc79fed5918c59314bdda2ac29cd",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_thinkcost_42_test_128.json": "58e9b6a5e98ec15a7be6cbdaeb1d271dc753f4892f305b0f5bcd30c6bc5ba047",
+    "/home/dzh/minionereason/reports/results_v2/main_route_42_test_uncertainty_0.25.json": "f7f8c7f473bf1c5e2a976ee11f3ea6a1faee69c87631a30ddd4ff25e573b486d",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_thinkcost_42_validation_0.json": "54b8dce040d9127ade2bb41e228d26a9a2421c918f02db0810a32669645747b8",
+    "/home/dzh/minionereason/reports/results_v2/main_route_42_test_uncertainty_0.25_random.json": "c89445dec8f1f973fef9d1113f9c120d45fdd05c4f8495fd77878d173095a0cf",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_thinkcost_42_test_256.json": "279027327243a4255bea784bcd089497fee67a56026c6d0aaba85ac7d62f50c1",
+    "/home/dzh/minionereason/reports/results_v2/main_route_42_test_uncertainty_0.5.json": "9ab1dde2fed8c6fda7b3a41e1d22b9384fb759de733ff63d473b24b0e8957748",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_thinkcost_42_validation_128.json": "9222ef7c32c5b2b1974c280c9ecc71a47c58b466edece2a74ceda04fa4878a18",
+    "/home/dzh/minionereason/reports/results_v2/main_route_42_test_uncertainty_0.5_random.json": "26f2147c82889f6974e0d0af391ff8a23f5f50070aa6468ff96b6a5e5105a564",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_thinkcost_42_validation_256.json": "984da70249c4f6ad075c5949ef55d34a3f7f31c2e4bbad6fdd726d9af3455684",
+    "/home/dzh/minionereason/reports/results_v2/main_route_42_test_history_length_0.25.json": "a2631eeaebbcb393aad311905d76f89cef6382c7648de1fa99da69cd91f9136f",
+    "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_test_domain_recent_2048.json": "bf3bf3c0fc27c45d7e3b60beb589e8d6231c9b723f94e1270347fa732c6fcb96",
+    "/home/dzh/minionereason/reports/results_v2/main_route_42_test_history_length_0.25_random.json": "be50ac6c3581a816a0973e78372643473e631bfc0cd84441ddc3bafa64be0552",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_thinkcost_42_validation_512.json": "0ed7dad4add864929888b45256f0b61e8f49ccce2107af69642f9b12b2de3576",
+    "/home/dzh/minionereason/reports/results_v2/main_route_42_test_history_length_0.5.json": "4461ba4778a28929f57f875080d79a955e7fff5c00016e04f1abc7d6d925c097",
+    "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_test_balanced_2048.json": "27c73cb0e7a1af0c01fa47376e955cf4cbc433c9a2bdd751e51389cb8512ed2b",
+    "/home/dzh/minionereason/reports/results_v2/main_route_42_test_history_length_0.5_random.json": "a5f7bed67fc86a7654d156baf3d2884a86db5219d2d7718478242242aa3fd1e4",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_thinkcost_42_test_512.json": "30974488a287a762e7ca9159b0680251b98764ba96cc8b28acd425467c5b6849",
+    "/home/dzh/minionereason/reports/results_v2/main_thinkcost_42_test_mixed16.json": "3bafac0b17371ec76d265dd0fac11b769516a22957034336f787242067ea341e",
+    "/home/dzh/minionereason/reports/results_v2/main_history_mixed_recent_history_42_validation_balanced_1024.json": "b405209b4a11ddf189594ef9d0feba0da6f5c73baeedd8228fbadd54410c5831",
+    "/home/dzh/minionereason/reports/results_v2/direct_tokenmatched_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.json": "34e50646508df2fc82b6a3716b35b4fa617423ff51a8829ae46cf2c0defa072d",
+    "/home/dzh/minionereason/reports/results_v2/direct_tokenmatched_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.json": "9f10e62d7d67457970088472ea06daae286c3fddc86a792ca0e81d5c50337693",
+    "/home/dzh/minionereason/reports/results_v2/main_history_mixed_recent_history_42_test_recent_1024.json": "98abbdc0241c7416b3dd4e2fb15ef77dd4a7d8114cd49a48f356092537106349",
+    "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_validation_recent_512.json": "bd512fb5ff02b7bd5eb5152d9df892b3102fbc3f04ba44e077a6ee93f513bb20",
+    "/home/dzh/minionereason/reports/results_v2/main_history_mixed_balanced_42_validation_balanced_1024.json": "59b6fe905ee0f5ab6f6aedb271621ec436a5416693e793fb873e01e0afbbf749",
+    "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_validation_domain_recent_512.json": "614362bc77ada71b4cc891d0644ef68c03f1f3481bbf08ce17b51fb0fcdf8e9b",
+    "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_test_recent_512.json": "7bd1036e8d9c8aec4b160011353c1f1f47a4e469f1aea12928f9be878417f2a8",
+    "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_validation_balanced_512.json": "b521a7c56952c26e647eccd45c724050b9da452ff2ec31e9ab943669a45527df",
+    "/home/dzh/minionereason/reports/results_v2/main_history_mixed_recent_history_42_test_balanced_1024.json": "6be0d52e3b28d5a1a73fb6409001db7fab5fa185176e0d0e0b8912e15391e492",
+    "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_validation_recent_1024.json": "6c4002dac433927f84c73356209c85f0d87104a1e9ff794c5317cf5385daa2b6",
+    "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_test_domain_recent_512.json": "89304434cda4e2a0d3404931439a12a1540a095fe6b915a5bb62bb7935500676",
+    "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_validation_domain_recent_1024.json": "79b7c997507e7cc92245e2ccaa95a3533278c0eadd2c0fedce0efcf23282567f",
+    "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_test_balanced_512.json": "b5ca2cc1fb591cb3c961191be674551eb948af1378d5d0775e14cddcae807f58",
+    "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_validation_balanced_1024.json": "1bf4871bc2d2e43beb82a2a03aef974fc658aa65d94c1280291526ac6e6d46c2",
+    "/home/dzh/minionereason/reports/results_v2/main_history_mixed_balanced_42_test_recent_1024.json": "0bf1653572cbcfbb6b35602b227345408ad00c836659fa67a43d9cb0d225db1b",
+    "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_validation_recent_2048.json": "ba563716bb5f15b61309ceaa37e7ca6919cc48ca2f7e2a5f4c9767c60b1011c2",
+    "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_test_recent_1024.json": "68b69d1ec637c2b0e9a30272908634f48ff95ec19d277e553f021e2c05c41932",
+    "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_validation_domain_recent_2048.json": "fdebdb2fa4b7948106f61f2ed162a392dc47bb9bc87e07a1d3eb12040a387cbe",
+    "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_test_domain_recent_1024.json": "4b9501348d1631c6d627e27f8f82c430c3e3bc74568bc794ff3026250fcb8f6d",
+    "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_validation_balanced_2048.json": "de72d64b85de23b494ee0d6dc736a38e44ac5cc4c06ba8ab1fc46f7ce03ba5ad",
+    "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_test_balanced_1024.json": "57c882019f3c4627839aa6ee163900b3b1578068d4a3ca5d275c5d6ff77aaf85",
+    "/home/dzh/minionereason/reports/results_v2/main_history_mixed_recent_history_42_validation_recent_1024.json": "381170fac10ea22a09c3265a0dc290c8ac39b070d73b081a655954ee1e5d4126",
+    "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_test_recent_2048.json": "ee190fd3093f964d8c80b0d5879eb74185b2ce3b94f027301c62463f25c4985e",
+    "/home/dzh/minionereason/reports/results_v2/main_history_mixed_balanced_42_validation_recent_1024.json": "c8b8647c10d9169c725a04c8e25f96b18473c076450b7e01e203b25c1a5a2f38",
+    "/home/dzh/minionereason/reports/results_v2/main_history_mixed_balanced_42_test_balanced_1024.json": "d0e27ae4188c973ccae8cd65e2922fd6734ed91563cd42fd17435aa804535667",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_thinkcost_42_validation_1024.json": "88bb2fc377db183ab4cde2a7e75897c2c4e358e6b79bd791ba92c3722f758854",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_route_42_validation_probe.json": "8c002db936d0be10e40afa03bd261d571cd2b8938264ed7b57a49e7b168e345e",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_route_42_validation_remainder.json": "7ccf963e4a51c3aba4beb7dbce5483b0ec04e7e71fa562d9214f6693a8f8b70a",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_route_42_validation_all_non_thinking.json": "a4e57c1b8b8eb256f84336518ec58957900eab10582655bc94daa2b67f3ccc9c",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_route_42_validation_uncertainty_0.25.json": "00339905a5a1dba327e6a7d37f846edcf4bc107ae5aabe224389f7c42129ad6f",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_route_42_validation_uncertainty_0.25_random.json": "bdc4d5ee531901607250df48c37926e7cfc32f74736bd974865031106dd69a0d",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_route_42_validation_uncertainty_0.5.json": "4ddb517932b245d936a25283bcc7e13593b94ea665a1233b227b0ff18b58e4f7",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_route_42_validation_uncertainty_0.5_random.json": "fd28fb639aa9d558fd530ae29b91894d6e0ea80e8233d6db1dc34ec4be7c86ae",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_route_42_validation_history_length_0.25.json": "65744a1d1379017a845eb8b8229209f334ca8ac68858a9d9a1f27f028042b03a",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_route_42_validation_history_length_0.25_random.json": "e172356322148497696e82896c0d3490e7848b81c7f7af4375439b05f46bf62d",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_route_42_validation_history_length_0.5.json": "d55ae145755eedbdd670a89b94d3590cb5992473a7be309e9939a51b351f8da4",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_route_42_validation_history_length_0.5_random.json": "678bd4afab1dbb75cbd19a9ba45cb05d00efb643ec2d364e1acbc7f78ebd0ad4",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_thinkcost_42_validation_mixed16.json": "6b618bd83936e615639a6728afa0b2d6abb9e4e38771fa92646b5e2ed334b197",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_thinkcost_42_test_1024.json": "a6351fbd29eacb4eb9fce94b812e735992361b25a920053bc846586b346e21a2",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_route_42_test_probe.json": "846eda3f8bc393de1d99264cd91d2950f3ac291822cecc3126e0b54ac5ea1236",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_route_42_test_remainder.json": "3fd339ffed3172671ea7f41d02ab1547dc1218df496797fd051c17a259bf0621",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_route_42_test_all_non_thinking.json": "52941ac539e8d102fdd4d19ef587ec9ed78b8c9a2ec38c045de84fd48820910d",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_route_42_test_uncertainty_0.25.json": "74c75e7951459dbf265f36ad23e9de2b09e37300c99b5249b1130c4d2d396b43",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_route_42_test_uncertainty_0.25_random.json": "854049220b450852f394fa5efdb8b794a0360492ab2a326b65cce7fb7c12df3b",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_route_42_test_uncertainty_0.5.json": "7b8c7931ea5fbc1bd72941058b0b1feff075fa24f6ae5c0c26a7659a98c976c3",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_route_42_test_uncertainty_0.5_random.json": "a1fd6de09706f1b471444b9410db4e1df967c39abd10a247afed292ccb8f2b8b",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_route_42_test_history_length_0.25.json": "938b0aacfe0ce7e4f77a7999e40460f8ae9e96ddde05bbcfcffd6298164ddacd",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_route_42_test_history_length_0.25_random.json": "c9e26a8bcb681d6fc288a62a2758bcbaeed168e2db8a25000033f8753147aeac",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_route_42_test_history_length_0.5.json": "e9eaf4a440b6bb24d92988e2ae093f84278168fa9b25b0510f57f41ad90bc64d",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_route_42_test_history_length_0.5_random.json": "1e0c3e8016dce09e8f30ed4f12c91bb864aca911e8bab75a5cfb7fd26a348a66",
+    "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_thinkcost_42_test_mixed16.json": "ead7e0894ed005e58ac1b05296541b3a5c79acf2fb38557bde7a347a0c4df3a2",
+    "/home/dzh/minionereason/artifacts/thinking_selection_main_42.json": "480441b52fcb4573043d02e4572bb67712f07dfb91805bea77204c3bec023fd3",
+    "/home/dzh/minionereason/artifacts/history_selection_main_42.json": "aaaa7867fd6cbd8a00301a5ee83cf1e009534888f872e6ef2f177efedf3a154e",
+    "/home/dzh/minionereason/artifacts/thinking_selection_main_rl_nk_prefix_42.json": "6a38d2d55368acf456dc17823912796d182ebfa3adbfa315ececf7bc824a2e01",
+    "/home/dzh/minionereason/config.json": "fa93a76fa8725c2671455e8eae95be0fb966ed15590b36c0676897b2c3f9a5a5",
+    "/home/dzh/minionereason/reports/RESUME.md": "1cef841b6cd7a4977f0275f56426b049b5345206e29ec8e47c52e6cb03386a6c",
+    "/home/dzh/minionereason/reports/official_status.json": "9220e4003ef6e398fef7af98407676910f76b996806a67907ece56f745f7b4b2",
+    "/home/dzh/minionereason/artifacts/execution_protocol_v2.json": "8364fd75e1aa407ebf45c41e99ef05788dba7fd7a8ca5ea8b083b6b5f43e937a",
+    "/home/dzh/minionereason/artifacts/official_preparation.json": "b3dff94c519fdc042cc4da75d6bdfb29e4540687c32cea776dcb28a17c6fe89c",
+    "/home/dzh/minionereason/artifacts/official_execution_protocol_42.json": "1e0dd279bba6e6af58a724f9cf3a022221a0b53db88a022e5a6227a96df0b930"
+  },
+  "original_predictions_stat": {
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_42_monitor_step300.jsonl": [
+      38629483,
+      1792700057582727380
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/base_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.jsonl": [
+      6887765,
+      1792579597543432333
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_42_monitor_step100.metrics.jsonl": [
+      29184,
+      1792694110313435108
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/base_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.metrics.jsonl": [
+      105586,
+      1792579600791585286
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_42_monitor_step100.settings.json": [
+      9852,
+      1792693122221877428
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/base_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.settings.json": [
+      29497,
+      1792579540499671673
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_42_monitor_step200.jsonl": [
+      37394537,
+      1792697054235646233
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/base_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.jsonl": [
+      6563112,
+      1792571631724975301
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_42_monitor_step500.jsonl": [
+      37128753,
+      1792681741036530345
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_std32_42_monitor_step400.jsonl": [
+      37178786,
+      1792630377867838191
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/base_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.metrics.jsonl": [
+      100870,
+      1792571634678114520
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_42_monitor_step500.metrics.jsonl": [
+      29184,
+      1792681743728405282
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_std_42_monitor_step200.jsonl": [
+      36666945,
+      1792591220167305591
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/base_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.settings.json": [
+      28207,
+      1792571575886719445
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_42_monitor_step300.metrics.jsonl": [
+      29184,
+      1792700060318005539
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/direct_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.jsonl": [
+      6871775,
+      1792579666719327822
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_42_monitor_step200.metrics.jsonl": [
+      29184,
+      1792697057012774375
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/direct_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.metrics.jsonl": [
+      105586,
+      1792579669973821369
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_42_monitor_step400.settings.json": [
+      9852,
+      1792702075248699954
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/direct_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.settings.json": [
+      29643,
+      1792579602478048112
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_42_monitor_step200.settings.json": [
+      9852,
+      1792696059898574971
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/direct_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.jsonl": [
+      6556189,
+      1792571699173784793
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_42_monitor_step500.settings.json": [
+      9845,
+      1792680748697614140
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_std_42_monitor_step300.jsonl": [
+      36907672,
+      1792594982491682874
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/direct_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.metrics.jsonl": [
+      100870,
+      1792571702419823812
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_42_monitor_step100.jsonl": [
+      37137557,
+      1792694107521118147
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_std_42_monitor_step400.jsonl": [
+      37307419,
+      1792598260610527291
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/direct_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.settings.json": [
+      28353,
+      1792571635882939648
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_std32_42_monitor_step500.jsonl": [
+      37455521,
+      1792635174481708391
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_42_monitor_step100.jsonl": [
+      36822361,
+      1792669916065489583
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_42_monitor_step500.metrics.jsonl": [
+      29184,
+      1792706075392885705
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_42_monitor_step100.metrics.jsonl": [
+      29184,
+      1792669918740130626
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_42_monitor_step500.settings.json": [
+      9852,
+      1792705067064484822
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_42_monitor_step100.settings.json": [
+      9845,
+      1792668938869553185
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_std_42_monitor_step100.settings.json": [
+      9846,
+      1792586920606343780
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_42_monitor_step200.jsonl": [
+      37194778,
+      1792672836237979612
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_std32_42_monitor_step100.jsonl": [
+      37317991,
+      1792616016695783766
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_42_monitor_step200.metrics.jsonl": [
+      29184,
+      1792672838892740803
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_std32_42_monitor_step100.metrics.jsonl": [
+      29184,
+      1792616019700942901
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_42_monitor_step200.settings.json": [
+      9845,
+      1792671852394610693
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_std_42_monitor_step100.jsonl": [
+      37690316,
+      1792587943932944247
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_42_monitor_step300.jsonl": [
+      37506892,
+      1792675767870048155
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_std32_42_monitor_step100.settings.json": [
+      9848,
+      1792615006897282945
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_42_monitor_step300.metrics.jsonl": [
+      29184,
+      1792675770510824777
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_std32_42_monitor_step200.jsonl": [
+      37297829,
+      1792620742063510067
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_42_monitor_step300.settings.json": [
+      9845,
+      1792674776819404251
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_std_42_monitor_step100.metrics.jsonl": [
+      29184,
+      1792587946936868903
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_42_monitor_step400.jsonl": [
+      37535176,
+      1792678759328561465
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_std32_42_monitor_step200.metrics.jsonl": [
+      29184,
+      1792620744843678470
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_42_monitor_step400.metrics.jsonl": [
+      29184,
+      1792678762165122392
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_std32_42_monitor_step200.settings.json": [
+      9848,
+      1792619724096841378
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_42_monitor_step400.settings.json": [
+      9845,
+      1792677759548654779
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_42_monitor_step300.settings.json": [
+      9852,
+      1792699030620537680
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_42_monitor_step400.jsonl": [
+      38273634,
+      1792703087915760099
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_42_monitor_step500.jsonl": [
+      38066091,
+      1792706072738653679
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_42_monitor_step400.metrics.jsonl": [
+      29184,
+      1792703090565272723
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_std32_42_monitor_step300.metrics.jsonl": [
+      29184,
+      1792625581428261407
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_std32_42_monitor_step300.jsonl": [
+      37671784,
+      1792625578447902333
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_validation_uncertainty_0.5_random.jsonl": [
+      11209847,
+      1792722780128064639
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_std32_42_monitor_step300.settings.json": [
+      9848,
+      1792624550726624269
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_thinkcost_42_test_0.metrics.jsonl": [
+      91884,
+      1792730091388387833
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_std32_42_monitor_step400.metrics.jsonl": [
+      29184,
+      1792630380871424358
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_thinkcost_42_test_0.settings.json": [
+      29706,
+      1792730049298740938
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_std32_42_monitor_step400.settings.json": [
+      9848,
+      1792629365362377039
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_thinkcost_42_test_0.jsonl": [
+      3501344,
+      1792730088459843762
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_std32_42_monitor_step500.metrics.jsonl": [
+      29184,
+      1792635177547777105
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_thinkcost_42_test_128.metrics.jsonl": [
+      91884,
+      1792730451500452054
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_std32_42_monitor_step500.settings.json": [
+      9848,
+      1792634155558466020
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_thinkcost_42_test_512.metrics.jsonl": [
+      91884,
+      1792732460808807749
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_std_42_monitor_step200.metrics.jsonl": [
+      29184,
+      1792591223141963021
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_thinkcost_42_test_512.settings.json": [
+      29707,
+      1792731133149755338
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_std_42_monitor_step200.settings.json": [
+      9846,
+      1792590214177213580
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_thinkcost_42_test_512.jsonl": [
+      36293487,
+      1792732457690647243
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_std_42_monitor_step300.metrics.jsonl": [
+      29184,
+      1792594985357769028
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_thinkcost_42_test_1024.jsonl": [
+      50606732,
+      1792734702145560295
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_std_42_monitor_step300.settings.json": [
+      9846,
+      1792593852554323699
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_thinkcost_42_test_1024.settings.json": [
+      29708,
+      1792732461947535186
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_std_42_monitor_step400.metrics.jsonl": [
+      29184,
+      1792598263599688171
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_thinkcost_42_validation_0.jsonl": [
+      3342023,
+      1792715801010074713
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_std_42_monitor_step400.settings.json": [
+      9846,
+      1792597249100285786
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_thinkcost_42_validation_128.jsonl": [
+      11509981,
+      1792716255704538915
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_std_42_monitor_step500.jsonl": [
+      37649948,
+      1792601586388059984
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_thinkcost_42_validation_0.metrics.jsonl": [
+      87780,
+      1792715803423062166
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_std_42_monitor_step500.metrics.jsonl": [
+      29184,
+      1792601589347464693
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_thinkcost_42_validation_0.settings.json": [
+      28348,
+      1792715752107236225
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_std_42_monitor_step500.settings.json": [
+      9846,
+      1792600564768669314
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_thinkcost_42_test_128.settings.json": [
+      29707,
+      1792730092759197435
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_validation_all_non_thinking.jsonl": [
+      3298831,
+      1792722779868063793
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_validation_uncertainty_0.25.metrics.jsonl": [
+      87780,
+      1792722779928063988
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_validation_all_non_thinking.metrics.jsonl": [
+      87780,
+      1792722779869063797
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_thinkcost_42_test_128.jsonl": [
+      12070304,
+      1792730448375902970
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_validation_history_length_0.25.jsonl": [
+      7316327,
+      1792722780192064848
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_validation_uncertainty_0.25_random.jsonl": [
+      7256094,
+      1792722779986064177
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_validation_history_length_0.25.metrics.jsonl": [
+      87780,
+      1792722780193064851
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_validation_uncertainty_0.25_random.metrics.jsonl": [
+      87780,
+      1792722779987064180
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_validation_history_length_0.25_random.jsonl": [
+      7256094,
+      1792722780251065040
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/mixed_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.metrics.jsonl": [
+      105586,
+      1792579738728626407
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_validation_history_length_0.25_random.metrics.jsonl": [
+      87780,
+      1792722780252065044
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_thinkcost_42_test_256.jsonl": [
+      20173442,
+      1792731126668277770
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_validation_history_length_0.5.jsonl": [
+      11330701,
+      1792722780325065282
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_validation_uncertainty_0.5.jsonl": [
+      11251047,
+      1792722780060064418
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_validation_history_length_0.5.metrics.jsonl": [
+      87780,
+      1792722780326065285
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_validation_uncertainty_0.5.metrics.jsonl": [
+      87780,
+      1792722780061064421
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_validation_history_length_0.5_random.jsonl": [
+      11209847,
+      1792722780393065503
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_validation_uncertainty_0.25.jsonl": [
+      7271206,
+      1792722779927063985
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_validation_history_length_0.5_random.metrics.jsonl": [
+      87780,
+      1792722780394297227
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_thinkcost_42_validation_256.jsonl": [
+      19215164,
+      1792717121453885428
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_validation_probe.jsonl": [
+      927561,
+      1792722717794884122
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_thinkcost_42_validation_1024.jsonl": [
+      48180629,
+      1792722664563768265
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_validation_probe.metrics.jsonl": [
+      74690,
+      1792722721599406868
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_thinkcost_42_validation_1024.metrics.jsonl": [
+      87780,
+      1792722667566773792
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_validation_probe.settings.json": [
+      28350,
+      1792722669032580209
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_thinkcost_42_validation_1024.settings.json": [
+      28350,
+      1792718887125153063
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_validation_remainder.jsonl": [
+      2537576,
+      1792722775392049346
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_thinkcost_42_test_256.settings.json": [
+      29707,
+      1792730453341789476
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_validation_remainder.metrics.jsonl": [
+      74690,
+      1792722778224058461
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_thinkcost_42_test_256.metrics.jsonl": [
+      91884,
+      1792731129693953274
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_validation_remainder.settings.json": [
+      28356,
+      1792722723030394499
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_test_probe.jsonl": [
+      972115,
+      1792734744808206087
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_validation_uncertainty_0.5_random.metrics.jsonl": [
+      87780,
+      1792722780129064643
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_thinkcost_42_validation_128.metrics.jsonl": [
+      87780,
+      1792716258142022567
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_thinkcost_42_validation_128.settings.json": [
+      28349,
+      1792715804793479424
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_thinkcost_42_validation_256.metrics.jsonl": [
+      87780,
+      1792717123905914652
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_thinkcost_42_validation_256.settings.json": [
+      28349,
+      1792716259549780456
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_thinkcost_42_validation_512.jsonl": [
+      34591495,
+      1792718883493096237
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_thinkcost_42_validation_512.metrics.jsonl": [
+      87780,
+      1792718885970134995
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_thinkcost_42_validation_512.settings.json": [
+      28349,
+      1792717125004997478
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_thinkcost_42_validation_mixed16.jsonl": [
+      11235815,
+      1792722780470065754
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_thinkcost_42_validation_mixed16.metrics.jsonl": [
+      87780,
+      1792722780471065757
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/mixed_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.jsonl": [
+      6871855,
+      1792579735466239268
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_nk_42_validation_recent_in2048_thinkTrue_budgetNone_n64_vllm.settings.json": [
+      28350,
+      1792681817138142232
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/mixed_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.settings.json": [
+      29641,
+      1792579671544946532
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_std32_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.jsonl": [
+      6872149,
+      1792639961183710432
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/mixed_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.jsonl": [
+      235871697,
+      1792584616556792830
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_nk_prefix_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.jsonl": [
+      6872681,
+      1792710862988588266
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/mixed_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.metrics.jsonl": [
+      105586,
+      1792584631362039845
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_nk_prefix_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.metrics.jsonl": [
+      105586,
+      1792710865740069089
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/mixed_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.settings.json": [
+      29640,
+      1792584624969770790
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_nk_prefix_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.settings.json": [
+      29655,
+      1792710803992998006
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/mixed_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.jsonl": [
+      6555722,
+      1792571766347593299
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_nk_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.metrics.jsonl": [
+      100870,
+      1792681813668960486
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/mixed_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.metrics.jsonl": [
+      100870,
+      1792571769585016842
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_nk_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.settings.json": [
+      28351,
+      1792681749994941863
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/mixed_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.settings.json": [
+      28351,
+      1792571703729024203
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_nk_prefix_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.jsonl": [
+      241632557,
+      1792715742042377014
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/mixed_42_validation_recent_in2048_thinkTrue_budgetNone_n64_vllm.jsonl": [
+      224641227,
+      1792579534212634211
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_nk_42_validation_recent_in2048_thinkTrue_budgetNone_n64_vllm.jsonl": [
+      221670796,
+      1792686318116002822
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/mixed_42_validation_recent_in2048_thinkTrue_budgetNone_n64_vllm.metrics.jsonl": [
+      100870,
+      1792579538794691200
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_nk_42_validation_recent_in2048_thinkTrue_budgetNone_n64_vllm.metrics.jsonl": [
+      100870,
+      1792686322378064710
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/mixed_42_validation_recent_in2048_thinkTrue_budgetNone_n64_vllm.settings.json": [
+      28350,
+      1792575713695447419
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_std32_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.metrics.jsonl": [
+      105586,
+      1792639964102779775
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_nk_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.jsonl": [
+      6872395,
+      1792686387545010284
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_nk_prefix_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.metrics.jsonl": [
+      105586,
+      1792715746246872590
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_nk_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.metrics.jsonl": [
+      105586,
+      1792686390447052364
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_nk_prefix_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.settings.json": [
+      29654,
+      1792710868996624748
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_nk_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.settings.json": [
+      29641,
+      1792686326030508227
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_std32_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.settings.json": [
+      29647,
+      1792639899232784081
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_nk_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.jsonl": [
+      232844447,
+      1792691106699922930
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_nk_prefix_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.jsonl": [
+      6564523,
+      1792706140122596539
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_nk_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.metrics.jsonl": [
+      105586,
+      1792691111029995448
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_nk_prefix_42_validation_recent_in2048_thinkTrue_budgetNone_n64_vllm.jsonl": [
+      230352193,
+      1792710796526678326
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_nk_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.settings.json": [
+      29640,
+      1792686393941962420
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_nk_prefix_42_validation_recent_in2048_thinkTrue_budgetNone_n64_vllm.metrics.jsonl": [
+      100870,
+      1792710800610734435
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_nk_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.jsonl": [
+      6564285,
+      1792681810734569329
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_std32_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.metrics.jsonl": [
+      105586,
+      1792644801387025977
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_std32_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.jsonl": [
+      237042941,
+      1792644797059965364
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_nk_prefix_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.metrics.jsonl": [
+      100870,
+      1792706142904264401
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_nk_prefix_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.settings.json": [
+      28365,
+      1792706081208960922
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_nk_prefix_42_validation_recent_in2048_thinkTrue_budgetNone_n64_vllm.settings.json": [
+      28364,
+      1792706146160119459
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_test_uncertainty_0.25.metrics.jsonl": [
+      91884,
+      1792734793858832004
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_std32_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.settings.json": [
+      29646,
+      1792639967529254800
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_test_uncertainty_0.25_random.jsonl": [
+      7501742,
+      1792734793905831661
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_std32_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.jsonl": [
+      6564121,
+      1792635248643782463
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_test_remainder.metrics.jsonl": [
+      78182,
+      1792734792605306955
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_std32_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.metrics.jsonl": [
+      100870,
+      1792635251887829473
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_test_probe.settings.json": [
+      29708,
+      1792734707370965009
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_std32_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.settings.json": [
+      28357,
+      1792635184990421346
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_test_uncertainty_0.25_random.metrics.jsonl": [
+      91884,
+      1792734793906841423
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_std32_42_validation_recent_in2048_thinkTrue_budgetNone_n64_vllm.jsonl": [
+      225872626,
+      1792639891354678868
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_test_probe.metrics.jsonl": [
+      78182,
+      1792734748068024374
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_std32_42_validation_recent_in2048_thinkTrue_budgetNone_n64_vllm.metrics.jsonl": [
+      100870,
+      1792639895641164587
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_test_remainder.settings.json": [
+      29714,
+      1792734749780477493
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_std32_42_validation_recent_in2048_thinkTrue_budgetNone_n64_vllm.settings.json": [
+      28356,
+      1792635255492758093
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_test_history_length_0.25_random.jsonl": [
+      7746276,
+      1792734794126830052
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_std_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.jsonl": [
+      6872658,
+      1792606322896403026
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_test_uncertainty_0.5.jsonl": [
+      12406827,
+      1792734793967831209
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_std_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.metrics.jsonl": [
+      105586,
+      1792606326080447864
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_test_uncertainty_0.5.metrics.jsonl": [
+      91884,
+      1792734793968876527
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_std_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.settings.json": [
+      29643,
+      1792606258302114324
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_test_history_length_0.25_random.metrics.jsonl": [
+      91884,
+      1792734794127923277
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_std_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.jsonl": [
+      232301855,
+      1792611131403509669
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_test_uncertainty_0.5_random.jsonl": [
+      12395736,
+      1792734794024830794
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_std_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.metrics.jsonl": [
+      105586,
+      1792611136209578781
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_test_uncertainty_0.5_random.metrics.jsonl": [
+      91884,
+      1792734794025830787
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_std_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.settings.json": [
+      29642,
+      1792606329632474700
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_test_history_length_0.25.jsonl": [
+      7786414,
+      1792734794077830409
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_std_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.jsonl": [
+      6563294,
+      1792601660079259212
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_test_remainder.jsonl": [
+      2657717,
+      1792734789301865348
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_thinkcost_42_test_mixed16.jsonl": [
+      11788680,
+      1792734794306828742
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_std_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.metrics.jsonl": [
+      100870,
+      1792601663407683856
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_test_all_non_thinking.jsonl": [
+      3455718,
+      1792734793808832369
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_std_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.settings.json": [
+      28353,
+      1792601596709035450
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_test_history_length_0.25.metrics.jsonl": [
+      91884,
+      1792734794079016613
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_std_42_validation_recent_in2048_thinkTrue_budgetNone_n64_vllm.jsonl": [
+      221267597,
+      1792606249886375498
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_test_all_non_thinking.metrics.jsonl": [
+      91884,
+      1792734793809993236
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_std_42_validation_recent_in2048_thinkTrue_budgetNone_n64_vllm.metrics.jsonl": [
+      100870,
+      1792606254525667383
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_test_uncertainty_0.25.jsonl": [
+      7481174,
+      1792734793857832011
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/rl_std_42_validation_recent_in2048_thinkTrue_budgetNone_n64_vllm.settings.json": [
+      28352,
+      1792601667001370775
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_thinkcost_42_test_1024.metrics.jsonl": [
+      91884,
+      1792734705920890816
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_test_history_length_0.5.jsonl": [
+      11693078,
+      1792734794187829608
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_test_history_length_0.5.metrics.jsonl": [
+      91884,
+      1792734794188511411
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_test_history_length_0.5_random.jsonl": [
+      11578895,
+      1792734794243829200
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_route_42_test_history_length_0.5_random.metrics.jsonl": [
+      91884,
+      1792734794244985587
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_thinkcost_42_test_mixed16.metrics.jsonl": [
+      91884,
+      1792734794307338093
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_validation_balanced_2048.metrics.jsonl": [
+      100870,
+      1792752563610732872
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/direct_tokenmatched_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.settings.json": [
+      28447,
+      1792735578637304775
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/direct_tokenmatched_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.jsonl": [
+      6564861,
+      1792735651783619530
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/direct_tokenmatched_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.metrics.jsonl": [
+      100870,
+      1792735657896695577
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_mixed_recent_history_42_validation_recent_1024.jsonl": [
+      231072769,
+      1792755990218928688
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/direct_tokenmatched_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.settings.json": [
+      29737,
+      1792735665430390352
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/direct_tokenmatched_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.jsonl": [
+      6873500,
+      1792735716499514771
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/direct_tokenmatched_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.metrics.jsonl": [
+      105586,
+      1792735719888905495
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_test_recent_512.jsonl": [
+      235447474,
+      1792764998437918924
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_validation_recent_512.settings.json": [
+      28431,
+      1792738573539883901
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_validation_recent_512.jsonl": [
+      224584358,
+      1792741600632485635
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_validation_recent_512.metrics.jsonl": [
+      100870,
+      1792741608246612475
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_mixed_recent_history_42_validation_recent_1024.settings.json": [
+      28448,
+      1792752565361724419
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_validation_domain_recent_512.settings.json": [
+      28438,
+      1792741614624345867
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_validation_domain_recent_512.jsonl": [
+      225906206,
+      1792743296695266480
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_validation_domain_recent_512.metrics.jsonl": [
+      100870,
+      1792743304150498073
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_mixed_recent_history_42_validation_recent_1024.metrics.jsonl": [
+      100870,
+      1792755998226062698
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_validation_balanced_512.settings.json": [
+      28433,
+      1792743309462972973
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_validation_balanced_512.jsonl": [
+      225791134,
+      1792746162936175910
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_validation_balanced_512.metrics.jsonl": [
+      100870,
+      1792746170311318050
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_mixed_recent_history_42_validation_balanced_1024.settings.json": [
+      28450,
+      1792756010068862442
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_validation_recent_1024.settings.json": [
+      28432,
+      1792746185155004920
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_validation_recent_1024.jsonl": [
+      229288406,
+      1792749319318321416
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_validation_recent_1024.metrics.jsonl": [
+      100870,
+      1792749324202989271
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_mixed_recent_history_42_validation_balanced_1024.jsonl": [
+      231500868,
+      1792757170176869009
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_validation_domain_recent_1024.settings.json": [
+      28439,
+      1792749326502931193
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_validation_domain_recent_1024.jsonl": [
+      229695685,
+      1792750223668668795
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_validation_domain_recent_1024.metrics.jsonl": [
+      100870,
+      1792750228424682076
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_mixed_recent_history_42_validation_balanced_1024.metrics.jsonl": [
+      100870,
+      1792757174771914038
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_validation_balanced_1024.settings.json": [
+      28434,
+      1792750229792145795
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_validation_balanced_1024.jsonl": [
+      229801870,
+      1792751314184646877
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_validation_balanced_1024.metrics.jsonl": [
+      100870,
+      1792751321370968140
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_mixed_balanced_42_validation_recent_1024.metrics.jsonl": [
+      100870,
+      1792760584708116145
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_validation_recent_2048.settings.json": [
+      28432,
+      1792751322991711786
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_validation_recent_2048.jsonl": [
+      230276374,
+      1792752487546052135
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_validation_recent_2048.metrics.jsonl": [
+      100870,
+      1792752491474282642
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_mixed_balanced_42_validation_recent_1024.settings.json": [
+      28436,
+      1792757176465856165
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_validation_domain_recent_2048.settings.json": [
+      28439,
+      1792752492659017694
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_validation_domain_recent_2048.jsonl": [
+      230287874,
+      1792752502254077214
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_validation_domain_recent_2048.metrics.jsonl": [
+      100870,
+      1792752506781330267
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_mixed_balanced_42_validation_recent_1024.jsonl": [
+      230749450,
+      1792760576591978322
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_validation_balanced_2048.settings.json": [
+      28434,
+      1792752507224354580
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_validation_balanced_2048.jsonl": [
+      230306944,
+      1792752558823175054
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_mixed_balanced_42_validation_balanced_1024.jsonl": [
+      231071981,
+      1792761759472091721
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_mixed_balanced_42_validation_balanced_1024.settings.json": [
+      28438,
+      1792760610688666989
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_mixed_balanced_42_validation_balanced_1024.metrics.jsonl": [
+      100870,
+      1792761766847087770
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_test_recent_512.settings.json": [
+      29721,
+      1792761780698833869
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_test_recent_512.metrics.jsonl": [
+      105586,
+      1792765006414924568
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_mixed_balanced_42_test_balanced_1024.metrics.jsonl": [
+      105586,
+      1792786836507739115
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_test_domain_recent_512.settings.json": [
+      29728,
+      1792765026932500002
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_test_domain_recent_512.jsonl": [
+      236414906,
+      1792766809338375977
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_test_domain_recent_512.metrics.jsonl": [
+      105586,
+      1792766814378646875
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_thinkcost_42_validation_128.settings.json": [
+      28431,
+      1792787567904624707
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_test_balanced_512.settings.json": [
+      29723,
+      1792766816576638706
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_test_balanced_512.jsonl": [
+      236824492,
+      1792769811657401631
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_test_balanced_512.metrics.jsonl": [
+      105586,
+      1792769816404109721
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_thinkcost_42_validation_128.metrics.jsonl": [
+      87780,
+      1792787926537244421
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_test_recent_1024.settings.json": [
+      29722,
+      1792769817933235393
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_test_recent_1024.jsonl": [
+      240284041,
+      1792773130012773928
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_test_recent_1024.metrics.jsonl": [
+      105586,
+      1792773135119780440
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_thinkcost_42_validation_0.jsonl": [
+      3342860,
+      1792787563332778953
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_test_domain_recent_1024.settings.json": [
+      29729,
+      1792773136683439778
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_test_domain_recent_1024.jsonl": [
+      240544012,
+      1792774179544506032
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_test_domain_recent_1024.metrics.jsonl": [
+      105586,
+      1792774184157078290
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_thinkcost_42_validation_256.metrics.jsonl": [
+      87780,
+      1792788596932794130
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_test_balanced_1024.settings.json": [
+      29724,
+      1792774185533762432
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_test_balanced_1024.jsonl": [
+      240810928,
+      1792775508066027940
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_test_balanced_1024.metrics.jsonl": [
+      105586,
+      1792775513019044681
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_thinkcost_42_validation_256.settings.json": [
+      28431,
+      1792787928259953856
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_test_recent_2048.settings.json": [
+      29722,
+      1792775514413619590
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_test_recent_2048.jsonl": [
+      241311819,
+      1792776919285950112
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_test_recent_2048.metrics.jsonl": [
+      105586,
+      1792776924341957791
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_thinkcost_42_validation_0.settings.json": [
+      28430,
+      1792787518942118065
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_test_domain_recent_2048.settings.json": [
+      29729,
+      1792776925703596695
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_test_domain_recent_2048.jsonl": [
+      241324791,
+      1792776936092975613
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_test_domain_recent_2048.metrics.jsonl": [
+      105586,
+      1792776941197983346
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_thinkcost_42_validation_256.jsonl": [
+      19253548,
+      1792788591156794772
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_test_balanced_2048.settings.json": [
+      29724,
+      1792776941784335581
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_test_balanced_2048.jsonl": [
+      241325757,
+      1792776952899001044
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_rl_nk_prefix_42_test_balanced_2048.metrics.jsonl": [
+      105586,
+      1792776957989097443
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_thinkcost_42_validation_0.metrics.jsonl": [
+      87780,
+      1792787566291381616
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_mixed_recent_history_42_test_recent_1024.settings.json": [
+      29738,
+      1792776958915240958
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_mixed_recent_history_42_test_recent_1024.jsonl": [
+      242136143,
+      1792780539673451353
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_mixed_recent_history_42_test_recent_1024.metrics.jsonl": [
+      105586,
+      1792780544552351037
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_thinkcost_42_validation_128.jsonl": [
+      11536037,
+      1792787923558169122
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_mixed_recent_history_42_test_balanced_1024.settings.json": [
+      29740,
+      1792780546289527904
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_mixed_recent_history_42_test_balanced_1024.jsonl": [
+      242593368,
+      1792781884820664710
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_mixed_recent_history_42_test_balanced_1024.metrics.jsonl": [
+      105586,
+      1792781889653040893
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_thinkcost_42_validation_512.jsonl": [
+      34657830,
+      1792789937969565011
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_mixed_balanced_42_test_recent_1024.settings.json": [
+      29726,
+      1792781891308329300
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_mixed_balanced_42_test_recent_1024.jsonl": [
+      242245495,
+      1792785494839307255
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_mixed_balanced_42_test_recent_1024.metrics.jsonl": [
+      105586,
+      1792785499681860687
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_thinkcost_42_validation_512.settings.json": [
+      28431,
+      1792788604102397616
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_mixed_balanced_42_test_balanced_1024.settings.json": [
+      29728,
+      1792785501279485757
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_history_mixed_balanced_42_test_balanced_1024.jsonl": [
+      242801495,
+      1792786831694403490
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_thinkcost_42_test_0.jsonl": [
+      3500576,
+      1792792310772829948
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_thinkcost_42_validation_512.metrics.jsonl": [
+      87780,
+      1792789941028273764
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_test_probe.settings.json": [
+      29722,
+      1792797083354048008
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_thinkcost_42_validation_1024.settings.json": [
+      28432,
+      1792789942570324364
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_thinkcost_42_validation_1024.jsonl": [
+      49213679,
+      1792792169803538653
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_thinkcost_42_validation_1024.metrics.jsonl": [
+      87780,
+      1792792172977954314
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_test_probe.metrics.jsonl": [
+      78182,
+      1792797118569187219
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_validation_probe.settings.json": [
+      28432,
+      1792792174587389651
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_validation_probe.jsonl": [
+      928505,
+      1792792210409626488
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_validation_probe.metrics.jsonl": [
+      74690,
+      1792792213837340808
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_test_remainder.jsonl": [
+      2657215,
+      1792797160973267892
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_validation_remainder.settings.json": [
+      28438,
+      1792792215206345835
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_validation_remainder.jsonl": [
+      2538488,
+      1792792256847722908
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_validation_remainder.metrics.jsonl": [
+      74690,
+      1792792259887739154
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_validation_all_non_thinking.jsonl": [
+      3300687,
+      1792792261628732605
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_validation_all_non_thinking.metrics.jsonl": [
+      87780,
+      1792792261629787921
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_validation_uncertainty_0.25.jsonl": [
+      7273253,
+      1792792261676732702
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_validation_uncertainty_0.25.metrics.jsonl": [
+      87780,
+      1792792261677732704
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_validation_uncertainty_0.25_random.jsonl": [
+      7265534,
+      1792792261723732797
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_validation_uncertainty_0.25_random.metrics.jsonl": [
+      87780,
+      1792792261724732799
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_validation_uncertainty_0.5.jsonl": [
+      11235572,
+      1792792261783732918
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_validation_uncertainty_0.5.metrics.jsonl": [
+      87780,
+      1792792261784732920
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_validation_uncertainty_0.5_random.jsonl": [
+      11237916,
+      1792792261839733032
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_validation_uncertainty_0.5_random.metrics.jsonl": [
+      87780,
+      1792792261840972050
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_validation_history_length_0.25.jsonl": [
+      7332777,
+      1792792261892733139
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_validation_history_length_0.25.metrics.jsonl": [
+      87780,
+      1792792261893744069
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_validation_history_length_0.25_random.jsonl": [
+      7265534,
+      1792792261940733236
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_validation_history_length_0.25_random.metrics.jsonl": [
+      87780,
+      1792792261941463597
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_validation_history_length_0.5.jsonl": [
+      11352459,
+      1792792262000733357
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_validation_history_length_0.5.metrics.jsonl": [
+      87780,
+      1792792262001733360
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_validation_history_length_0.5_random.jsonl": [
+      11237916,
+      1792792262055733469
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_validation_history_length_0.5_random.metrics.jsonl": [
+      87780,
+      1792792262057269841
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_thinkcost_42_validation_mixed16.jsonl": [
+      11262030,
+      1792792262117733594
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_thinkcost_42_validation_mixed16.metrics.jsonl": [
+      87780,
+      1792792262118844742
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_test_remainder.settings.json": [
+      29728,
+      1792797120040496528
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_thinkcost_42_test_0.settings.json": [
+      29720,
+      1792792267125027413
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_thinkcost_42_test_0.metrics.jsonl": [
+      91884,
+      1792792314174836535
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_test_remainder.metrics.jsonl": [
+      78182,
+      1792797164325298384
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_thinkcost_42_test_128.settings.json": [
+      29721,
+      1792792315892459912
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_thinkcost_42_test_128.jsonl": [
+      12117942,
+      1792792684458463210
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_thinkcost_42_test_128.metrics.jsonl": [
+      91884,
+      1792792687862315023
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_test_all_non_thinking.jsonl": [
+      3455190,
+      1792797165601272151
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_thinkcost_42_test_256.settings.json": [
+      29721,
+      1792792689716879012
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_thinkcost_42_test_256.jsonl": [
+      20179117,
+      1792793383136384566
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_thinkcost_42_test_256.metrics.jsonl": [
+      91884,
+      1792793386518804258
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_test_uncertainty_0.25.jsonl": [
+      7747914,
+      1792797165651272198
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_thinkcost_42_test_512.settings.json": [
+      29721,
+      1792793387949316216
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_thinkcost_42_test_512.jsonl": [
+      36364686,
+      1792794749102138843
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_thinkcost_42_test_512.metrics.jsonl": [
+      91884,
+      1792794752564141408
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_test_uncertainty_0.5.jsonl": [
+      12044256,
+      1792797165764272302
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_thinkcost_42_test_1024.settings.json": [
+      29722,
+      1792794753992595667
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_thinkcost_42_test_1024.jsonl": [
+      51608771,
+      1792797078365191850
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_thinkcost_42_test_1024.metrics.jsonl": [
+      91884,
+      1792797081884627170
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_test_probe.jsonl": [
+      972089,
+      1792797115566226093
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_test_all_non_thinking.metrics.jsonl": [
+      91884,
+      1792797165602606465
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_test_uncertainty_0.25.metrics.jsonl": [
+      91884,
+      1792797165652272199
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_test_uncertainty_0.25_random.jsonl": [
+      7786685,
+      1792797165701272244
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_test_uncertainty_0.25_random.metrics.jsonl": [
+      91884,
+      1792797165702272244
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_test_uncertainty_0.5.metrics.jsonl": [
+      91884,
+      1792797165765986973
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_test_uncertainty_0.5_random.jsonl": [
+      12071008,
+      1792797165822272355
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_test_uncertainty_0.5_random.metrics.jsonl": [
+      91884,
+      1792797165824336030
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_test_history_length_0.25.jsonl": [
+      7796295,
+      1792797165877272406
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_test_history_length_0.25.metrics.jsonl": [
+      91884,
+      1792797165879358653
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_test_history_length_0.25_random.jsonl": [
+      7744413,
+      1792797165928272453
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_test_history_length_0.25_random.metrics.jsonl": [
+      91884,
+      1792797165929466054
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_test_history_length_0.5.jsonl": [
+      11710588,
+      1792797165990272509
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_test_history_length_0.5.metrics.jsonl": [
+      91884,
+      1792797165991797571
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_test_history_length_0.5_random.jsonl": [
+      11576159,
+      1792797166047272562
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_route_42_test_history_length_0.5_random.metrics.jsonl": [
+      91884,
+      1792797166049016780
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_thinkcost_42_test_mixed16.jsonl": [
+      11791862,
+      1792797166111272621
+    ],
+    "/data1/dzh/minionereason/predictions_v2/main/main_rl_nk_prefix_thinkcost_42_test_mixed16.metrics.jsonl": [
+      91884,
+      1792797166112830906
+    ],
+    "/data1/dzh/minionereason/predictions_v2/smoke/backend_transformers.jsonl": [
+      10250,
+      1792396597511467846
+    ],
+    "/data1/dzh/minionereason/predictions_v2/smoke/backend_vllm.jsonl": [
+      11364,
+      1792571303474677232
+    ],
+    "/data1/dzh/minionereason/predictions_v2/smoke/smoke_rl_std32_42_monitor_step1.jsonl": [
+      931993,
+      1792573342263835336
+    ],
+    "/data1/dzh/minionereason/predictions_v2/smoke/smoke_rl_std32_42_monitor_step1.metrics.jsonl": [
+      912,
+      1792573345062942144
+    ],
+    "/data1/dzh/minionereason/predictions_v2/smoke/smoke_rl_std32_42_monitor_step1.settings.json": [
+      920,
+      1792573293232501472
+    ],
+    "/data1/dzh/minionereason/predictions_v2/smoke/smoke_vllm_lora.jsonl": [
+      9559,
+      1792571571914367323
+    ],
+    "/data1/dzh/minionereason/predictions_v2/smoke/smoke_vllm_lora.metrics.jsonl": [
+      776,
+      1792571574719462504
+    ],
+    "/data1/dzh/minionereason/predictions_v2/smoke/smoke_vllm_lora.settings.json": [
+      920,
+      1792571551891269225
+    ]
+  },
+  "original_project_report": {
+    "path": "/home/dzh/minionereason/reports/PROJECT_REPORT.md",
+    "bytes": 10134,
+    "sha256": "80be23107172da27f947e599c8105a21f9b56d5d36fc55dbc086c2688fec4208"
+  },
+  "source_sha256": {
+    "evaluate.py": "45a0d62ad6876350802d751ad7192895e7957faa5a28d6f6483df722475dcbb1",
+    "data.py": "63d7cc60bd809d789bf5d2eb07fe29e890f9dccb0e97300ea9eaf5b1ebfef537",
+    "history.py": "eed4eee0908d4a1707140b32cd32e7801100211ace589c4ec4a9216b946abc6a",
+    "model.py": "bdcf194598e3483f6738225f1541728123b729362ee0a7075ca7fe4e82bfc3e6",
+    "ops/checks.py": "4e26b5d548131e60e73c62e8c4fc720725ae479bef22fa70d2e0088e1f87c820",
+    "ops/official.py": "4703f023bf635476b01e18e72421dfd9e7b5490c378057fa7af2f35fd6fad95f",
+    "ops/prepare_official.py": "16da1ab9799889a209c8b4ae287e93beb4ce66004a37d130c582050a5eabb8d2"
+  }
+}

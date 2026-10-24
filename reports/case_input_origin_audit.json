@@ -1,0 +1,100 @@
+{
+  "checks": [
+    {
+      "sample_id": "af6dbf9e90564fe566006704e8201f1943331634b6dd3665427812ffaeb3196f",
+      "source": {
+        "dataset": "OpenOneRec/OneReasonSFT",
+        "revision": "8a345a651e317b481e16073066adf5575daaee47",
+        "file": "OneRec_Foundation_UserProfile_CoT_Sft_Demodata_Video/0.4.0/rank43-0.parquet",
+        "row": 374,
+        "record_id": 51901
+      },
+      "original_user_dates": [],
+      "original_system_dates": [],
+      "normalized_user_dates": [],
+      "system_sha256": "f7662b3aa32fc12e9deaca0c62a116def84f4a3db9318a127974d3c61cfacf09",
+      "original_user_tail": "<s_a_512><s_b_2780><s_c_6915> 有过收藏/长播行为，对视频 <|video_begin|><s_a_4969><s_b_713><s_c_1935> 有过关注/长播行为，对视频 <|video_begin|><s_a_5295><s_b_1369><s_c_1327> 有过转发/点赞/长播行为，对视频 <|video_begin|><s_a_5738><s_b_2965><s_c_2607> 有过关注/收藏/长播行为。\n\n请基于这些线索总结该用户在各场景中的目标内容。"
+    },
+    {
+      "sample_id": "02c2c1f25a5f9336e32e16c8a7c5ecdafc61e87498417be1cea2faa392b71465",
+      "source": {
+        "dataset": "OpenOneRec/OneReasonSFT",
+        "revision": "8a345a651e317b481e16073066adf5575daaee47",
+        "file": "OneRec_Foundation_UserProfile_CoT_Sft_Demodata_Video/0.4.0/rank17-0.parquet",
+        "row": 455,
+        "record_id": 38767
+      },
+      "original_user_dates": [],
+      "original_system_dates": [],
+      "normalized_user_dates": [],
+      "system_sha256": "6443ff30390a8ced89bd8db238908324d466ab54644e788c7275b0ea40fd986d",
+      "original_user_tail": "1110>, <|ad_begin|><s_a_4746><s_b_6973><s_c_3913>, <|ad_begin|><s_a_2879><s_b_5842><s_c_2949>, <|ad_begin|><s_a_6302><s_b_7391><s_c_1687>, <|ad_begin|><s_a_3047><s_b_4746><s_c_2693>, <|ad_begin|><s_a_903><s_b_4033><s_c_5059>。\n\n请基于这些线索总结该用户在各场景中的目标内容。"
+    },
+    {
+      "sample_id": "01606b93bee3347f5906a4d6ea29789c764fbe3e4855ed4a4407a7f84bfc9c34",
+      "source": {
+        "dataset": "OpenOneRec/OneReasonSFT",
+        "revision": "8a345a651e317b481e16073066adf5575daaee47",
+        "file": "OneRec_Foundation_UserProfile_CoT_Sft_Demodata_Video/0.4.0/rank77-0.parquet",
+        "row": 380,
+        "record_id": 68583
+      },
+      "original_user_dates": [],
+      "original_system_dates": [],
+      "normalized_user_dates": [],
+      "system_sha256": "f7662b3aa32fc12e9deaca0c62a116def84f4a3db9318a127974d3c61cfacf09",
+      "original_user_tail": "879>, <|ad_begin|><s_a_4035><s_b_6234><s_c_3913>, <|ad_begin|><s_a_4035><s_b_6234><s_c_3913>, <|ad_begin|><s_a_4928><s_b_6966><s_c_7806>, <|ad_begin|><s_a_2470><s_b_3465><s_c_6222>, <|ad_begin|><s_a_8186><s_b_7878><s_c_3984>。\n\n请基于这些线索总结该用户在各场景中的目标内容。"
+    },
+    {
+      "sample_id": "d52ab444ebba2bf162985094272ddfcd9726986b29e671a7d229255048146a73",
+      "source": {
+        "dataset": "OpenOneRec/OneReasonSFT",
+        "revision": "8a345a651e317b481e16073066adf5575daaee47",
+        "file": "OneRec_Foundation_UserProfile_CoT_Sft_Demodata_Video/0.4.0/rank85-0.parquet",
+        "row": 692,
+        "record_id": 73383
+      },
+      "original_user_dates": [],
+      "original_system_dates": [],
+      "normalized_user_dates": [],
+      "system_sha256": "57352761e4288f7b7f4a3eb0a90ce2b619dcd24aa8bc6038de6039c7f14588db",
+      "original_user_tail": "><s_b_98><s_c_5962>, <|prod_begin|><s_a_2144><s_b_3351><s_c_2915>, <|prod_begin|><s_a_2195><s_b_1996><s_c_6920>, <|prod_begin|><s_a_4233><s_b_5940><s_c_5940>, <|prod_begin|><s_a_7978><s_b_4190><s_c_4991>, <|prod_begin|><s_a_7845><s_b_3037><s_c_5602>。"
+    },
+    {
+      "sample_id": "0114c44092b6ac6a5fb12fb5fc9966ebaeb0127ea25e015f9e34be6d336f627c",
+      "source": {
+        "dataset": "OpenOneRec/OneReasonSFT",
+        "revision": "8a345a651e317b481e16073066adf5575daaee47",
+        "file": "OneRec_Foundation_UserProfile_CoT_Sft_Demodata_Video/0.4.0/rank14-0.parquet",
+        "row": 56,
+        "record_id": 36822
+      },
+      "original_user_dates": [],
+      "original_system_dates": [],
+      "normalized_user_dates": [],
+      "system_sha256": "6443ff30390a8ced89bd8db238908324d466ab54644e788c7275b0ea40fd986d",
+      "original_user_tail": "s_c_5879>, <|ad_begin|><s_a_7130><s_b_4958><s_c_1484>, <|ad_begin|><s_a_6766><s_b_978><s_c_5115>, <|ad_begin|><s_a_5019><s_b_6874><s_c_1786>, <|ad_begin|><s_a_2082><s_b_266><s_c_8143>, <|ad_begin|><s_a_7751><s_b_3873><s_c_6156>。\n\n请输出该用户在不同场景下对应的目标内容。"
+    },
+    {
+      "sample_id": "b316262747da9da44a8c4c8431b06be0b97597ccbb7823f56638b551f6b7f6c1",
+      "source": {
+        "dataset": "OpenOneRec/OneReasonSFT",
+        "revision": "8a345a651e317b481e16073066adf5575daaee47",
+        "file": "OneRec_Foundation_UserProfile_CoT_Sft_Demodata_Video/0.4.0/rank59-0.parquet",
+        "row": 121,
+        "record_id": 59459
+      },
+      "original_user_dates": [],
+      "original_system_dates": [],
+      "normalized_user_dates": [],
+      "system_sha256": "101063c6dd37f1017917034538723b855a99b271de6c1ba890bbef3623ea2471",
+      "original_user_tail": "begin|><s_a_1383><s_b_7608><s_c_2679>, <|ad_begin|><s_a_1383><s_b_7608><s_c_2679>, <|ad_begin|><s_a_1383><s_b_7608><s_c_2679>, <|ad_begin|><s_a_1351><s_b_4733><s_c_4913>, <|ad_begin|><s_a_2165><s_b_6162><s_c_2370>。\n\n请根据以上信息，给出该用户在直播、电商、视频、广告场景中的目标内容。"
+    }
+  ],
+  "systems": {
+    "f7662b3aa32fc12e9deaca0c62a116def84f4a3db9318a127974d3c61cfacf09": "你负责根据用户多域行为理解用户兴趣偏好，并输出该用户在各场景中的目标内容。",
+    "6443ff30390a8ced89bd8db238908324d466ab54644e788c7275b0ea40fd986d": "你是推荐理解助手。你需要根据用户多域历史行为，输出该用户在各推荐场景中的目标内容。",
+    "57352761e4288f7b7f4a3eb0a90ce2b619dcd24aa8bc6038de6039c7f14588db": "你擅长理解快手用户跨场景行为和语义ID表示，请根据输入信息归纳该用户的目标内容。",
+    "101063c6dd37f1017917034538723b855a99b271de6c1ba890bbef3623ea2471": "你是一名多场景推荐数据构造助手，请结合用户行为线索，生成对应的目标内容文本。"
+  }
+}

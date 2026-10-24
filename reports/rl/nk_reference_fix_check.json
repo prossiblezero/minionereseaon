@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "compared_tensors": 392,
+  "initial_logits_equal": true,
+  "reference_trainable_parameters": 0,
+  "fix": "Reload exact initial policy weights after reference adapter dtype promotion",
+  "regression_test": "test_reference_preserves_fp32_weights_and_stays_frozen"
+}

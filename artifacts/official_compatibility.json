@@ -1,0 +1,111 @@
+{
+  "checked_at": "2026-10-23T20:35:53.270468+00:00",
+  "compatible": true,
+  "task": "challenge_recommendation_product",
+  "code_commit": "89e09b0b8e4cd3e584ba70c2f46728e250e705b7",
+  "dataset_revision": "696c54606ecab09c8d9482294197886287871bc2",
+  "data_version": "v3.1-public",
+  "code_version": "v3.1",
+  "checksum_checks": {
+    "challenge_recommendation_product/challenge_recommendation_product_test.parquet": true,
+    "sid2pid_product.json": true
+  },
+  "examples": 1000,
+  "prompt_tokens": {
+    "min": 67,
+    "median": 1074,
+    "max": 2346
+  },
+  "unique_sid_tokens": 13466,
+  "unsupported_tokens": [],
+  "ground_truth_sids": 1711,
+  "unmapped_ground_truth_sids": 0,
+  "rows_with_all_target_pids_in_mapping": 997,
+  "generation": {
+    "num_return_sequences": 64,
+    "max_new_tokens": 3,
+    "temperature": 0.6,
+    "top_p": 0.95,
+    "top_k": 50,
+    "presence_penalty": 1.0,
+    "frequency_penalty": 1.0,
+    "prompt_token": "<|prod_begin|>",
+    "max_new_thinking_tokens": 4096,
+    "num_return_thinking_sequences": 1,
+    "num_beams": 64
+  },
+  "evaluation": {
+    "metrics": [
+      "pass@k",
+      "position1_pass@k",
+      "recall@k",
+      "mean_emb_sim@k",
+      "max_emb_sim@k",
+      "incremental_value_weighted_pid_recall@k",
+      "play_count_weighted_pid_recall@k",
+      "duration_weighted_pid_recall@k",
+      "sid_1th_recall@k"
+    ],
+    "k_values": [
+      1,
+      4,
+      8,
+      16,
+      32,
+      64
+    ],
+    "select_k": "first_k",
+    "evaluation_mode": "both",
+    "centroid_model_dir": null,
+    "centroid_num_tokens": 1,
+    "centroid_num_layers": 3,
+    "sid_pattern": "<s_a_(\\d+)><s_b_(\\d+)><s_c_(\\d+)>",
+    "sid_to_pid_strategy": "max_pid",
+    "mapping_filename": "sid2pid_product.json"
+  },
+  "all_target_pid_alignment_passed": false,
+  "label_mapping_discrepancies": [
+    {
+      "sample_id": "260",
+      "answer": "<|prod_begin|><s_a_5258><s_b_2657><s_c_6741>",
+      "answer_pid": [
+        47088644,
+        46246931
+      ],
+      "not_in_target_sid_mapping": [
+        47088644
+      ],
+      "not_in_full_catalog": []
+    },
+    {
+      "sample_id": "561",
+      "answer": "<|prod_begin|><s_a_4299><s_b_689><s_c_5064>",
+      "answer_pid": [
+        44704855,
+        47174020
+      ],
+      "not_in_target_sid_mapping": [
+        47174020
+      ],
+      "not_in_full_catalog": []
+    },
+    {
+      "sample_id": "797",
+      "answer": "<|prod_begin|><s_a_7242><s_b_8188><s_c_7750><|prod_begin|><s_a_2338><s_b_8022><s_c_7750><|prod_begin|><s_a_210><s_b_8022><s_c_1616><|prod_begin|><s_a_2338><s_b_6000><s_c_939><|prod_begin|><s_a_2575><s_b_2103><s_c_4365><|prod_begin|><s_a_5471><s_b_5399><s_c_61>",
+      "answer_pid": [
+        45766034,
+        45266514,
+        46037855,
+        46206627,
+        44677889,
+        47174300,
+        46126910
+      ],
+      "not_in_target_sid_mapping": [
+        47174300
+      ],
+      "not_in_full_catalog": []
+    }
+  ],
+  "policy": "Use all 1000 official rows and unmodified official labels/mapping/scoring; report the three label/mapping discrepancies without filtering or rewriting targets."
+}

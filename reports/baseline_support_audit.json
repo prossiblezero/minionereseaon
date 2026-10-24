@@ -1,0 +1,30 @@
+{
+  "training_target_unique": 2637,
+  "training_history_unique": 211125,
+  "catalog_sids": 10295563,
+  "splits": {
+    "validation": {
+      "examples": 385,
+      "target_seen_as_training_target": 5,
+      "target_seen_in_training_history": 51,
+      "target_unseen_in_training": 332,
+      "popularity_hits64": 0,
+      "sasrec_valid_attempts": 24640,
+      "sasrec_attempts": 24640,
+      "sasrec_hits64": 0,
+      "sasrec_recommendations_seen_as_training_target": 7
+    },
+    "test": {
+      "examples": 403,
+      "target_seen_as_training_target": 3,
+      "target_seen_in_training_history": 50,
+      "target_unseen_in_training": 353,
+      "popularity_hits64": 0,
+      "sasrec_valid_attempts": 25792,
+      "sasrec_attempts": 25792,
+      "sasrec_hits64": 0,
+      "sasrec_recommendations_seen_as_training_target": 2
+    }
+  },
+  "interpretation": "Cold-start and training support are measured separately; all-zero baseline remains a weak reference, not evidence of broad superiority."
+}

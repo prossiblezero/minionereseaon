@@ -1,0 +1,111 @@
+{
+  "created_at": "2026-10-24T04:21:11.032774+00:00",
+  "examples": 1000,
+  "models": {
+    "mixed": {
+      "scores": {
+        "pass@32": 0.09,
+        "recall@32": 0.06651349206349207,
+        "pass@64": 0.096,
+        "recall@64": 0.07188015873015874,
+        "pid_pass@64": 0.028,
+        "pid_recall@64": 0.01816111111111111,
+        "sid_validity@64": 0.173734375
+      },
+      "source": "/home/dzh/minionereason/reports/checks/official_mixed.json",
+      "raw": "/data1/dzh/minionereason/predictions_checks/official/mixed_42/datav3.1_seed42_race/mixed_42_merged_bf16/challenge_recommendation_product/test_generated.json",
+      "raw_sha256": "51eddecce7be5b7ad43f93b2fe94051539953f863f799221f233683696e7280c"
+    },
+    "rl_nk_prefix": {
+      "scores": {
+        "pass@32": 0.095,
+        "recall@32": 0.06946746031746032,
+        "pass@64": 0.102,
+        "recall@64": 0.074884126984127,
+        "pid_pass@64": 0.031,
+        "pid_recall@64": 0.020022222222222223,
+        "sid_validity@64": 0.16296875
+      },
+      "source": "/home/dzh/minionereason/reports/official_status.json",
+      "raw": "/data1/dzh/minionereason/official_results/rl_nk_prefix_42/datav3.1_seed42_race/rl_nk_prefix_42_merged_bf16/challenge_recommendation_product/test_generated.json",
+      "raw_sha256": "dc2e0d89fe2643c28c9907c66c9cbfb932292e2e59d0f4f4f210bb7645785be4"
+    }
+  },
+  "comparisons": {
+    "pass@32": {
+      "delta": 0.005,
+      "ci95": [
+        -0.005,
+        0.014
+      ],
+      "clusters": 1000,
+      "resamples": 1000,
+      "bootstrap_standard_error": 0.004743511452595103
+    },
+    "recall@32": {
+      "delta": 0.002953968253968254,
+      "ci95": [
+        -0.005965079365079366,
+        0.011178670634920635
+      ],
+      "clusters": 1000,
+      "resamples": 1000,
+      "bootstrap_standard_error": 0.0042368790296706295
+    },
+    "pass@64": {
+      "delta": 0.006,
+      "ci95": [
+        -0.002,
+        0.014
+      ],
+      "clusters": 1000,
+      "resamples": 1000,
+      "bootstrap_standard_error": 0.004134732762224786
+    },
+    "recall@64": {
+      "delta": 0.003003968253968254,
+      "ci95": [
+        -0.003864087301587301,
+        0.009287599206349204
+      ],
+      "clusters": 1000,
+      "resamples": 1000,
+      "bootstrap_standard_error": 0.0035056713221485384,
+      "judgement": "方向一致，未达显著"
+    },
+    "pid_pass@64": {
+      "delta": 0.003,
+      "ci95": [
+        -0.002,
+        0.009
+      ],
+      "clusters": 1000,
+      "resamples": 1000,
+      "bootstrap_standard_error": 0.002959468610148527
+    },
+    "pid_recall@64": {
+      "delta": 0.0018611111111111111,
+      "ci95": [
+        -0.00275,
+        0.006722916666666666
+      ],
+      "clusters": 1000,
+      "resamples": 1000,
+      "bootstrap_standard_error": 0.00246167681753486,
+      "judgement": "方向一致，未达显著"
+    },
+    "sid_validity@64": {
+      "delta": -0.010765625,
+      "ci95": [
+        -0.0135625,
+        -0.007812109375
+      ],
+      "clusters": 1000,
+      "resamples": 1000,
+      "bootstrap_standard_error": 0.0014426211087724926
+    }
+  },
+  "reference": "mixed SFT only; no pretrained baseline in mandatory scope",
+  "bootstrap_resamples": 1000,
+  "per_sample_means_verified": true
+}

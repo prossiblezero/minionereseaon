@@ -1,0 +1,178 @@
+{
+  "main": {
+    "raw_rows": 48269,
+    "accepted_before_cap": {
+      "train": 2647,
+      "validation": 385,
+      "test": 403
+    },
+    "actual": {
+      "train": 2647,
+      "validation": 385,
+      "test": 403
+    },
+    "rejected": {
+      "wrong_domain": 44281,
+      "duplicate_history_target": 213,
+      "target_out_of_catalog": 321,
+      "reasoning_reference_removed_by_crop": 17,
+      "reasoning_exceeds_output_budget": 2
+    },
+    "length_gate": {
+      "train": {
+        "events": {
+          "mean": 130.6652814506989,
+          "median": 115.0,
+          "p90": 215.4000000000001,
+          "p95": 240.0
+        },
+        "prompt_tokens": {
+          "mean": 882.8133736305251,
+          "median": 787.0,
+          "p90": 1409.0,
+          "p95": 1593.199999999999
+        },
+        "trimmed_fraction": {
+          "512": 0.9119758216849263,
+          "1024": 0.3071401586701927,
+          "2048": 0.00415564790328674
+        }
+      },
+      "validation": {
+        "events": {
+          "mean": 133.35324675324676,
+          "median": 120.0,
+          "p90": 215.20000000000005,
+          "p95": 243.79999999999995
+        },
+        "prompt_tokens": {
+          "mean": 897.4207792207792,
+          "median": 818.0,
+          "p90": 1414.6000000000001,
+          "p95": 1610.5999999999995
+        },
+        "trimmed_fraction": {
+          "512": 0.9272727272727272,
+          "1024": 0.2987012987012987,
+          "2048": 0.005194805194805195
+        }
+      },
+      "test": {
+        "events": {
+          "mean": 132.99255583126552,
+          "median": 119.0,
+          "p90": 202.0,
+          "p95": 232.5999999999999
+        },
+        "prompt_tokens": {
+          "mean": 898.0694789081886,
+          "median": 807.0,
+          "p90": 1366.0,
+          "p95": 1506.9
+        },
+        "trimmed_fraction": {
+          "512": 0.9230769230769231,
+          "1024": 0.3424317617866005,
+          "2048": 0.0
+        }
+      }
+    },
+    "scope": "paired valid-CoT product subset; train-only deduplication; validation/test repeats retained within group; single target SID; grouped holdout, not temporal/user split",
+    "raw_product_candidate_lengths": {
+      "train": {
+        "events": {
+          "mean": 132.03266992114158,
+          "median": 115.0,
+          "p90": 217.0,
+          "p95": 248.9000000000001
+        },
+        "prompt_tokens": {
+          "mean": 891.9530604581299,
+          "median": 789.0,
+          "p90": 1423.0,
+          "p95": 1642.6000000000004
+        }
+      },
+      "validation": {
+        "events": {
+          "mean": 133.35324675324676,
+          "median": 120.0,
+          "p90": 215.20000000000005,
+          "p95": 243.79999999999995
+        },
+        "prompt_tokens": {
+          "mean": 897.4207792207792,
+          "median": 818.0,
+          "p90": 1414.6000000000001,
+          "p95": 1610.5999999999995
+        }
+      },
+      "test": {
+        "events": {
+          "mean": 134.35467980295567,
+          "median": 119.5,
+          "p90": 216.5,
+          "p95": 237.0
+        },
+        "prompt_tokens": {
+          "mean": 906.7635467980296,
+          "median": 815.5,
+          "p90": 1390.0,
+          "p95": 1550.0
+        }
+      }
+    }
+  },
+  "catalog": {
+    "domains": {
+      "live": 107289,
+      "goods": 16087726,
+      "video/ad": 2056889,
+      "video/video": 17662191
+    },
+    "product_sids": 10295563,
+    "colliding_sids": 2080061,
+    "excess_pid_rows": 5792163,
+    "invalid_rows": 0,
+    "files": 198,
+    "provenance": "full independent Pid2Sid; goods domain",
+    "duplicate_pid_sid_rows": 0,
+    "pids_with_multiple_sids": 0,
+    "collision_definition": "distinct goods PID/SID pairs; duplicate raw rows excluded"
+  },
+  "validation": {
+    "status": "passed",
+    "group_counts": {
+      "train": 2292,
+      "validation": 307,
+      "test": 314
+    }
+  },
+  "revisions": {
+    "model": "5a0a9ec5c601c268bb2300d99baa7a4ad526ab0c",
+    "sft": "8a345a651e317b481e16073066adf5575daaee47",
+    "catalog": "dd8a712c1ac3f7092690b69aaa91f3ba75b4923f"
+  },
+  "fingerprints": [
+    {
+      "path": "/data1/dzh/minionereason/data/processed/main/quarantine.jsonl",
+      "bytes": 134006,
+      "sha256": "3b0b2bec2bfffd7c3d71426092243d0239a9d77f32e8eb98d3402ce173355119"
+    },
+    {
+      "path": "/data1/dzh/minionereason/data/processed/main/test.jsonl",
+      "bytes": 13741033,
+      "sha256": "99453dd1126469b3e2b9f415e985e9dcc5ef6022e2da25ea0645039e93c5763c"
+    },
+    {
+      "path": "/data1/dzh/minionereason/data/processed/main/train.jsonl",
+      "bytes": 88770848,
+      "sha256": "c7119d097e0c88bf1254bea648e97654f61f12e364f07ed2c5e65c1de149ecb8"
+    },
+    {
+      "path": "/data1/dzh/minionereason/data/processed/main/validation.jsonl",
+      "bytes": 13103976,
+      "sha256": "a20de19a62356a2d17c8f09393dcd122a1d9cba9cf9a4a12cb786f4f8d3063b3"
+    }
+  ]
+}

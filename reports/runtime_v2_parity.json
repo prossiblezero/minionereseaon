@@ -1,0 +1,11 @@
+{
+  "examples": 32,
+  "identical_token_sequences": 28,
+  "mismatches": [
+    "41ee74eca24a096fb9d111cde3bb890fab32197cd4fc098fadb3748033aeb3e1",
+    "af6dbf9e90564fe566006704e8201f1943331634b6dd3665427812ffaeb3196f",
+    "8476ffc84a77ae54f2043919bc0d47dd2b55f634f5bfd9885ce684bf79abbb73",
+    "c2caae7a52123a9486416ddfdea2d7ef541bb645567f01a9a2d928d2522fc1ba"
+  ],
+  "runtime": "CUDA graphs; 64 concurrent sequences; memory fraction 0.65"
+}

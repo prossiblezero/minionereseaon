@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+export MINIONEREASON_DATA_ROOT="${MINIONEREASON_DATA_ROOT:-/data1/dzh/minionereason}"
+export CUDA_VISIBLE_DEVICES="${CUDA_VISIBLE_DEVICES:-0}"
+export HF_HOME="$MINIONEREASON_DATA_ROOT/cache/huggingface"
+export HF_DATASETS_CACHE="$MINIONEREASON_DATA_ROOT/cache/datasets"
+export HF_ENDPOINT="${HF_ENDPOINT:-https://hf-mirror.com}"
+export HF_HUB_DISABLE_XET=1
+export HF_HUB_DISABLE_TELEMETRY=1
+export HF_HUB_DOWNLOAD_TIMEOUT=120
+export XDG_CACHE_HOME="$MINIONEREASON_DATA_ROOT/cache"
+export PIP_CACHE_DIR="$MINIONEREASON_DATA_ROOT/cache/pip"
+export TMPDIR="$MINIONEREASON_DATA_ROOT/tmp"
+export TORCHINDUCTOR_CACHE_DIR="$MINIONEREASON_DATA_ROOT/cache/torchinductor"
+export TRITON_CACHE_DIR="$MINIONEREASON_DATA_ROOT/cache/triton"
+export TOKENIZERS_PARALLELISM=false
+export OMP_NUM_THREADS=4
+export MKL_NUM_THREADS=4
+export VLLM_WORKER_MULTIPROC_METHOD=spawn
+export VLLM_NO_USAGE_STATS=1
+export WANDB_DISABLED=true
+export PYTHONUNBUFFERED=1
+export PYTHONUTF8=1
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+mkdir -p "$TMPDIR" "$PIP_CACHE_DIR" "$HF_HOME" "$HF_DATASETS_CACHE"
+if [ -f "$MINIONEREASON_DATA_ROOT/.venv/bin/activate" ]; then
+    source "$MINIONEREASON_DATA_ROOT/.venv/bin/activate"
+fi

@@ -1,0 +1,63 @@
+{
+  "seed": 42,
+  "variant": "rl_nk_prefix",
+  "selected_on": "validation",
+  "selection_metric": "recall@32",
+  "candidates": {
+    "rl_std": 0.01818181818181818,
+    "rl_std32": 0.025974025974025976,
+    "rl_nk": 0.02077922077922078,
+    "rl_nk_prefix": 0.04935064935064935
+  },
+  "selection_sources": {
+    "rl_std": {
+      "path": "/home/dzh/minionereason/reports/results_v2/rl_std_42_validation_recent_in2048_thinkTrue_budgetNone_n64_vllm.json",
+      "sha256": "364e9d24b150d887128a6f9c4730052004bd8216d539a1bac57e05b27ae53458"
+    },
+    "rl_std32": {
+      "path": "/home/dzh/minionereason/reports/results_v2/rl_std32_42_validation_recent_in2048_thinkTrue_budgetNone_n64_vllm.json",
+      "sha256": "4eb6c13d6596d8d424522f6ce910abc6e069fe3aa39200e15d535ece77155c35"
+    },
+    "rl_nk": {
+      "path": "/home/dzh/minionereason/reports/results_v2/rl_nk_42_validation_recent_in2048_thinkTrue_budgetNone_n64_vllm.json",
+      "sha256": "dfb7146462274fb9b5b5a5065a7bd7a8d44bd67b9ed54e269bafd0619f0b53f5"
+    },
+    "rl_nk_prefix": {
+      "path": "/home/dzh/minionereason/reports/results_v2/rl_nk_prefix_42_validation_recent_in2048_thinkTrue_budgetNone_n64_vllm.json",
+      "sha256": "b3d45c2ef3b7467b83fa741d93a29a82ab68e86f2e468d3b7dbb0fbfc55a9483"
+    }
+  },
+  "adapter": "/data1/dzh/minionereason/checkpoints/main/rl_nk_prefix_42/selected/adapter_model.safetensors",
+  "adapter_sha256": "c46b30a4890911b2cf0d67e4b2bdaae824cdec932358b19cbffb4b749686ddd1",
+  "parent_protocol_sha256": "8364fd75e1aa407ebf45c41e99ef05788dba7fd7a8ca5ea8b083b6b5f43e937a",
+  "config_sha256": "fa93a76fa8725c2671455e8eae95be0fb966ed15590b36c0676897b2c3f9a5a5",
+  "thinkcost": {
+    "budgets": [
+      0,
+      128,
+      256,
+      512,
+      1024
+    ],
+    "samples": 32,
+    "probe_samples": 8,
+    "routing_fractions": [
+      0.25,
+      0.5
+    ]
+  },
+  "final_attempts": 32,
+  "probe_attempts": 8,
+  "remainder_attempts": 24,
+  "core_source_sha256": "04ae3a3d649b71bc88658da88e9842a0fa0e813ba9b863d3e4a7a54eb1463fee",
+  "runtime": {
+    "runtime_id": "dsj5090:GPU-316108a9-373b-1984-405a-b9d9f7ee55b3",
+    "host": "dsj5090",
+    "gpu_index": 1,
+    "gpu": "GPU-316108a9-373b-1984-405a-b9d9f7ee55b3, NVIDIA GeForce RTX 5090, 26434, 32607",
+    "created_at": "2026-10-23T06:56:13.302667+00:00",
+    "data_root": "/data3/dzh/minionereason",
+    "compatible_root": "/data1/dzh/minionereason"
+  },
+  "reason": "Complete the RL-weight budget and routing requirement recorded at the 5090 handoff; preserve all mixed-SFT results."
+}

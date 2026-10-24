@@ -1,0 +1,206 @@
+{
+  "created_at": "2026-10-24T04:05:21.302219+00:00",
+  "mode": "non-thinking",
+  "models": {
+    "mixed": {
+      "runs": [
+        {
+          "offset": 0,
+          "source": "/home/dzh/minionereason/reports/results_v2/mixed_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.json",
+          "recall@8": 0.007444168734491315,
+          "recall@32": 0.019851116625310174,
+          "recall@64": 0.034739454094292806,
+          "invalid_rate": 0.389616935483871
+        },
+        {
+          "offset": 1,
+          "source": "/home/dzh/minionereason/reports/checks/results/checks_mixed_42_test_thinkFalse_offset1.json",
+          "recall@8": 0.0024813895781637717,
+          "recall@32": 0.01488833746898263,
+          "recall@64": 0.03722084367245657,
+          "invalid_rate": 0.38705800248138955
+        },
+        {
+          "offset": 2,
+          "source": "/home/dzh/minionereason/reports/checks/results/checks_mixed_42_test_thinkFalse_offset2.json",
+          "recall@8": 0.0024813895781637717,
+          "recall@32": 0.019851116625310174,
+          "recall@64": 0.03722084367245657,
+          "invalid_rate": 0.3900821960297767
+        },
+        {
+          "offset": 3,
+          "source": "/home/dzh/minionereason/reports/checks/results/checks_mixed_42_test_thinkFalse_offset3.json",
+          "recall@8": 0.0024813895781637717,
+          "recall@32": 0.019851116625310174,
+          "recall@64": 0.03722084367245657,
+          "invalid_rate": 0.38884150124069483
+        },
+        {
+          "offset": 4,
+          "source": "/home/dzh/minionereason/reports/checks/results/checks_mixed_42_test_thinkFalse_offset4.json",
+          "recall@8": 0.0024813895781637717,
+          "recall@32": 0.017369727047146403,
+          "recall@64": 0.034739454094292806,
+          "invalid_rate": 0.38624379652605456
+        }
+      ],
+      "mean": {
+        "recall@8": 0.0034739454094292804,
+        "recall@32": 0.01836228287841191,
+        "recall@64": 0.036228287841191066,
+        "invalid_rate": 0.3883684863523573
+      },
+      "sample_std": {
+        "recall@8": 0.0022194223101734884,
+        "recall@32": 0.0022194223101734884,
+        "recall@64": 0.0013591130459185239,
+        "invalid_rate": 0.0016546029743648518
+      },
+      "original_single_run_bootstrap_se": 0.007100644132831263
+    },
+    "rl_nk_prefix": {
+      "runs": [
+        {
+          "offset": 0,
+          "source": "/home/dzh/minionereason/reports/results_v2/rl_nk_prefix_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.json",
+          "recall@8": 0.017369727047146403,
+          "recall@32": 0.034739454094292806,
+          "recall@64": 0.03970223325062035,
+          "invalid_rate": 0.29679745657568235
+        },
+        {
+          "offset": 1,
+          "source": "/home/dzh/minionereason/reports/checks/results/checks_rl_nk_prefix_42_test_thinkFalse_offset1.json",
+          "recall@8": 0.007444168734491315,
+          "recall@32": 0.03225806451612903,
+          "recall@64": 0.04218362282878412,
+          "invalid_rate": 0.29861972704714645
+        },
+        {
+          "offset": 2,
+          "source": "/home/dzh/minionereason/reports/checks/results/checks_rl_nk_prefix_42_test_thinkFalse_offset2.json",
+          "recall@8": 0.009925558312655087,
+          "recall@32": 0.03225806451612903,
+          "recall@64": 0.04218362282878412,
+          "invalid_rate": 0.2981932382133995
+        },
+        {
+          "offset": 3,
+          "source": "/home/dzh/minionereason/reports/checks/results/checks_rl_nk_prefix_42_test_thinkFalse_offset3.json",
+          "recall@8": 0.007444168734491315,
+          "recall@32": 0.034739454094292806,
+          "recall@64": 0.04466501240694789,
+          "invalid_rate": 0.2998991935483871
+        },
+        {
+          "offset": 4,
+          "source": "/home/dzh/minionereason/reports/checks/results/checks_rl_nk_prefix_42_test_thinkFalse_offset4.json",
+          "recall@8": 0.009925558312655087,
+          "recall@32": 0.03970223325062035,
+          "recall@64": 0.052109181141439205,
+          "invalid_rate": 0.3002481389578163
+        }
+      ],
+      "mean": {
+        "recall@8": 0.010421836228287842,
+        "recall@32": 0.034739454094292806,
+        "recall@64": 0.044168734491315136,
+        "invalid_rate": 0.29875155086848637
+      },
+      "sample_std": {
+        "recall@8": 0.00407733913775558,
+        "recall@32": 0.003039069159780618,
+        "recall@64": 0.004773048154260879,
+        "invalid_rate": 0.0013878431715909152
+      },
+      "original_single_run_bootstrap_se": 0.009933035814533343
+    }
+  },
+  "comparison": {
+    "per_offset_deltas": [
+      0.014888337468982632,
+      0.0173697270471464,
+      0.012406947890818858,
+      0.014888337468982632,
+      0.022332506203473945
+    ],
+    "positive_offsets": 5,
+    "merged": {
+      "delta": 0.016377171215880892,
+      "ci95": [
+        0.0049993781094527364,
+        0.03027407524252701
+      ],
+      "clusters": 314,
+      "resamples": 1000,
+      "bootstrap_standard_error": 0.006417802955273447
+    },
+    "sample_std": 0.0037632136198766995,
+    "original_single_run": {
+      "delta": 0.01488833746898263,
+      "ci95": [
+        0.0,
+        0.03218021398914085
+      ],
+      "clusters": 314,
+      "resamples": 1000,
+      "bootstrap_standard_error": 0.008456081952526057
+    },
+    "judgement": "稳定"
+  },
+  "existing_five_settings": [
+    {
+      "setting": "thinking",
+      "mixed": 0.022332506203473945,
+      "rl_nk_prefix": 0.04466501240694789,
+      "delta": 0.022332506203473945,
+      "sources": [
+        "/home/dzh/minionereason/reports/results_v2/mixed_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.json",
+        "/home/dzh/minionereason/reports/results_v2/rl_nk_prefix_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.json"
+      ]
+    },
+    {
+      "setting": "non-thinking",
+      "mixed": 0.019851116625310174,
+      "rl_nk_prefix": 0.034739454094292806,
+      "delta": 0.014888337468982632,
+      "sources": [
+        "/home/dzh/minionereason/reports/results_v2/mixed_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.json",
+        "/home/dzh/minionereason/reports/results_v2/rl_nk_prefix_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.json"
+      ]
+    },
+    {
+      "setting": "budget 0",
+      "mixed": 0.017369727047146403,
+      "rl_nk_prefix": 0.02977667493796526,
+      "delta": 0.012406947890818858,
+      "sources": [
+        "/home/dzh/minionereason/reports/results_v2/main_thinkcost_42_test_0.json",
+        "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_thinkcost_42_test_0.json"
+      ]
+    },
+    {
+      "setting": "budget 1024",
+      "mixed": 0.02481389578163772,
+      "rl_nk_prefix": 0.03722084367245657,
+      "delta": 0.012406947890818854,
+      "sources": [
+        "/home/dzh/minionereason/reports/results_v2/main_thinkcost_42_test_1024.json",
+        "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_thinkcost_42_test_1024.json"
+      ]
+    },
+    {
+      "setting": "route all non-thinking",
+      "mixed": 0.02977667493796526,
+      "rl_nk_prefix": 0.04962779156327544,
+      "delta": 0.019851116625310177,
+      "sources": [
+        "/home/dzh/minionereason/reports/results_v2/main_route_42_test_all_non_thinking.json",
+        "/home/dzh/minionereason/reports/results_v2/main_rl_nk_prefix_route_42_test_all_non_thinking.json"
+      ]
+    }
+  ],
+  "thinking_multi_sampling_evaluated": false,
+  "hardware_note": "Offset 0 uses original recorded 4090 evaluations; offsets 1-4 use 5090. Sample variability is therefore not isolated from cross-device effects."
+}

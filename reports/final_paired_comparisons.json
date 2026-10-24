@@ -1,0 +1,116 @@
+{
+  "sft": [
+    {
+      "seed": 42,
+      "comparison": "mixed thinking=False minus direct",
+      "delta": -0.007444168734491315,
+      "ci95": [
+        -0.020836060209424082,
+        0.004739617926174421
+      ],
+      "clusters": 314,
+      "resamples": 1000
+    },
+    {
+      "seed": 42,
+      "comparison": "mixed thinking=True minus direct",
+      "delta": -0.004962779156327543,
+      "ci95": [
+        -0.019709335097909467,
+        0.007854957244885271
+      ],
+      "clusters": 314,
+      "resamples": 1000
+    }
+  ],
+  "rl": [
+    {
+      "variant": "std",
+      "thinking": false,
+      "delta": -0.0024813895781637717,
+      "ci95": [
+        -0.0078125,
+        0.0
+      ],
+      "clusters": 314,
+      "resamples": 1000
+    },
+    {
+      "variant": "std",
+      "thinking": true,
+      "delta": 0.0024813895781637717,
+      "ci95": [
+        -0.01256281407035176,
+        0.01957723375940081
+      ],
+      "clusters": 314,
+      "resamples": 1000
+    },
+    {
+      "variant": "std32",
+      "thinking": false,
+      "delta": -0.0024813895781637717,
+      "ci95": [
+        -0.010753412746717678,
+        0.005209358595800523
+      ],
+      "clusters": 314,
+      "resamples": 1000
+    },
+    {
+      "variant": "std32",
+      "thinking": true,
+      "delta": 0.004962779156327543,
+      "ci95": [
+        -0.00990160430435103,
+        0.0190498974709501
+      ],
+      "clusters": 314,
+      "resamples": 1000
+    },
+    {
+      "variant": "nk",
+      "thinking": false,
+      "delta": -0.0024813895781637717,
+      "ci95": [
+        -0.0078125,
+        0.0
+      ],
+      "clusters": 314,
+      "resamples": 1000
+    },
+    {
+      "variant": "nk",
+      "thinking": true,
+      "delta": 0.004962779156327543,
+      "ci95": [
+        -0.009734751340590757,
+        0.020467282284582833
+      ],
+      "clusters": 314,
+      "resamples": 1000
+    },
+    {
+      "variant": "nk_prefix",
+      "thinking": false,
+      "delta": 0.01488833746898263,
+      "ci95": [
+        0.0,
+        0.03218021398914085
+      ],
+      "clusters": 314,
+      "resamples": 1000
+    },
+    {
+      "variant": "nk_prefix",
+      "thinking": true,
+      "delta": 0.022332506203473945,
+      "ci95": [
+        0.004784688995215311,
+        0.040818936270160235
+      ],
+      "clusters": 314,
+      "resamples": 1000
+    }
+  ]
+}

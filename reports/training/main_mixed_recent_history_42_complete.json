@@ -1,0 +1,19 @@
+{
+  "processed_tokens": 4621862,
+  "supervised_tokens": 1479852,
+  "base_samples": 2148,
+  "training_records": 4296,
+  "dropped_history_references": 0,
+  "trainable_parameters": 10092544,
+  "total_parameters": 811526144,
+  "monitor_mode": "non-thinking for all SFT variants",
+  "variant": "mixed_recent_history",
+  "seed": 42,
+  "input_budget": 1024,
+  "paired_history_removed": 499,
+  "seconds": 849.6299660661025,
+  "peak_allocated_bytes": 6222889472,
+  "optimizer_steps": 269,
+  "token_target": null,
+  "selected": "/data1/dzh/minionereason/checkpoints/main/mixed_recent_history_42/selected"
+}

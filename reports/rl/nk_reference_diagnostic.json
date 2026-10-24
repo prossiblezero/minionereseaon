@@ -1,0 +1,69 @@
+{
+  "adapter": "/data1/dzh/minionereason/checkpoints/main/mixed_42/selected",
+  "policy_tensors": 392,
+  "reference_tensors": 392,
+  "keys_equal": true,
+  "different_tensors": 392,
+  "first_differences": [
+    {
+      "key": "base_model.model.model.layers.23.mlp.up_proj.lora_B.weight",
+      "shape": [
+        3072,
+        16
+      ],
+      "policy_dtype": "torch.float32",
+      "reference_dtype": "torch.float32",
+      "max_abs": 3.0471011996269226e-05,
+      "policy_equals_disk": true,
+      "reference_equals_disk": false
+    },
+    {
+      "key": "base_model.model.model.layers.2.self_attn.o_proj.lora_A.weight",
+      "shape": [
+        16,
+        2048
+      ],
+      "policy_dtype": "torch.float32",
+      "reference_dtype": "torch.float32",
+      "max_abs": 8.150190114974976e-05,
+      "policy_equals_disk": true,
+      "reference_equals_disk": false
+    },
+    {
+      "key": "base_model.model.model.layers.3.mlp.down_proj.lora_B.weight",
+      "shape": [
+        1024,
+        16
+      ],
+      "policy_dtype": "torch.float32",
+      "reference_dtype": "torch.float32",
+      "max_abs": 3.0444934964179993e-05,
+      "policy_equals_disk": true,
+      "reference_equals_disk": false
+    },
+    {
+      "key": "base_model.model.model.layers.26.mlp.up_proj.lora_B.weight",
+      "shape": [
+        3072,
+        16
+      ],
+      "policy_dtype": "torch.float32",
+      "reference_dtype": "torch.float32",
+      "max_abs": 3.0514784157276154e-05,
+      "policy_equals_disk": true,
+      "reference_equals_disk": false
+    },
+    {
+      "key": "base_model.model.model.layers.9.self_attn.v_proj.lora_A.weight",
+      "shape": [
+        16,
+        1024
+      ],
+      "policy_dtype": "torch.float32",
+      "reference_dtype": "torch.float32",
+      "max_abs": 0.00012206658720970154,
+      "policy_equals_disk": true,
+      "reference_equals_disk": false
+    }
+  ]
+}

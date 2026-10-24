@@ -1,0 +1,939 @@
+{
+  "complete": true,
+  "scope": "seed_42",
+  "seeds": [
+    42
+  ],
+  "active_job_count": 43,
+  "deferred_jobs": [
+    {
+      "index": 14,
+      "stage": "B_repeats",
+      "args": [
+        "sft",
+        "--variant",
+        "direct",
+        "--seed",
+        "43"
+      ],
+      "when": null
+    },
+    {
+      "index": 15,
+      "stage": "B_repeats",
+      "args": [
+        "sft",
+        "--variant",
+        "mixed",
+        "--seed",
+        "43"
+      ],
+      "when": null
+    },
+    {
+      "index": 16,
+      "stage": "B_repeats",
+      "args": [
+        "evaluate",
+        "--variant",
+        "direct",
+        "--seed",
+        "43",
+        "--split",
+        "validation"
+      ],
+      "when": null
+    },
+    {
+      "index": 17,
+      "stage": "B_repeats",
+      "args": [
+        "evaluate",
+        "--variant",
+        "mixed",
+        "--seed",
+        "43",
+        "--split",
+        "validation"
+      ],
+      "when": null
+    },
+    {
+      "index": 18,
+      "stage": "B_repeats",
+      "args": [
+        "evaluate",
+        "--variant",
+        "mixed",
+        "--seed",
+        "43",
+        "--split",
+        "validation",
+        "--thinking"
+      ],
+      "when": null
+    },
+    {
+      "index": 19,
+      "stage": "B_repeats",
+      "args": [
+        "evaluate",
+        "--variant",
+        "direct",
+        "--seed",
+        "43",
+        "--split",
+        "test"
+      ],
+      "when": null
+    },
+    {
+      "index": 20,
+      "stage": "B_repeats",
+      "args": [
+        "evaluate",
+        "--variant",
+        "mixed",
+        "--seed",
+        "43",
+        "--split",
+        "test"
+      ],
+      "when": null
+    },
+    {
+      "index": 21,
+      "stage": "B_repeats",
+      "args": [
+        "evaluate",
+        "--variant",
+        "mixed",
+        "--seed",
+        "43",
+        "--split",
+        "test",
+        "--thinking"
+      ],
+      "when": null
+    },
+    {
+      "index": 22,
+      "stage": "B_repeats",
+      "args": [
+        "sft",
+        "--variant",
+        "direct",
+        "--seed",
+        "44"
+      ],
+      "when": null
+    },
+    {
+      "index": 23,
+      "stage": "B_repeats",
+      "args": [
+        "sft",
+        "--variant",
+        "mixed",
+        "--seed",
+        "44"
+      ],
+      "when": null
+    },
+    {
+      "index": 24,
+      "stage": "B_repeats",
+      "args": [
+        "evaluate",
+        "--variant",
+        "direct",
+        "--seed",
+        "44",
+        "--split",
+        "validation"
+      ],
+      "when": null
+    },
+    {
+      "index": 25,
+      "stage": "B_repeats",
+      "args": [
+        "evaluate",
+        "--variant",
+        "mixed",
+        "--seed",
+        "44",
+        "--split",
+        "validation"
+      ],
+      "when": null
+    },
+    {
+      "index": 26,
+      "stage": "B_repeats",
+      "args": [
+        "evaluate",
+        "--variant",
+        "mixed",
+        "--seed",
+        "44",
+        "--split",
+        "validation",
+        "--thinking"
+      ],
+      "when": null
+    },
+    {
+      "index": 27,
+      "stage": "B_repeats",
+      "args": [
+        "evaluate",
+        "--variant",
+        "direct",
+        "--seed",
+        "44",
+        "--split",
+        "test"
+      ],
+      "when": null
+    },
+    {
+      "index": 28,
+      "stage": "B_repeats",
+      "args": [
+        "evaluate",
+        "--variant",
+        "mixed",
+        "--seed",
+        "44",
+        "--split",
+        "test"
+      ],
+      "when": null
+    },
+    {
+      "index": 29,
+      "stage": "B_repeats",
+      "args": [
+        "evaluate",
+        "--variant",
+        "mixed",
+        "--seed",
+        "44",
+        "--split",
+        "test",
+        "--thinking"
+      ],
+      "when": null
+    }
+  ],
+  "checks": [
+    {
+      "job": "sft --variant direct --seed 42",
+      "path": "/data1/dzh/minionereason/checkpoints/main/direct_42/complete.json",
+      "present": true
+    },
+    {
+      "job": "sft --variant direct --seed 42",
+      "path": "/data1/dzh/minionereason/checkpoints/main/direct_42/selected/adapter_model.safetensors",
+      "present": true
+    },
+    {
+      "job": "sft --variant mixed --seed 42",
+      "path": "/data1/dzh/minionereason/checkpoints/main/mixed_42/complete.json",
+      "present": true
+    },
+    {
+      "job": "sft --variant mixed --seed 42",
+      "path": "/data1/dzh/minionereason/checkpoints/main/mixed_42/selected/adapter_model.safetensors",
+      "present": true
+    },
+    {
+      "job": "evaluate --profile smoke --variant mixed --split validation --limit 4 --samples 8 --tag smoke_vllm_lora",
+      "path": "/home/dzh/minionereason/reports/results_v2/smoke_vllm_lora.json",
+      "present": true
+    },
+    {
+      "job": "evaluate --profile smoke --variant mixed --split validation --limit 4 --samples 8 --tag smoke_vllm_lora",
+      "path": "/data1/dzh/minionereason/predictions_v2/smoke/smoke_vllm_lora.jsonl",
+      "present": true
+    },
+    {
+      "job": "baseline --seed 42",
+      "path": "/data1/dzh/minionereason/checkpoints/main/sasrec_42/complete.json",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant base --seed 42 --split validation",
+      "path": "/home/dzh/minionereason/reports/results_v2/base_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.json",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant base --seed 42 --split validation",
+      "path": "/data1/dzh/minionereason/predictions_v2/main/base_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.jsonl",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant direct --seed 42 --split validation",
+      "path": "/home/dzh/minionereason/reports/results_v2/direct_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.json",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant direct --seed 42 --split validation",
+      "path": "/data1/dzh/minionereason/predictions_v2/main/direct_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.jsonl",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant mixed --seed 42 --split validation",
+      "path": "/home/dzh/minionereason/reports/results_v2/mixed_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.json",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant mixed --seed 42 --split validation",
+      "path": "/data1/dzh/minionereason/predictions_v2/main/mixed_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.jsonl",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant mixed --seed 42 --split validation --thinking",
+      "path": "/home/dzh/minionereason/reports/results_v2/mixed_42_validation_recent_in2048_thinkTrue_budgetNone_n64_vllm.json",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant mixed --seed 42 --split validation --thinking",
+      "path": "/data1/dzh/minionereason/predictions_v2/main/mixed_42_validation_recent_in2048_thinkTrue_budgetNone_n64_vllm.jsonl",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant base --seed 42 --split test",
+      "path": "/home/dzh/minionereason/reports/results_v2/base_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.json",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant base --seed 42 --split test",
+      "path": "/data1/dzh/minionereason/predictions_v2/main/base_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.jsonl",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant direct --seed 42 --split test",
+      "path": "/home/dzh/minionereason/reports/results_v2/direct_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.json",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant direct --seed 42 --split test",
+      "path": "/data1/dzh/minionereason/predictions_v2/main/direct_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.jsonl",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant mixed --seed 42 --split test",
+      "path": "/home/dzh/minionereason/reports/results_v2/mixed_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.json",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant mixed --seed 42 --split test",
+      "path": "/data1/dzh/minionereason/predictions_v2/main/mixed_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.jsonl",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant mixed --seed 42 --split test --thinking",
+      "path": "/home/dzh/minionereason/reports/results_v2/mixed_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.json",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant mixed --seed 42 --split test --thinking",
+      "path": "/data1/dzh/minionereason/predictions_v2/main/mixed_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.jsonl",
+      "present": true
+    },
+    {
+      "job": "rl --probe",
+      "path": "/home/dzh/minionereason/reports/rl/main_probe_std_42.json",
+      "present": true
+    },
+    {
+      "job": "rl --probe",
+      "path": "/home/dzh/minionereason/reports/rl/main_probe_std32_42.json",
+      "present": true
+    },
+    {
+      "job": "rl --probe",
+      "path": "/home/dzh/minionereason/reports/rl/main_probe_nk_42.json",
+      "present": true
+    },
+    {
+      "job": "rl --probe",
+      "path": "/home/dzh/minionereason/reports/rl/main_probe_nk_prefix_42.json",
+      "present": true
+    },
+    {
+      "job": "rl --probe",
+      "path": "/home/dzh/minionereason/reports/rl/main_probe_nk_prefix_div_42.json",
+      "present": true
+    },
+    {
+      "job": "rl --variant std",
+      "path": "/home/dzh/minionereason/reports/rl/main_probe_std_42.json",
+      "present": true
+    },
+    {
+      "job": "rl --variant std",
+      "path": "/data1/dzh/minionereason/checkpoints/main/rl_std_42/complete.json",
+      "present": true
+    },
+    {
+      "job": "rl --variant std",
+      "path": "/data1/dzh/minionereason/checkpoints/main/rl_std_42/selected/adapter_model.safetensors",
+      "present": true
+    },
+    {
+      "job": "rl --variant std",
+      "path": "/data1/dzh/minionereason/checkpoints/main/rl_std_42/complete.json",
+      "present": true,
+      "actual_steps": 500
+    },
+    {
+      "job": "evaluate --variant rl_std --seed 42 --split validation",
+      "path": "/home/dzh/minionereason/reports/results_v2/rl_std_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.json",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant rl_std --seed 42 --split validation",
+      "path": "/data1/dzh/minionereason/predictions_v2/main/rl_std_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.jsonl",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant rl_std --seed 42 --split validation --thinking",
+      "path": "/home/dzh/minionereason/reports/results_v2/rl_std_42_validation_recent_in2048_thinkTrue_budgetNone_n64_vllm.json",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant rl_std --seed 42 --split validation --thinking",
+      "path": "/data1/dzh/minionereason/predictions_v2/main/rl_std_42_validation_recent_in2048_thinkTrue_budgetNone_n64_vllm.jsonl",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant rl_std --seed 42 --split test",
+      "path": "/home/dzh/minionereason/reports/results_v2/rl_std_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.json",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant rl_std --seed 42 --split test",
+      "path": "/data1/dzh/minionereason/predictions_v2/main/rl_std_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.jsonl",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant rl_std --seed 42 --split test --thinking",
+      "path": "/home/dzh/minionereason/reports/results_v2/rl_std_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.json",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant rl_std --seed 42 --split test --thinking",
+      "path": "/data1/dzh/minionereason/predictions_v2/main/rl_std_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.jsonl",
+      "present": true
+    },
+    {
+      "job": "rl --variant std32",
+      "path": "/home/dzh/minionereason/reports/rl/main_probe_std32_42.json",
+      "present": true
+    },
+    {
+      "job": "rl --variant std32",
+      "path": "/data1/dzh/minionereason/checkpoints/main/rl_std32_42/complete.json",
+      "present": true
+    },
+    {
+      "job": "rl --variant std32",
+      "path": "/data1/dzh/minionereason/checkpoints/main/rl_std32_42/selected/adapter_model.safetensors",
+      "present": true
+    },
+    {
+      "job": "rl --variant std32",
+      "path": "/data1/dzh/minionereason/checkpoints/main/rl_std32_42/complete.json",
+      "present": true,
+      "actual_steps": 500
+    },
+    {
+      "job": "evaluate --variant rl_std32 --seed 42 --split validation",
+      "path": "/home/dzh/minionereason/reports/results_v2/rl_std32_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.json",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant rl_std32 --seed 42 --split validation",
+      "path": "/data1/dzh/minionereason/predictions_v2/main/rl_std32_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.jsonl",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant rl_std32 --seed 42 --split validation --thinking",
+      "path": "/home/dzh/minionereason/reports/results_v2/rl_std32_42_validation_recent_in2048_thinkTrue_budgetNone_n64_vllm.json",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant rl_std32 --seed 42 --split validation --thinking",
+      "path": "/data1/dzh/minionereason/predictions_v2/main/rl_std32_42_validation_recent_in2048_thinkTrue_budgetNone_n64_vllm.jsonl",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant rl_std32 --seed 42 --split test",
+      "path": "/home/dzh/minionereason/reports/results_v2/rl_std32_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.json",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant rl_std32 --seed 42 --split test",
+      "path": "/data1/dzh/minionereason/predictions_v2/main/rl_std32_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.jsonl",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant rl_std32 --seed 42 --split test --thinking",
+      "path": "/home/dzh/minionereason/reports/results_v2/rl_std32_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.json",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant rl_std32 --seed 42 --split test --thinking",
+      "path": "/data1/dzh/minionereason/predictions_v2/main/rl_std32_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.jsonl",
+      "present": true
+    },
+    {
+      "job": "rl --variant nk",
+      "path": "/home/dzh/minionereason/reports/rl/main_probe_nk_42.json",
+      "present": true
+    },
+    {
+      "job": "rl --variant nk",
+      "path": "/data1/dzh/minionereason/checkpoints/main/rl_nk_42/complete.json",
+      "present": true
+    },
+    {
+      "job": "rl --variant nk",
+      "path": "/data1/dzh/minionereason/checkpoints/main/rl_nk_42/selected/adapter_model.safetensors",
+      "present": true
+    },
+    {
+      "job": "rl --variant nk",
+      "path": "/data1/dzh/minionereason/checkpoints/main/rl_nk_42/complete.json",
+      "present": true,
+      "actual_steps": 500
+    },
+    {
+      "job": "evaluate --variant rl_nk --seed 42 --split validation",
+      "path": "/home/dzh/minionereason/reports/results_v2/rl_nk_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.json",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant rl_nk --seed 42 --split validation",
+      "path": "/data1/dzh/minionereason/predictions_v2/main/rl_nk_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.jsonl",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant rl_nk --seed 42 --split validation --thinking",
+      "path": "/home/dzh/minionereason/reports/results_v2/rl_nk_42_validation_recent_in2048_thinkTrue_budgetNone_n64_vllm.json",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant rl_nk --seed 42 --split validation --thinking",
+      "path": "/data1/dzh/minionereason/predictions_v2/main/rl_nk_42_validation_recent_in2048_thinkTrue_budgetNone_n64_vllm.jsonl",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant rl_nk --seed 42 --split test",
+      "path": "/home/dzh/minionereason/reports/results_v2/rl_nk_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.json",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant rl_nk --seed 42 --split test",
+      "path": "/data1/dzh/minionereason/predictions_v2/main/rl_nk_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.jsonl",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant rl_nk --seed 42 --split test --thinking",
+      "path": "/home/dzh/minionereason/reports/results_v2/rl_nk_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.json",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant rl_nk --seed 42 --split test --thinking",
+      "path": "/data1/dzh/minionereason/predictions_v2/main/rl_nk_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.jsonl",
+      "present": true
+    },
+    {
+      "job": "rl --variant nk_prefix",
+      "path": "/home/dzh/minionereason/reports/rl/main_probe_nk_prefix_42.json",
+      "present": true
+    },
+    {
+      "job": "rl --variant nk_prefix",
+      "path": "/data1/dzh/minionereason/checkpoints/main/rl_nk_prefix_42/complete.json",
+      "present": true
+    },
+    {
+      "job": "rl --variant nk_prefix",
+      "path": "/data1/dzh/minionereason/checkpoints/main/rl_nk_prefix_42/selected/adapter_model.safetensors",
+      "present": true
+    },
+    {
+      "job": "rl --variant nk_prefix",
+      "path": "/data1/dzh/minionereason/checkpoints/main/rl_nk_prefix_42/complete.json",
+      "present": true,
+      "actual_steps": 500
+    },
+    {
+      "job": "evaluate --variant rl_nk_prefix --seed 42 --split validation",
+      "path": "/home/dzh/minionereason/reports/results_v2/rl_nk_prefix_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.json",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant rl_nk_prefix --seed 42 --split validation",
+      "path": "/data1/dzh/minionereason/predictions_v2/main/rl_nk_prefix_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.jsonl",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant rl_nk_prefix --seed 42 --split validation --thinking",
+      "path": "/home/dzh/minionereason/reports/results_v2/rl_nk_prefix_42_validation_recent_in2048_thinkTrue_budgetNone_n64_vllm.json",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant rl_nk_prefix --seed 42 --split validation --thinking",
+      "path": "/data1/dzh/minionereason/predictions_v2/main/rl_nk_prefix_42_validation_recent_in2048_thinkTrue_budgetNone_n64_vllm.jsonl",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant rl_nk_prefix --seed 42 --split test",
+      "path": "/home/dzh/minionereason/reports/results_v2/rl_nk_prefix_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.json",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant rl_nk_prefix --seed 42 --split test",
+      "path": "/data1/dzh/minionereason/predictions_v2/main/rl_nk_prefix_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.jsonl",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant rl_nk_prefix --seed 42 --split test --thinking",
+      "path": "/home/dzh/minionereason/reports/results_v2/rl_nk_prefix_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.json",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant rl_nk_prefix --seed 42 --split test --thinking",
+      "path": "/data1/dzh/minionereason/predictions_v2/main/rl_nk_prefix_42_test_recent_in2048_thinkTrue_budgetNone_n64_vllm.jsonl",
+      "present": true
+    },
+    {
+      "job": "thinkcost --split validation",
+      "path": "/home/dzh/minionereason/reports/main_thinking_42_validation_summary.json",
+      "present": true
+    },
+    {
+      "job": "thinkcost --split validation",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_thinkcost_42_validation_0.json",
+      "present": true
+    },
+    {
+      "job": "thinkcost --split validation",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_thinkcost_42_validation_128.json",
+      "present": true
+    },
+    {
+      "job": "thinkcost --split validation",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_thinkcost_42_validation_256.json",
+      "present": true
+    },
+    {
+      "job": "thinkcost --split validation",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_thinkcost_42_validation_512.json",
+      "present": true
+    },
+    {
+      "job": "thinkcost --split validation",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_thinkcost_42_validation_1024.json",
+      "present": true
+    },
+    {
+      "job": "thinkcost --split validation",
+      "path": "/home/dzh/minionereason/reports/main_route_42_validation_uncertainty_0.25_vs_random.json",
+      "present": true
+    },
+    {
+      "job": "thinkcost --split validation",
+      "path": "/home/dzh/minionereason/reports/main_route_42_validation_uncertainty_0.5_vs_random.json",
+      "present": true
+    },
+    {
+      "job": "thinkcost --split validation",
+      "path": "/home/dzh/minionereason/reports/main_route_42_validation_history_length_0.25_vs_random.json",
+      "present": true
+    },
+    {
+      "job": "thinkcost --split validation",
+      "path": "/home/dzh/minionereason/reports/main_route_42_validation_history_length_0.5_vs_random.json",
+      "present": true
+    },
+    {
+      "job": "thinkcost --split test",
+      "path": "/home/dzh/minionereason/reports/main_thinking_42_test_summary.json",
+      "present": true
+    },
+    {
+      "job": "thinkcost --split test",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_thinkcost_42_test_0.json",
+      "present": true
+    },
+    {
+      "job": "thinkcost --split test",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_thinkcost_42_test_128.json",
+      "present": true
+    },
+    {
+      "job": "thinkcost --split test",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_thinkcost_42_test_256.json",
+      "present": true
+    },
+    {
+      "job": "thinkcost --split test",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_thinkcost_42_test_512.json",
+      "present": true
+    },
+    {
+      "job": "thinkcost --split test",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_thinkcost_42_test_1024.json",
+      "present": true
+    },
+    {
+      "job": "thinkcost --split test",
+      "path": "/home/dzh/minionereason/reports/main_route_42_test_uncertainty_0.25_vs_random.json",
+      "present": true
+    },
+    {
+      "job": "thinkcost --split test",
+      "path": "/home/dzh/minionereason/reports/main_route_42_test_uncertainty_0.5_vs_random.json",
+      "present": true
+    },
+    {
+      "job": "thinkcost --split test",
+      "path": "/home/dzh/minionereason/reports/main_route_42_test_history_length_0.25_vs_random.json",
+      "present": true
+    },
+    {
+      "job": "thinkcost --split test",
+      "path": "/home/dzh/minionereason/reports/main_route_42_test_history_length_0.5_vs_random.json",
+      "present": true
+    },
+    {
+      "job": "sft --variant direct_tokenmatched",
+      "path": "/data1/dzh/minionereason/checkpoints/main/direct_tokenmatched_42/complete.json",
+      "present": true
+    },
+    {
+      "job": "sft --variant direct_tokenmatched",
+      "path": "/data1/dzh/minionereason/checkpoints/main/direct_tokenmatched_42/selected/adapter_model.safetensors",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant direct_tokenmatched --seed 42 --split validation",
+      "path": "/home/dzh/minionereason/reports/results_v2/direct_tokenmatched_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.json",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant direct_tokenmatched --seed 42 --split validation",
+      "path": "/data1/dzh/minionereason/predictions_v2/main/direct_tokenmatched_42_validation_recent_in2048_thinkFalse_budgetNone_n64_vllm.jsonl",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant direct_tokenmatched --seed 42 --split test",
+      "path": "/home/dzh/minionereason/reports/results_v2/direct_tokenmatched_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.json",
+      "present": true
+    },
+    {
+      "job": "evaluate --variant direct_tokenmatched --seed 42 --split test",
+      "path": "/data1/dzh/minionereason/predictions_v2/main/direct_tokenmatched_42_test_recent_in2048_thinkFalse_budgetNone_n64_vllm.jsonl",
+      "present": true
+    },
+    {
+      "job": "sft --variant mixed_recent_history",
+      "path": "/data1/dzh/minionereason/checkpoints/main/mixed_recent_history_42/complete.json",
+      "present": true
+    },
+    {
+      "job": "sft --variant mixed_recent_history",
+      "path": "/data1/dzh/minionereason/checkpoints/main/mixed_recent_history_42/selected/adapter_model.safetensors",
+      "present": true
+    },
+    {
+      "job": "sft --variant mixed_balanced",
+      "path": "/data1/dzh/minionereason/checkpoints/main/mixed_balanced_42/complete.json",
+      "present": true
+    },
+    {
+      "job": "sft --variant mixed_balanced",
+      "path": "/data1/dzh/minionereason/checkpoints/main/mixed_balanced_42/selected/adapter_model.safetensors",
+      "present": true
+    },
+    {
+      "job": "history --split validation",
+      "path": "/home/dzh/minionereason/artifacts/history_selection_main_42.json",
+      "present": true
+    },
+    {
+      "job": "history --split validation",
+      "path": "/home/dzh/minionereason/reports/history_comparison_main_rl_nk_prefix_42_validation.json",
+      "present": true
+    },
+    {
+      "job": "history --split validation",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_validation_recent_512.json",
+      "present": true
+    },
+    {
+      "job": "history --split validation",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_validation_domain_recent_512.json",
+      "present": true
+    },
+    {
+      "job": "history --split validation",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_validation_balanced_512.json",
+      "present": true
+    },
+    {
+      "job": "history --split validation",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_validation_recent_1024.json",
+      "present": true
+    },
+    {
+      "job": "history --split validation",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_validation_domain_recent_1024.json",
+      "present": true
+    },
+    {
+      "job": "history --split validation",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_validation_balanced_1024.json",
+      "present": true
+    },
+    {
+      "job": "history --split validation",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_validation_recent_2048.json",
+      "present": true
+    },
+    {
+      "job": "history --split validation",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_validation_domain_recent_2048.json",
+      "present": true
+    },
+    {
+      "job": "history --split validation",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_validation_balanced_2048.json",
+      "present": true
+    },
+    {
+      "job": "history --split validation",
+      "path": "/home/dzh/minionereason/reports/history_comparison_main_mixed_recent_history_42_validation.json",
+      "present": true
+    },
+    {
+      "job": "history --split validation",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_history_mixed_recent_history_42_validation_recent_1024.json",
+      "present": true
+    },
+    {
+      "job": "history --split validation",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_history_mixed_recent_history_42_validation_balanced_1024.json",
+      "present": true
+    },
+    {
+      "job": "history --split validation",
+      "path": "/home/dzh/minionereason/reports/history_comparison_main_mixed_balanced_42_validation.json",
+      "present": true
+    },
+    {
+      "job": "history --split validation",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_history_mixed_balanced_42_validation_recent_1024.json",
+      "present": true
+    },
+    {
+      "job": "history --split validation",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_history_mixed_balanced_42_validation_balanced_1024.json",
+      "present": true
+    },
+    {
+      "job": "history --split test",
+      "path": "/home/dzh/minionereason/artifacts/history_selection_main_42.json",
+      "present": true
+    },
+    {
+      "job": "history --split test",
+      "path": "/home/dzh/minionereason/reports/history_comparison_main_rl_nk_prefix_42_test.json",
+      "present": true
+    },
+    {
+      "job": "history --split test",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_test_recent_512.json",
+      "present": true
+    },
+    {
+      "job": "history --split test",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_test_domain_recent_512.json",
+      "present": true
+    },
+    {
+      "job": "history --split test",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_test_balanced_512.json",
+      "present": true
+    },
+    {
+      "job": "history --split test",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_test_recent_1024.json",
+      "present": true
+    },
+    {
+      "job": "history --split test",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_test_domain_recent_1024.json",
+      "present": true
+    },
+    {
+      "job": "history --split test",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_test_balanced_1024.json",
+      "present": true
+    },
+    {
+      "job": "history --split test",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_test_recent_2048.json",
+      "present": true
+    },
+    {
+      "job": "history --split test",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_test_domain_recent_2048.json",
+      "present": true
+    },
+    {
+      "job": "history --split test",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_history_rl_nk_prefix_42_test_balanced_2048.json",
+      "present": true
+    },
+    {
+      "job": "history --split test",
+      "path": "/home/dzh/minionereason/reports/history_comparison_main_mixed_recent_history_42_test.json",
+      "present": true
+    },
+    {
+      "job": "history --split test",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_history_mixed_recent_history_42_test_recent_1024.json",
+      "present": true
+    },
+    {
+      "job": "history --split test",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_history_mixed_recent_history_42_test_balanced_1024.json",
+      "present": true
+    },
+    {
+      "job": "history --split test",
+      "path": "/home/dzh/minionereason/reports/history_comparison_main_mixed_balanced_42_test.json",
+      "present": true
+    },
+    {
+      "job": "history --split test",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_history_mixed_balanced_42_test_recent_1024.json",
+      "present": true
+    },
+    {
+      "job": "history --split test",
+      "path": "/home/dzh/minionereason/reports/results_v2/main_history_mixed_balanced_42_test_balanced_1024.json",
+      "present": true
+    }
+  ],
+  "missing": [],
+  "invalid": [],
+  "protocol_sha256": "8364fd75e1aa407ebf45c41e99ef05788dba7fd7a8ca5ea8b083b6b5f43e937a"
+}

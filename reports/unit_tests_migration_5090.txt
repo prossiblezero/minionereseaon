@@ -1,0 +1,23 @@
+test_app_update_replaces_missing_executable (test_monitor.MonitorTests.test_app_update_replaces_missing_executable) ... Monitor queued: failed
+ok
+test_health_uses_process_identity_and_output_during_validation (test_monitor.MonitorTests.test_health_uses_process_identity_and_output_during_validation) ... ok
+test_notify_once_retry_delivery_and_keep_watching_after_failure (test_monitor.MonitorTests.test_notify_once_retry_delivery_and_keep_watching_after_failure) ... Monitor queued: process_missing
+Monitor queued: failed
+Monitor queued: complete
+ok
+test_batched_budget_keeps_seeds_and_token_accounting (test_pipeline.PipelineTests.test_batched_budget_keeps_seeds_and_token_accounting) ... ok
+test_branch_batch_keeps_user_seeds_and_groups_separate (test_pipeline.PipelineTests.test_branch_batch_keeps_user_seeds_and_groups_separate) ... ok
+test_cache_requires_identical_sampling_and_prompt (test_pipeline.PipelineTests.test_cache_requires_identical_sampling_and_prompt) ... ok
+test_history_gate (test_pipeline.PipelineTests.test_history_gate) ... ok
+test_label_boundary_and_fixed_attempts (test_pipeline.PipelineTests.test_label_boundary_and_fixed_attempts) ... ok
+test_reference_preserves_fp32_weights_and_stays_frozen (test_pipeline.PipelineTests.test_reference_preserves_fp32_weights_and_stays_frozen) ... ok
+test_rl_variants_share_a_frozen_prompt_schedule (test_pipeline.PipelineTests.test_rl_variants_share_a_frozen_prompt_schedule) ... ok
+test_single_seed_audit_keeps_repeats_deferred (test_pipeline.PipelineTests.test_single_seed_audit_keeps_repeats_deferred) ... ok
+test_standard_32_probe_counts_one_reward_group (test_pipeline.PipelineTests.test_standard_32_probe_counts_one_reward_group) ... ok
+test_target_mutation_and_whole_event_crop (test_pipeline.PipelineTests.test_target_mutation_and_whole_event_crop) ... ok
+test_two_prompt_branch_credit_and_reward (test_pipeline.PipelineTests.test_two_prompt_branch_credit_and_reward) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 2.241s
+
+OK

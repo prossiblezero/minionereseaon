@@ -1,0 +1,74 @@
+{
+  "_id": "6aa4c0e8536927640b58e2d3",
+  "id": "OpenOneRec/OneReason-Eval-Benchmark",
+  "author": "OpenOneRec",
+  "sha": "696c54606ecab09c8d9482294197886287871bc2",
+  "lastModified": "2026-09-12T05:52:22.000Z",
+  "private": false,
+  "gated": false,
+  "disabled": false,
+  "tags": [
+    "size_categories:10K<n<100K",
+    "format:parquet",
+    "modality:text",
+    "library:datasets",
+    "library:dask",
+    "library:polars",
+    "library:mlcroissant",
+    "region:us"
+  ],
+  "downloads": 202,
+  "likes": 0,
+  "siblings": [
+    {
+      "rfilename": ".gitattributes"
+    },
+    {
+      "rfilename": "MANIFEST.json"
+    },
+    {
+      "rfilename": "challenge_common_sense/challenge_common_sense_test.parquet"
+    },
+    {
+      "rfilename": "challenge_evolution_action_select/challenge_evolution_action_select_test.parquet"
+    },
+    {
+      "rfilename": "challenge_evolution_topic_gen/challenge_evolution_topic_gen_test.parquet"
+    },
+    {
+      "rfilename": "challenge_itemic_pattern_caption_ad/challenge_itemic_pattern_caption_ad_test.parquet"
+    },
+    {
+      "rfilename": "challenge_itemic_pattern_caption_product/challenge_itemic_pattern_caption_product_test.parquet"
+    },
+    {
+      "rfilename": "challenge_itemic_pattern_caption_video/challenge_itemic_pattern_caption_video_test.parquet"
+    },
+    {
+      "rfilename": "challenge_recommendation_ad/challenge_recommendation_ad_test.parquet"
+    },
+    {
+      "rfilename": "challenge_recommendation_live/challenge_recommendation_live_test.parquet"
+    },
+    {
+      "rfilename": "challenge_recommendation_product/challenge_recommendation_product_test.parquet"
+    },
+    {
+      "rfilename": "challenge_recommendation_video_full/challenge_recommendation_video_full_test.parquet"
+    },
+    {
+      "rfilename": "sid2pid.json"
+    },
+    {
+      "rfilename": "sid2pid_live.json"
+    },
+    {
+      "rfilename": "sid2pid_product.json"
+    },
+    {
+      "rfilename": "sid2pid_video_ad.json"
+    }
+  ],
+  "createdAt": "2026-09-12T03:03:04.000Z",
+  "usedStorage": 1658860917
+}

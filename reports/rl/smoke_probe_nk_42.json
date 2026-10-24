@@ -1,0 +1,103 @@
+{
+  "variant": "nk",
+  "groups": 8,
+  "active_group_fraction": 0.0,
+  "mean_reward": 0.0,
+  "exact_hit_rate": 0.0,
+  "prefix_only_hit_rate": 0.0,
+  "invalid_rate": 0.8203125,
+  "first_code_entropy": 3.5519170315044266,
+  "first_code_coverage": 0.0047607421875,
+  "popular_first_code_share": 0.021739130434782608,
+  "generated_tokens": 21355,
+  "generation_seconds": 9.18950788420625,
+  "first_code_counts": {
+    "861": 1,
+    "6523": 1,
+    "859": 1,
+    "4297": 1,
+    "6488": 1,
+    "2836": 1,
+    "3817": 1,
+    "1401": 1,
+    "5051": 1,
+    "4233": 1,
+    "2950": 1,
+    "7798": 1,
+    "8174": 1,
+    "6655": 1,
+    "5307": 1,
+    "4545": 1,
+    "5070": 5,
+    "3565": 1,
+    "4802": 3,
+    "4449": 1,
+    "2144": 1,
+    "2048": 1,
+    "5557": 1,
+    "5392": 1,
+    "8063": 1,
+    "1454": 1,
+    "5586": 1,
+    "647": 1,
+    "3927": 1,
+    "4524": 1,
+    "4084": 1,
+    "7954": 1,
+    "1932": 1,
+    "7618": 1,
+    "3558": 1,
+    "5006": 1,
+    "4877": 1,
+    "6720": 1,
+    "6130": 2
+  },
+  "per_group": [
+    {
+      "sample_id": "3261a116cd326d3effaa5ae53c83503a85b7b00fe98f198157028b41e8351c58",
+      "mean_reward": 0.0,
+      "reward_std": 0.0
+    },
+    {
+      "sample_id": "3f7999f471b70f8b2171e3a19280449a59283a2b204561d00f1a8d7889e1b7f5",
+      "mean_reward": 0.0,
+      "reward_std": 0.0
+    },
+    {
+      "sample_id": "28a0ac7795be939f3571aa0200f3ecbeafdbda676ba87aa5d4b59ce1038f5305",
+      "mean_reward": 0.0,
+      "reward_std": 0.0
+    },
+    {
+      "sample_id": "a3cfd8188cb031f084503c45bce32d2baaebc00760d07a6482e9e9a43eb4f5da",
+      "mean_reward": 0.0,
+      "reward_std": 0.0
+    },
+    {
+      "sample_id": "13458cf7c6b331e474f42b685264fb845b48f3900151115bbdd0ea35de491fa2",
+      "mean_reward": 0.0,
+      "reward_std": 0.0
+    },
+    {
+      "sample_id": "0e32c8dd9c979d5aa58db61694c1bf5c698d1fca89258b6d75e651f8c7412b69",
+      "mean_reward": 0.0,
+      "reward_std": 0.0
+    },
+    {
+      "sample_id": "5c4201bff60f6170c0f4ac2f82862c94c0f48056085cbb9b2f7ac7ee2a7961f0",
+      "mean_reward": 0.0,
+      "reward_std": 0.0
+    },
+    {
+      "sample_id": "c4105c799d94efbff96b892c93daaada003ce7312ab46187fe97dd3c92868d0e",
+      "mean_reward": 0.0,
+      "reward_std": 0.0
+    }
+  ],
+  "audit": {
+    "target_catalog_coverage": 1.0,
+    "parser_unit_tests": "tests/test_pipeline.py",
+    "truncated_outputs": 173
+  },
+  "eligible_for_training": false
+}

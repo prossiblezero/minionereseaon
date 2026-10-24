@@ -1,0 +1,55 @@
+{
+  "identical_token_sequences": 26,
+  "examples": 32,
+  "differences": [
+    {
+      "sample_id": "6f97262e6235065534011acf42cb04dbd9d3689c9a925c71bfdd195703ad3532",
+      "first_difference": 1,
+      "transformers_id": 154777,
+      "vllm_id": 156740,
+      "vllm_token_rank_in_transformers": 1,
+      "logit_margin": 0.0
+    },
+    {
+      "sample_id": "b5d8cedf7673df218393292583aacc45afb4552ff28782ede83c20b56d296e3a",
+      "first_difference": 1,
+      "transformers_id": 153752,
+      "vllm_id": 158184,
+      "vllm_token_rank_in_transformers": 1,
+      "logit_margin": 0.0
+    },
+    {
+      "sample_id": "41ee74eca24a096fb9d111cde3bb890fab32197cd4fc098fadb3748033aeb3e1",
+      "first_difference": 1,
+      "transformers_id": 154777,
+      "vllm_id": 156740,
+      "vllm_token_rank_in_transformers": 1,
+      "logit_margin": 0.0
+    },
+    {
+      "sample_id": "af6dbf9e90564fe566006704e8201f1943331634b6dd3665427812ffaeb3196f",
+      "first_difference": 1,
+      "transformers_id": 154636,
+      "vllm_id": 156450,
+      "vllm_token_rank_in_transformers": 1,
+      "logit_margin": 0.0
+    },
+    {
+      "sample_id": "8476ffc84a77ae54f2043919bc0d47dd2b55f634f5bfd9885ce684bf79abbb73",
+      "first_difference": 1,
+      "transformers_id": 152167,
+      "vllm_id": 153452,
+      "vllm_token_rank_in_transformers": 1,
+      "logit_margin": 0.0
+    },
+    {
+      "sample_id": "c2caae7a52123a9486416ddfdea2d7ef541bb645567f01a9a2d928d2522fc1ba",
+      "first_difference": 1,
+      "transformers_id": 157427,
+      "vllm_id": 157041,
+      "vllm_token_rank_in_transformers": 1,
+      "logit_margin": 0.0
+    }
+  ],
+  "text_difference": "vLLM omits EOS text but retains EOS token id; Transformers includes EOS text"
+}

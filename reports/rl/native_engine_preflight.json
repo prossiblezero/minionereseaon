@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "step": 0,
+      "adapter_sha256": "af31b185f5e932e93a169db94ebe2a9be45d41a51fd71947067e25f36e699a78",
+      "loss": 4.3154401779174805,
+      "gradient_tensors": 392,
+      "lora_id": 247056120
+    },
+    {
+      "step": 1,
+      "adapter_sha256": "67b4b4f962ea16c52ede4d15f774512ee91e9f2cf590f8e0b3bd2d8e2f033020",
+      "loss": 3.919165849685669,
+      "gradient_tensors": 392,
+      "lora_id": 22505695
+    }
+  ],
+  "branched_update": {
+    "loss": 5.353763416593438e-05,
+    "kl": 0.016184790279819734,
+    "grad_norm": 0.004327530972659588,
+    "loss_tokens": 3103,
+    "peak_allocated_bytes": 3808192512
+  },
+  "checkpoint_reload": true,
+  "peak_allocated_bytes": 3808192512,
+  "scope": "Native sleep/wake, distinct LoRAs, real-label SFT gradients, actual branch-update function and checkpoint reload; not an RL performance result"
+}

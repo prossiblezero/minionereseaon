@@ -1,0 +1,102 @@
+[
+  {
+    "variant": "std",
+    "groups": 8,
+    "active_group_fraction": 0.0,
+    "mean_reward": 0.0,
+    "exact_hit_rate": 0.0,
+    "prefix_only_hit_rate": 0.0,
+    "invalid_rate": 0.890625,
+    "first_code_entropy": 1.945910149055313,
+    "first_code_coverage": 0.0008544921875,
+    "popular_first_code_share": 0.0,
+    "generated_tokens": 40245,
+    "generation_seconds": 11.672783392015845,
+    "audit": {
+      "target_catalog_coverage": 1.0,
+      "parser_unit_tests": "tests/test_pipeline.py",
+      "truncated_outputs": 19
+    },
+    "eligible_for_training": false
+  },
+  {
+    "variant": "std32",
+    "groups": 8,
+    "active_group_fraction": 0.0,
+    "mean_reward": 0.0,
+    "exact_hit_rate": 0.0,
+    "prefix_only_hit_rate": 0.0,
+    "invalid_rate": 0.92578125,
+    "first_code_entropy": 2.871476118054867,
+    "first_code_coverage": 0.002197265625,
+    "popular_first_code_share": 0.0,
+    "generated_tokens": 157491,
+    "generation_seconds": 44.41791938315146,
+    "audit": {
+      "target_catalog_coverage": 1.0,
+      "parser_unit_tests": "tests/test_pipeline.py",
+      "truncated_outputs": 82
+    },
+    "eligible_for_training": false
+  },
+  {
+    "variant": "nk",
+    "groups": 8,
+    "active_group_fraction": 0.0,
+    "mean_reward": 0.0,
+    "exact_hit_rate": 0.0,
+    "prefix_only_hit_rate": 0.0,
+    "invalid_rate": 0.8203125,
+    "first_code_entropy": 3.5519170315044266,
+    "first_code_coverage": 0.0047607421875,
+    "popular_first_code_share": 0.021739130434782608,
+    "generated_tokens": 21355,
+    "generation_seconds": 9.18950788420625,
+    "audit": {
+      "target_catalog_coverage": 1.0,
+      "parser_unit_tests": "tests/test_pipeline.py",
+      "truncated_outputs": 173
+    },
+    "eligible_for_training": false
+  },
+  {
+    "variant": "nk_prefix",
+    "groups": 8,
+    "active_group_fraction": 0.0,
+    "mean_reward": 0.0,
+    "exact_hit_rate": 0.0,
+    "prefix_only_hit_rate": 0.0,
+    "invalid_rate": 0.8203125,
+    "first_code_entropy": 3.5519170315044266,
+    "first_code_coverage": 0.0047607421875,
+    "popular_first_code_share": 0.021739130434782608,
+    "generated_tokens": 21355,
+    "generation_seconds": 9.18950788420625,
+    "audit": {
+      "target_catalog_coverage": 1.0,
+      "parser_unit_tests": "tests/test_pipeline.py",
+      "truncated_outputs": 173
+    },
+    "eligible_for_training": false
+  },
+  {
+    "variant": "nk_prefix_div",
+    "groups": 8,
+    "active_group_fraction": 0.0,
+    "mean_reward": 0.0,
+    "exact_hit_rate": 0.0,
+    "prefix_only_hit_rate": 0.0,
+    "invalid_rate": 0.8203125,
+    "first_code_entropy": 3.5519170315044266,
+    "first_code_coverage": 0.0047607421875,
+    "popular_first_code_share": 0.021739130434782608,
+    "generated_tokens": 21355,
+    "generation_seconds": 9.18950788420625,
+    "audit": {
+      "target_catalog_coverage": 1.0,
+      "parser_unit_tests": "tests/test_pipeline.py",
+      "truncated_outputs": 173
+    },
+    "eligible_for_training": false
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "examples": 32,
+  "identical_token_sequences": 29,
+  "mismatches": [
+    "6f97262e6235065534011acf42cb04dbd9d3689c9a925c71bfdd195703ad3532",
+    "b5d8cedf7673df218393292583aacc45afb4552ff28782ede83c20b56d296e3a",
+    "af6dbf9e90564fe566006704e8201f1943331634b6dd3665427812ffaeb3196f"
+  ],
+  "note": "Transformers versus v2 vLLM, greedy sanity check; not a claim of exact backend parity"
+}

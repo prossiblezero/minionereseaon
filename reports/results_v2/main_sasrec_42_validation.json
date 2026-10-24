@@ -1,0 +1,26 @@
+{
+  "recall@8": 0.0,
+  "pass@8": 0.0,
+  "recall@32": 0.0,
+  "pass@32": 0.0,
+  "recall@64": 0.0,
+  "pass@64": 0.0,
+  "examples": 385,
+  "attempts": 24640,
+  "invalid_rate": 0.0,
+  "duplicate_rate": 0.0,
+  "catalog_coverage": 0.0009425419474389113,
+  "unique_recommended_sids": 9704,
+  "generated_tokens": 0,
+  "generation_seconds": 0,
+  "tokens_per_example": 0.0,
+  "seconds_per_example": 0.0,
+  "parser_counts": {
+    "valid": 24640
+  },
+  "mean_reasoning_tokens": 0.0,
+  "p95_reasoning_tokens": 0,
+  "experiment": "sasrec_42_validation",
+  "protocol": "full product-catalog ranked retrieval; next-target supervision",
+  "raw_predictions": "/data1/dzh/minionereason/predictions/main/sasrec_42_validation.jsonl"
+}

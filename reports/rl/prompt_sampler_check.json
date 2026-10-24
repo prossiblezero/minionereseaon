@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "answers_per_prompt": 8,
+      "matched_optimizer_steps": 500,
+      "source": "installed TRL 0.24 RepeatSampler"
+    },
+    {
+      "answers_per_prompt": 32,
+      "matched_optimizer_steps": 500,
+      "source": "installed TRL 0.24 RepeatSampler"
+    }
+  ],
+  "schedule_sha256": "0acad224627dfb3271727c14fb58592437b79bbbaa61e2f2168ae15146538fba"
+}

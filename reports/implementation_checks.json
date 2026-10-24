@@ -1,0 +1,20 @@
+{
+  "checked_at": "2026-10-21T09:49:01.166762+00:00",
+  "unit_tests": "reports/unit_tests_20261021.txt",
+  "unit_tests_passed": 9,
+  "native_gpu_preflight": "reports/rl/native_engine_preflight.json",
+  "standard_grpo32_smoke": "/data1/dzh/minionereason/checkpoints/smoke/rl_std32_42/complete.json",
+  "files": {
+    "run.py": "1d6550eaab1e658ccc279d13f6f1220aeca61807ac3b0159ec138a0da671a19b",
+    "train.py": "4617e6cd38a9b95e1031741b3d1b46515f190b550daa33efba7c4b5a8a060ac0",
+    "evaluate.py": "36f87ce902396a3c4b8527ddd19e901c2b952c60b47c917b6b91e934a1d0e387",
+    "model.py": "bdcf194598e3483f6738225f1541728123b729362ee0a7075ca7fe4e82bfc3e6",
+    "baselines.py": "e50e6cf6a5e9be051194df7ef44d2e9ef198d6f6b2d55f0798e83afd947b8fbc",
+    "config.json": "fa93a76fa8725c2671455e8eae95be0fb966ed15590b36c0676897b2c3f9a5a5",
+    "ops/final_report.py": "94c31418cca1b7fdb4ee24446b77a88cac49136ede2a0f579b58419a28a2088c",
+    "ops/gpu_preflight.py": "741439e7d20eee485f0c2750bbb301bb2a067978f898ee9393dfbec75ed71d22",
+    "tests/test_pipeline.py": "2832a21c2a1879fab3ceda0eb0648330ced00644958cd70c004b61e72e40d440"
+  },
+  "scope": "Implementation and GPU preflight only; formal completion is controlled by reports/final_audit.json",
+  "prompt_sampler_check": "reports/rl/prompt_sampler_check.json"
+}

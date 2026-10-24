@@ -1,0 +1,41 @@
+--- upstream/scripts/ray-vllm/utils/generator.py
++++ local/scripts/ray-vllm/utils/generator.py
+@@ -89,7 +89,8 @@
+         self.gpu_ids = gpu_ids
+ 
+         # Set environment variable so current process only sees specified GPUs
+-        os.environ["CUDA_VISIBLE_DEVICES"] = ",".join(map(str, gpu_ids))
++        # Preserve the physical device assigned by Ray (logical 0 is physical GPU 1 here).
++        os.environ.setdefault("CUDA_VISIBLE_DEVICES", ",".join(map(str, gpu_ids)))
+         
+         opt_status = "optimized" if enable_optimizations else "standard"
+         gpu_str = ",".join(map(str, gpu_ids))
+@@ -533,6 +534,9 @@
+             print(f"  [Worker {self.worker_id}] Warning: Failed to count parameters: {e}")
+             return None
+     
++    from benchmark.minionereason_runtime import resumable_batch
++
++    @resumable_batch
+     def generate_batch(
+         self,
+         prompts: Dict[str, str],
+--- upstream/benchmark/base_generator.py
++++ local/benchmark/base_generator.py
+@@ -753,13 +753,15 @@
+         cluster_env_vars = {
+             "ONEREC_VLLM_SID_INTERNAL_BEAM": sid_internal_beam,
+         }
++        if os.environ.get("MINIONEREASON_OFFICIAL_CACHE"):
++            runtime_env_vars["MINIONEREASON_OFFICIAL_CACHE"] = os.environ["MINIONEREASON_OFFICIAL_CACHE"]
+         runtime_env = {"env_vars": runtime_env_vars}
+         cluster_runtime_env = {"env_vars": cluster_env_vars}
+ 
+         # Determine connection mode
+         if self.ray_address == "local":
+             # Local mode (single machine)
+-            ray.init(ignore_reinit_error=True, runtime_env=runtime_env)
++            ray.init(address="local", ignore_reinit_error=True, runtime_env=runtime_env, num_cpus=4, object_store_memory=256*1024**2, include_dashboard=False, _temp_dir=os.environ.get("RAY_TMPDIR"))
+             console.print(
+                 "  ✓ Ray initialized in local mode",
+                 style=success_style,

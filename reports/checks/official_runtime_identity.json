@@ -1,0 +1,12 @@
+{
+  "runtime_id": "dsj5090:GPU-8fe322d3-57a9-74db-4385-e2212e31e363",
+  "host": "dsj5090",
+  "gpu_index": 0,
+  "gpu_uuid": "GPU-8fe322d3-57a9-74db-4385-e2212e31e363",
+  "memory_fraction": 0.65,
+  "data_root": "/data3/dzh/minionereason",
+  "compatible_root": "/data1/dzh/minionereason",
+  "recorded_at": "2026-10-24T04:09:05.930696+00:00",
+  "reason": "Reuse the frozen GPU 0 with unchanged 0.65 reservation; GPU 1 was already unavailable at K0",
+  "selection_stage": "K0, reused for M3"
+}

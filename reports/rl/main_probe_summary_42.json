@@ -1,0 +1,107 @@
+[
+  {
+    "variant": "std",
+    "groups": 256,
+    "active_group_fraction": 0.03125,
+    "mean_reward": 0.0068359375,
+    "exact_hit_rate": 0.0068359375,
+    "prefix_only_hit_rate": 0.02783203125,
+    "invalid_rate": 0.4384765625,
+    "first_code_entropy": 6.155009180241599,
+    "first_code_coverage": 0.07568359375,
+    "popular_first_code_share": 0.29304347826086957,
+    "generated_tokens": 1539936,
+    "generation_seconds": 388.85407501412556,
+    "audit": {
+      "target_catalog_coverage": 1.0,
+      "parser_unit_tests": "tests/test_pipeline.py",
+      "truncated_outputs": 11,
+      "forced_prefix_closures": 0
+    },
+    "eligible_for_training": true
+  },
+  {
+    "variant": "std32",
+    "groups": 256,
+    "active_group_fraction": 0.0546875,
+    "mean_reward": 0.0054931640625,
+    "exact_hit_rate": 0.0054931640625,
+    "prefix_only_hit_rate": 0.03076171875,
+    "invalid_rate": 0.442138671875,
+    "first_code_entropy": 6.586167054327487,
+    "first_code_coverage": 0.1533203125,
+    "popular_first_code_share": 0.29080962800875276,
+    "generated_tokens": 6154551,
+    "generation_seconds": 1512.0492652957328,
+    "audit": {
+      "target_catalog_coverage": 1.0,
+      "parser_unit_tests": "tests/test_pipeline.py",
+      "truncated_outputs": 37,
+      "forced_prefix_closures": 0
+    },
+    "eligible_for_training": true
+  },
+  {
+    "variant": "nk",
+    "groups": 256,
+    "active_group_fraction": 0.0546875,
+    "mean_reward": 0.00830078125,
+    "exact_hit_rate": 0.00830078125,
+    "prefix_only_hit_rate": 0.028564453125,
+    "invalid_rate": 0.47314453125,
+    "first_code_entropy": 6.370381571253854,
+    "first_code_coverage": 0.121337890625,
+    "popular_first_code_share": 0.3049119555143652,
+    "generated_tokens": 803565,
+    "generation_seconds": 212.82156482315622,
+    "audit": {
+      "target_catalog_coverage": 1.0,
+      "parser_unit_tests": "tests/test_pipeline.py",
+      "truncated_outputs": 0,
+      "forced_prefix_closures": 9
+    },
+    "eligible_for_training": true
+  },
+  {
+    "variant": "nk_prefix",
+    "groups": 256,
+    "active_group_fraction": 0.2265625,
+    "mean_reward": 0.015954589843750002,
+    "exact_hit_rate": 0.00830078125,
+    "prefix_only_hit_rate": 0.028564453125,
+    "invalid_rate": 0.47314453125,
+    "first_code_entropy": 6.370381571253854,
+    "first_code_coverage": 0.121337890625,
+    "popular_first_code_share": 0.3049119555143652,
+    "generated_tokens": 803565,
+    "generation_seconds": 212.82156482315622,
+    "audit": {
+      "target_catalog_coverage": 1.0,
+      "parser_unit_tests": "tests/test_pipeline.py",
+      "truncated_outputs": 0,
+      "forced_prefix_closures": 9
+    },
+    "eligible_for_training": true
+  },
+  {
+    "variant": "nk_prefix_div",
+    "groups": 256,
+    "active_group_fraction": 0.22265625,
+    "mean_reward": 0.003377859933035714,
+    "exact_hit_rate": 0.00830078125,
+    "prefix_only_hit_rate": 0.028564453125,
+    "invalid_rate": 0.47314453125,
+    "first_code_entropy": 6.370381571253854,
+    "first_code_coverage": 0.121337890625,
+    "popular_first_code_share": 0.3049119555143652,
+    "generated_tokens": 803565,
+    "generation_seconds": 212.82156482315622,
+    "audit": {
+      "target_catalog_coverage": 1.0,
+      "parser_unit_tests": "tests/test_pipeline.py",
+      "truncated_outputs": 0,
+      "forced_prefix_closures": 9
+    },
+    "eligible_for_training": true
+  }
+]

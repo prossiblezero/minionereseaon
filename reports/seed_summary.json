@@ -1,0 +1,784 @@
+[
+  {
+    "configuration": [
+      "base",
+      "test",
+      false,
+      null,
+      "recent",
+      2048,
+      64,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.02481389578163772,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "base",
+      "validation",
+      false,
+      null,
+      "recent",
+      2048,
+      64,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.02077922077922078,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "direct",
+      "test",
+      false,
+      null,
+      "recent",
+      2048,
+      64,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.02729528535980149,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "direct",
+      "validation",
+      false,
+      null,
+      "recent",
+      2048,
+      64,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.033766233766233764,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "direct_tokenmatched",
+      "test",
+      false,
+      null,
+      "recent",
+      2048,
+      64,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.03225806451612903,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "direct_tokenmatched",
+      "validation",
+      false,
+      null,
+      "recent",
+      2048,
+      64,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.03116883116883117,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "rl_nk_prefix",
+      "test",
+      false,
+      0,
+      "recent",
+      2048,
+      32,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.02977667493796526,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "rl_nk_prefix",
+      "test",
+      true,
+      1024,
+      "recent",
+      2048,
+      32,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.03722084367245657,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "rl_nk_prefix",
+      "test",
+      true,
+      128,
+      "recent",
+      2048,
+      32,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.034739454094292806,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "rl_nk_prefix",
+      "test",
+      true,
+      256,
+      "recent",
+      2048,
+      32,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.034739454094292806,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "rl_nk_prefix",
+      "test",
+      true,
+      512,
+      "recent",
+      2048,
+      32,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.03722084367245657,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "rl_nk_prefix",
+      "validation",
+      false,
+      0,
+      "recent",
+      2048,
+      32,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.03896103896103896,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "rl_nk_prefix",
+      "validation",
+      true,
+      1024,
+      "recent",
+      2048,
+      32,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.04415584415584416,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "rl_nk_prefix",
+      "validation",
+      true,
+      128,
+      "recent",
+      2048,
+      32,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.03896103896103896,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "rl_nk_prefix",
+      "validation",
+      true,
+      256,
+      "recent",
+      2048,
+      32,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.05194805194805195,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "rl_nk_prefix",
+      "validation",
+      true,
+      512,
+      "recent",
+      2048,
+      32,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.04935064935064935,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "mixed",
+      "test",
+      false,
+      0,
+      "recent",
+      2048,
+      32,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.017369727047146403,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "mixed",
+      "test",
+      true,
+      1024,
+      "recent",
+      2048,
+      32,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.02481389578163772,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "mixed",
+      "test",
+      true,
+      128,
+      "recent",
+      2048,
+      32,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.019851116625310174,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "mixed",
+      "test",
+      true,
+      256,
+      "recent",
+      2048,
+      32,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.01488833746898263,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "mixed",
+      "test",
+      true,
+      512,
+      "recent",
+      2048,
+      32,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.02481389578163772,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "mixed",
+      "validation",
+      false,
+      0,
+      "recent",
+      2048,
+      32,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.03896103896103896,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "mixed",
+      "validation",
+      true,
+      1024,
+      "recent",
+      2048,
+      32,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.02077922077922078,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "mixed",
+      "validation",
+      true,
+      128,
+      "recent",
+      2048,
+      32,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.023376623376623377,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "mixed",
+      "validation",
+      true,
+      256,
+      "recent",
+      2048,
+      32,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.025974025974025976,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "mixed",
+      "validation",
+      true,
+      512,
+      "recent",
+      2048,
+      32,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.02077922077922078,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "mixed",
+      "test",
+      false,
+      null,
+      "recent",
+      2048,
+      64,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.019851116625310174,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "mixed",
+      "test",
+      true,
+      null,
+      "recent",
+      2048,
+      64,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.022332506203473945,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "mixed",
+      "validation",
+      false,
+      null,
+      "recent",
+      2048,
+      64,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.03116883116883117,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "mixed",
+      "validation",
+      true,
+      null,
+      "recent",
+      2048,
+      64,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.012987012987012988,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "rl_nk",
+      "test",
+      false,
+      null,
+      "recent",
+      2048,
+      64,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.017369727047146403,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "rl_nk",
+      "test",
+      true,
+      null,
+      "recent",
+      2048,
+      64,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.02729528535980149,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "rl_nk",
+      "validation",
+      false,
+      null,
+      "recent",
+      2048,
+      64,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.03116883116883117,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "rl_nk",
+      "validation",
+      true,
+      null,
+      "recent",
+      2048,
+      64,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.02077922077922078,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "rl_nk_prefix",
+      "test",
+      false,
+      null,
+      "recent",
+      2048,
+      64,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.034739454094292806,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "rl_nk_prefix",
+      "test",
+      true,
+      null,
+      "recent",
+      2048,
+      64,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.04466501240694789,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "rl_nk_prefix",
+      "validation",
+      false,
+      null,
+      "recent",
+      2048,
+      64,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.03636363636363636,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "rl_nk_prefix",
+      "validation",
+      true,
+      null,
+      "recent",
+      2048,
+      64,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.04935064935064935,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "rl_std32",
+      "test",
+      false,
+      null,
+      "recent",
+      2048,
+      64,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.017369727047146403,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "rl_std32",
+      "test",
+      true,
+      null,
+      "recent",
+      2048,
+      64,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.02729528535980149,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "rl_std32",
+      "validation",
+      false,
+      null,
+      "recent",
+      2048,
+      64,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.03116883116883117,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "rl_std32",
+      "validation",
+      true,
+      null,
+      "recent",
+      2048,
+      64,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.025974025974025976,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "rl_std",
+      "test",
+      false,
+      null,
+      "recent",
+      2048,
+      64,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.017369727047146403,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "rl_std",
+      "test",
+      true,
+      null,
+      "recent",
+      2048,
+      64,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.02481389578163772,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "rl_std",
+      "validation",
+      false,
+      null,
+      "recent",
+      2048,
+      64,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.033766233766233764,
+    "sample_std": null
+  },
+  {
+    "configuration": [
+      "rl_std",
+      "validation",
+      true,
+      null,
+      "recent",
+      2048,
+      64,
+      "vllm"
+    ],
+    "seeds": [
+      42
+    ],
+    "mean_recall32": 0.01818181818181818,
+    "sample_std": null
+  }
+]

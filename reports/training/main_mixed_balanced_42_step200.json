@@ -1,0 +1,23 @@
+{
+  "recall@32": 0.015625,
+  "pass@32": 0.015625,
+  "examples": 128,
+  "attempts": 4096,
+  "invalid_rate": 0.3359375,
+  "duplicate_rate": 0.065673828125,
+  "catalog_coverage": 0.00023213883495249363,
+  "unique_recommended_sids": 2390,
+  "generated_tokens": 20480,
+  "generation_seconds": 116.28388124727644,
+  "tokens_per_example": 160.0,
+  "seconds_per_example": 0.9084678222443472,
+  "parser_counts": {
+    "out_of_catalog": 1376,
+    "valid": 2720
+  },
+  "mean_reasoning_tokens": 0.0,
+  "p95_reasoning_tokens": 0,
+  "step": 200,
+  "processed_tokens": 3426795,
+  "supervised_tokens": 1088274
+}

@@ -1,0 +1,17 @@
+{
+  "processed_tokens": 39550,
+  "supervised_tokens": 11409,
+  "base_samples": 128,
+  "training_records": 256,
+  "dropped_history_references": 0,
+  "trainable_parameters": 10092544,
+  "total_parameters": 811526144,
+  "monitor_mode": "non-thinking for all SFT variants",
+  "variant": "mixed",
+  "seed": 42,
+  "seconds": 10.04931221390143,
+  "peak_allocated_bytes": 7645611008,
+  "optimizer_steps": 2,
+  "token_target": null,
+  "selected": "/data1/dzh/minionereason/checkpoints/smoke/mixed_42/selected"
+}

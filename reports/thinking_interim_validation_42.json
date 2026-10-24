@@ -1,0 +1,29 @@
+{
+  "checked_at": "2026-10-20T15:04:07.034806+08:00",
+  "split": "validation",
+  "seed": 42,
+  "attempts": 32,
+  "comparisons": [
+    {
+      "budget": 128,
+      "delta": -0.007792207792207792,
+      "ci95": [
+        -0.027032550261433096,
+        0.013195243642283723
+      ],
+      "clusters": 307,
+      "resamples": 1000
+    },
+    {
+      "budget": 256,
+      "delta": -0.007792207792207792,
+      "ci95": [
+        -0.02470379699598843,
+        0.008023011949205067
+      ],
+      "clusters": 307,
+      "resamples": 1000
+    }
+  ],
+  "note": "Interim validation comparison; later budgets and test are unfinished. This is not final model selection."
+}

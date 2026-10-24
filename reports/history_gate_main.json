@@ -1,0 +1,9 @@
+{
+  "main_budget": 1024,
+  "criterion": "at least 30% of test inputs require trimming",
+  "fractions": {
+    "512": 0.9230769230769231,
+    "1024": 0.3424317617866005,
+    "2048": 0.0
+  }
+}

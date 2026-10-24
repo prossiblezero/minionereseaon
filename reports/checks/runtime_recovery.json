@@ -1,0 +1,82 @@
+{
+  "recorded_at": "2026-10-24T04:09:05.983755+00:00",
+  "cause": "AF_UNIX socket path exceeds 107 bytes before generation",
+  "fix": "Use /tmp/mor_checks_dzh symlink to predictions_checks/ray_official; leave data on data3",
+  "gpu_before": {
+    "recorded_at": "2026-10-24T04:09:05.914277+00:00",
+    "cards": [
+      {
+        "index": 0,
+        "uuid": "GPU-8fe322d3-57a9-74db-4385-e2212e31e363",
+        "name": "NVIDIA GeForce RTX 5090",
+        "free_mib": 25840,
+        "total_mib": 32607
+      },
+      {
+        "index": 1,
+        "uuid": "GPU-316108a9-373b-1984-405a-b9d9f7ee55b3",
+        "name": "NVIDIA GeForce RTX 5090",
+        "free_mib": 14108,
+        "total_mib": 32607
+      }
+    ],
+    "compute_processes": [
+      "GPU-8fe322d3-57a9-74db-4385-e2212e31e363, 221702, /home/lzh/.conda/envs/relic/bin/python3.10, 6244",
+      "GPU-316108a9-373b-1984-405a-b9d9f7ee55b3, 221702, /home/lzh/.conda/envs/relic/bin/python3.10, 17980"
+    ]
+  },
+  "runtime": {
+    "runtime_id": "dsj5090:GPU-8fe322d3-57a9-74db-4385-e2212e31e363",
+    "host": "dsj5090",
+    "gpu_index": 0,
+    "gpu_uuid": "GPU-8fe322d3-57a9-74db-4385-e2212e31e363",
+    "memory_fraction": 0.65,
+    "data_root": "/data3/dzh/minionereason",
+    "compatible_root": "/data1/dzh/minionereason",
+    "recorded_at": "2026-10-24T04:09:05.930696+00:00",
+    "reason": "GPU 1 acquired by another user before the first official sample; GPU 0 has unchanged 0.65 reservation plus 1 GiB margin"
+  },
+  "completed_jobs_preserved": [
+    "M1_offset0",
+    "M2_mixed_offset1",
+    "M2_rl_nk_prefix_offset1",
+    "M2_mixed_offset2",
+    "M2_rl_nk_prefix_offset2",
+    "M2_mixed_offset3",
+    "M2_rl_nk_prefix_offset3",
+    "M2_mixed_offset4",
+    "M2_rl_nk_prefix_offset4",
+    "M2_statistics",
+    "M1_merged"
+  ],
+  "official_samples_before_retry": 0,
+  "unchanged": [
+    "data",
+    "adapters",
+    "generation",
+    "scores",
+    "attempt budgets",
+    "preregistered judgement rules",
+    "original protocols"
+  ],
+  "source_changes": {
+    "ops/checks.py": {
+      "before": "4e26b5d548131e60e73c62e8c4fc720725ae479bef22fa70d2e0088e1f87c820",
+      "after": "17c286c60aa0d04b8175b611f067b1041f4f1dc30aabcdc42d8852a2a33d7872"
+    },
+    "ops/official.py": {
+      "before": "4703f023bf635476b01e18e72421dfd9e7b5490c378057fa7af2f35fd6fad95f",
+      "after": "be3c5c70451e77538806169b36d0b00c66f81fb23e5e1f65d649114d0323f37f"
+    }
+  },
+  "verification": {
+    "checked_at": "2026-10-24T04:09:06.184456+00:00",
+    "passed": true,
+    "protected_files": 155,
+    "existing_prediction_files": 388,
+    "original_source_hashes_verified": 6,
+    "project_report_original_bytes_unchanged": true
+  },
+  "unit_test_log": "test_offset_average_is_per_sample_and_bootstrap_retains_pairing (test_checks.ChecksTests.test_offset_average_is_per_sample_and_bootstrap_retains_pairing) ... ok\ntest_preregistered_stability_boundaries (test_checks.ChecksTests.test_preregistered_stability_boundaries) ... ok\ntest_separate_output_paths_resume_without_touching_legacy (test_checks.ChecksTests.test_separate_output_paths_resume_without_touching_legacy) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.028s\n\nOK\n",
+  "gpu_selection_clarification": "Both local resampling and the official baseline used physical GPU 0 selected at K0. The official retry only shortened the Ray socket path and rechecked GPU availability; it did not switch GPUs."
+}

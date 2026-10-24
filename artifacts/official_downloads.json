@@ -1,0 +1,17 @@
+[
+  {
+    "file": "MANIFEST.json",
+    "bytes": 2657,
+    "sha256": "c596fe79610e838565226fa33f03e6c99b33f1bda9eb69f08052361c8c70af0f"
+  },
+  {
+    "file": "challenge_recommendation_product/challenge_recommendation_product_test.parquet",
+    "bytes": 1433803,
+    "sha256": "cf74aca1013f74f5b3ed660b19b162e8e74ce27a1936d1676f74dea502dfeb3d"
+  },
+  {
+    "file": "sid2pid_product.json",
+    "bytes": 44612751,
+    "sha256": "7fc45f428b023bb2adf141f5dd0224f35ae57afdd5b1806704fd2ea906f90975"
+  }
+]

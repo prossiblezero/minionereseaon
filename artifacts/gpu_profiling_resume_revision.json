@@ -1,0 +1,7 @@
+{
+  "at": "2026-10-23T02:52:12.631862+00:00",
+  "failed_job": "013_thinkcost_test",
+  "reason": "vLLM initialization profiling saw free GPU memory increase from 19.4318 to 20.7748 GiB; shared GPU allocation changed",
+  "action": "Resume the same pipeline with unchanged protocol and previously completed jobs",
+  "scope": "seed_42"
+}

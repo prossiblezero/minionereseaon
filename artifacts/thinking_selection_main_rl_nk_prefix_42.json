@@ -1,0 +1,24 @@
+{
+  "thinking_budget": 256,
+  "thresholds": {
+    "uncertainty_0.25": [
+      0.625,
+      "b24cde77346b2d8d8fb995f5fbc4fbf87376f0e390d1441cefa14671d4cbd397"
+    ],
+    "uncertainty_0.5": [
+      0.5,
+      "53f6a95436596a4a1adda10897c16a884966541eb3e991ea005cf2b1c8462a35"
+    ],
+    "history_length_0.25": [
+      167,
+      "1b54ecbc9aee282c8a9310ab86038a1ae8f99ff9cb7e08c0d461d218faa077ce"
+    ],
+    "history_length_0.5": [
+      121,
+      "fc2f60d680a0a1b41a250b814c2c4043c76c1ded036e5c9741c6287c22229616"
+    ]
+  },
+  "selected_on": "validation",
+  "seed": 42,
+  "variant": "rl_nk_prefix"
+}

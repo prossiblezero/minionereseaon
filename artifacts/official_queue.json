@@ -1,0 +1,14 @@
+{
+  "status": "complete",
+  "pid": 3297594,
+  "wait_pid": 3462001,
+  "task": "challenge_recommendation_product",
+  "seed": 42,
+  "examples": 1000,
+  "gpu_index": 1,
+  "started_at": "2026-10-23T20:42:22.157369+00:00",
+  "reason": "Run official v3.1 product evaluation after the RL cost supplement; preserve all 1000 official rows.",
+  "finished_at": "2026-10-23T23:27:16.479801+00:00",
+  "process_exited": true,
+  "verification_time": "2026-10-23T23:31:45.632281+00:00"
+}

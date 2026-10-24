@@ -1,0 +1,2 @@
+# Protocol checks use byte-level hashes; preserve the experiment snapshot.
+* -text

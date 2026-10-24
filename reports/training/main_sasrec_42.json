@@ -1,0 +1,107 @@
+{
+  "epochs": [
+    {
+      "epoch": 1,
+      "loss": 1.3930618904885792,
+      "recall32": 0.0
+    },
+    {
+      "epoch": 2,
+      "loss": 1.3615790662311373,
+      "recall32": 0.0
+    },
+    {
+      "epoch": 3,
+      "loss": 1.3207897203309196,
+      "recall32": 0.0
+    },
+    {
+      "epoch": 4,
+      "loss": 1.2705182489894686,
+      "recall32": 0.0
+    },
+    {
+      "epoch": 5,
+      "loss": 1.207053956531343,
+      "recall32": 0.0
+    },
+    {
+      "epoch": 6,
+      "loss": 1.1307699595178877,
+      "recall32": 0.0
+    },
+    {
+      "epoch": 7,
+      "loss": 1.0538385453678312,
+      "recall32": 0.0
+    },
+    {
+      "epoch": 8,
+      "loss": 0.9831739238330296,
+      "recall32": 0.0
+    },
+    {
+      "epoch": 9,
+      "loss": 0.9212565904571897,
+      "recall32": 0.0
+    },
+    {
+      "epoch": 10,
+      "loss": 0.868720429284232,
+      "recall32": 0.0
+    },
+    {
+      "epoch": 11,
+      "loss": 0.8273893779232389,
+      "recall32": 0.0
+    },
+    {
+      "epoch": 12,
+      "loss": 0.7945046510015216,
+      "recall32": 0.0
+    },
+    {
+      "epoch": 13,
+      "loss": 0.7694608313696725,
+      "recall32": 0.0
+    },
+    {
+      "epoch": 14,
+      "loss": 0.7505669664768946,
+      "recall32": 0.0
+    },
+    {
+      "epoch": 15,
+      "loss": 0.7359270609560467,
+      "recall32": 0.0
+    },
+    {
+      "epoch": 16,
+      "loss": 0.72585510072254,
+      "recall32": 0.0
+    },
+    {
+      "epoch": 17,
+      "loss": 0.7167217220578875,
+      "recall32": 0.0
+    },
+    {
+      "epoch": 18,
+      "loss": 0.7099415432839167,
+      "recall32": 0.0
+    },
+    {
+      "epoch": 19,
+      "loss": 0.7055692019916716,
+      "recall32": 0.0
+    },
+    {
+      "epoch": 20,
+      "loss": 0.6998193363348643,
+      "recall32": 0.0
+    }
+  ],
+  "vocabulary": 10384272,
+  "note": "SASRec architecture; next-target supervision; source presentation order, not known global chronology; no text pretraining",
+  "peak_bytes": 10736820736
+}

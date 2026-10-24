@@ -1,0 +1,23 @@
+{
+  "recorded_at": "2026-10-24T04:21:12.567006+00:00",
+  "cards": [
+    {
+      "index": 0,
+      "uuid": "GPU-8fe322d3-57a9-74db-4385-e2212e31e363",
+      "name": "NVIDIA GeForce RTX 5090",
+      "free_mib": 25802,
+      "total_mib": 32607
+    },
+    {
+      "index": 1,
+      "uuid": "GPU-316108a9-373b-1984-405a-b9d9f7ee55b3",
+      "name": "NVIDIA GeForce RTX 5090",
+      "free_mib": 14102,
+      "total_mib": 32607
+    }
+  ],
+  "compute_processes": [
+    "GPU-8fe322d3-57a9-74db-4385-e2212e31e363, 221702, /home/lzh/.conda/envs/relic/bin/python3.10, 6282",
+    "GPU-316108a9-373b-1984-405a-b9d9f7ee55b3, 221702, /home/lzh/.conda/envs/relic/bin/python3.10, 17986"
+  ]
+}

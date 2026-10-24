@@ -1,0 +1,17 @@
+{
+  "processed_tokens": 4696390,
+  "supervised_tokens": 26470,
+  "base_samples": 2647,
+  "training_records": 5294,
+  "dropped_history_references": 0,
+  "trainable_parameters": 10092544,
+  "total_parameters": 811526144,
+  "monitor_mode": "non-thinking for all SFT variants",
+  "variant": "direct",
+  "seed": 42,
+  "seconds": 1408.0157838389277,
+  "peak_allocated_bytes": 6251232256,
+  "optimizer_steps": 331,
+  "token_target": null,
+  "selected": "/data1/dzh/minionereason/checkpoints/main/direct_42/selected"
+}

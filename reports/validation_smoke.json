@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "group_counts": {
+    "train": 127,
+    "validation": 30,
+    "test": 32
+  }
+}

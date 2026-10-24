@@ -1,0 +1,5 @@
+{
+  "cross_split_identical_ordered_sid_histories": 0,
+  "examples": [],
+  "note": "Additional conservative audit; ignores non-SID context, beyond the canonical input grouping check."
+}

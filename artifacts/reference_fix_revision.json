@@ -1,0 +1,23 @@
+{
+  "updated_at": "2026-10-22T11:02:45.268660+00:00",
+  "reason": "Restore exact frozen reference weights after PEFT dtype promotion",
+  "prior_failure": {
+    "job": "041_rl_nk",
+    "exit_code": 1,
+    "log": "/home/dzh/minionereason/reports/jobs/041_rl_nk.log"
+  },
+  "validation": {
+    "passed": true,
+    "compared_tensors": 392,
+    "initial_logits_equal": true,
+    "reference_trainable_parameters": 0,
+    "fix": "Reload exact initial policy weights after reference adapter dtype promotion",
+    "regression_test": "test_reference_preserves_fp32_weights_and_stays_frozen"
+  },
+  "source_sha256": {
+    "train.py": "11e4505cd5ba971d632df479c1af1c4781e1e87e336a3200f0207a7e4d8c3275",
+    "ops/gpu_preflight.py": "9a035ac5b12a1aefb386f3ccbc8e7ca7b44f53296146520abca911ab17322e0d",
+    "tests/test_pipeline.py": "4809066d51e5868dced99ff7216ad28931cdb4d7791098fcf1b99f4643f90602"
+  },
+  "protocol_sha256": "8364fd75e1aa407ebf45c41e99ef05788dba7fd7a8ca5ea8b083b6b5f43e937a"
+}
